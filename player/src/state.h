@@ -1,0 +1,139 @@
+#ifndef STATE_H_INCLUDED
+#define STATE_H_INCLUDED
+
+#include "random.h"
+
+#include <algorithm>
+#include <array>
+#include <bit>
+#include <cassert>
+#include <cstdint>
+#include <iostream>
+#include <limits>
+#include <optional>
+#include <random>
+#include <span>
+#include <string>
+#include <vector>
+
+enum piece_t : uint8_t {
+  WAZIR       = 0,
+  KNIGHT      = 1,
+  FERZ        = 2,
+  DABBABA     = 3,
+  ALFIL       = 4,
+  PIECE_COUNT = 5,
+};
+
+enum color_t : uint8_t {
+  RED         = 0,
+  BLUE        = 1,
+  COLOR_COUNT = 2,
+};
+
+constexpr int piece_counts[PIECE_COUNT] = { 1, 1, 2, 4, 8 };
+
+// Encodes the piece on a field:
+//
+//  0000000 empty
+//  00pppc1 occupied by color c piece p,
+//
+using field_t = uint8_t;
+
+constexpr int ROW_COUNT   = 8;
+constexpr int COL_COUNT   = 8;
+constexpr int FIELD_COUNT = ROW_COUNT * COL_COUNT;
+
+constexpr field_t EMPTY_FIELD = 0;
+
+inline field_t Field(color_t color, piece_t piece) {
+  return (piece << 2) | (color << 1) | 1;
+}
+
+inline bool IsEmpty(field_t f) { return f == 0; }
+inline bool HasColor(field_t f, color_t c) { return (f &  3) == ((c << 1) | 1); };
+inline bool HasPiece(field_t f, piece_t p) { return (f & 29) == ((p << 2) | 1); };
+inline color_t Color(field_t f) { return static_cast<color_t>((f >> 1) & 1); }
+inline piece_t Piece(field_t f) { return static_cast<piece_t>((f >> 2) & 7); }
+
+struct State {
+  field_t fields[FIELD_COUNT];
+  uint8_t captured[2][PIECE_COUNT];
+  int turn;
+
+  field_t &FieldAt(int row, int col) {
+    return fields[(row << 3) | col];
+  }
+
+  const field_t &FieldAt(int row, int col) const {
+    return fields[(row << 3) | col];
+  }
+
+  color_t NextPlayer() const {
+    return static_cast<color_t>(turn & 1);
+  }
+
+  auto operator<=>(const State&) const = default;
+};
+
+inline uint8_t FieldIndex(uint8_t row, uint8_t col) { return (row << 3) | col; }
+inline uint8_t Row(uint8_t i) { return i >> 3; }
+inline uint8_t Col(uint8_t i) { return i & 7; }
+inline bool InBounds(int r, int c) { return 0 <= r && r < 8 && 0 <= c && c < 8; }
+
+// Encodes a move during normal play.
+//
+// If src < 64, it indicates a move from field src to field dst.
+//
+// If src >= 64, then it indicates deploying a captured piece of type (src - 64)
+// at field dst.
+//
+struct Move {
+  uint8_t src;
+  uint8_t dst;
+
+  auto operator<=>(const Move&) const = default;
+};
+
+// Encodes a move that sets up one player's pieces.
+//
+// For the first player (red), the pieces go into fields 0 through 15,
+// and for the second player (blue), the pieces go into fields 48 through 47.
+struct SetupMove {
+  piece_t pieces[16];
+
+  auto operator<=>(const SetupMove&) const = default;
+};
+
+// Determines if the game is over by checking if both players have their vizier.
+// This is not super cheap to call!
+bool IsGameOver(const State &state);
+
+// Executes the move in the given state (the move MUST be valid!)
+void ExecuteMove(State &state, const Move &move);
+
+// Executes the setup move in the given state (the setup move MUST be valid!)
+void ExecuteSetupMove(State &state, const SetupMove &setup_move);
+
+std::vector<Move> GenerateAllMoves(const State &state);
+
+// I/O support
+
+inline int ParseRow(char ch) { return ch >= 'a' && ch <= 'h' ? ch - 'a' : -1; }
+inline int ParseCol(char ch) { return ch >= '1' && ch <= '8' ? ch - '1' : -1; }
+
+inline char FormatRow(int row) { return row >= 0 && row < 8 ? 'a' + row : '?'; }
+inline char FormatCol(int col) { return col >= 0 && col < 8 ? '1' + col : '?'; }
+
+std::optional<std::pair<color_t, piece_t>> ParseColoredPiece(char ch);
+char FormatColoredPiece(color_t color, piece_t piece);
+
+std::optional<Move> ParseMove(color_t color, std::string_view s);
+std::optional<SetupMove> ParseSetupMove(color_t color, std::string_view s);
+
+std::string FormatMove(color_t color, const Move &move);
+std::string FormatSetupMove(color_t color, const SetupMove &setup_move);
+
+void DebugPrint(std::ostream &os, const State &state);
+
+#endif // ndef STATE_H_INCLUDED

@@ -1,0 +1,13 @@
+include vars.make
+
+CXXFLAGS+=-flto -O2 -march=native
+
+OBJ=build/release/
+BIN=output/release/
+
+# Enable profiling (https://gperftools.github.io/gperftools/cpuprofile.html)
+# These lines can be commented out if profiling support is not needed/wanted.
+CXXFLAGS+=-g
+LDLIBS+=-lprofiler
+
+include rules.make

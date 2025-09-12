@@ -1,0 +1,8 @@
+include vars.make
+
+CXXFLAGS+=-Og -g -D_GLIBCXX_DEBUG
+
+OBJ=build/debug/
+BIN=output/debug/
+
+include rules.make
