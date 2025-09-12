@@ -55,12 +55,6 @@ const std::span<const Delta2D> piece_delta[PIECE_COUNT] = {
 
 }  // namespace
 
-bool IsGameOver(const State &state) {
-  return state.turn >= 2 && (
-      std::ranges::find(state.fields, Field(RED,  WAZIR)) == std::ranges::end(state.fields) ||
-      std::ranges::find(state.fields, Field(BLUE, WAZIR)) == std::ranges::end(state.fields));
-}
-
 void ExecuteMove(State &state, const Move &move) {
   if (move.src < FIELD_COUNT) {
     if (!IsEmpty(state.fields[move.dst])) {

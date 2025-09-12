@@ -105,9 +105,9 @@ struct SetupMove {
   auto operator<=>(const SetupMove&) const = default;
 };
 
-// Determines if the game is over by checking if both players have their vizier.
-// This is not super cheap to call!
-bool IsGameOver(const State &state);
+inline bool IsGameOver(const State &state) {
+  return state.captured[RED][WAZIR] || state.captured[BLUE][WAZIR];
+}
 
 // Executes the move in the given state (the move MUST be valid!)
 void ExecuteMove(State &state, const Move &move);
