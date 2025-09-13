@@ -31,6 +31,8 @@ enum color_t : uint8_t {
   COLOR_COUNT = 2,
 };
 
+inline color_t Other(color_t color) { return static_cast<color_t>(color ^ 1); }
+
 constexpr int piece_counts[PIECE_COUNT] = { 1, 1, 2, 4, 8 };
 
 // Encodes the piece on a field:
@@ -73,6 +75,16 @@ struct State {
     return static_cast<color_t>(turn & 1);
   }
 
+  bool GameOver() const {
+    return captured[RED][WAZIR] || captured[BLUE][WAZIR];
+  }
+
+  color_t Winner() const {
+    if (captured[RED][WAZIR]) return RED;
+    if (captured[BLUE][WAZIR]) return BLUE;
+    return COLOR_COUNT;
+  }
+
   auto operator<=>(const State&) const = default;
 };
 
@@ -105,12 +117,16 @@ struct SetupMove {
   auto operator<=>(const SetupMove&) const = default;
 };
 
-inline bool IsGameOver(const State &state) {
-  return state.captured[RED][WAZIR] || state.captured[BLUE][WAZIR];
-}
+struct UndoState {
+  uint8_t src;
+  uint8_t dst;
+  piece_t old_piece;
+};
 
 // Executes the move in the given state (the move MUST be valid!)
-void ExecuteMove(State &state, const Move &move);
+UndoState ExecuteMove(State &state, const Move &move);
+
+void UndoMove(State &state, const UndoState &undo);
 
 // Executes the setup move in the given state (the setup move MUST be valid!)
 void ExecuteSetupMove(State &state, const SetupMove &setup_move);

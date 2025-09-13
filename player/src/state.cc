@@ -14,12 +14,12 @@ const std::string_view piece_chars[2] = {
 struct Delta2D { int8_t dr, dc; };
 
 const Delta2D piece_delta_data[24] = {
-  // Wazir
+  // Wazir (0.1)
   { -1,  0 },  //  0
   {  0, -1 },  //  1
   {  0, +1 },  //  2
   { +1,  0 },  //  3
-  // Knight
+  // Knight (1.2)
   { -2, -1 },  //  4
   { -2, +1 },  //  5
   { -1, -2 },  //  6
@@ -28,17 +28,17 @@ const Delta2D piece_delta_data[24] = {
   { +1, +2 },  //  9
   { +2, -1 },  // 10
   { +2, +1 },  // 11
-  // Ferz
+  // Ferz (1.1)
   { -1, -1 },  // 12
   { -1, +1 },  // 13
   { +1, -1 },  // 14
   { +1, +1 },  // 15
-  // Dabbaba
+  // Dabbaba (0.2)
   { -2,  0 },  // 16
   {  0, -2 },  // 17
   {  0, +2 },  // 18
   { +2,  0 },  // 19
-  // Alfil
+  // Alfil (2.2)
   { -2, -2 },  // 20
   { -2, +2 },  // 21
   { +2, -2 },  // 22
@@ -55,12 +55,12 @@ const std::span<const Delta2D> piece_delta[PIECE_COUNT] = {
 
 }  // namespace
 
-void ExecuteMove(State &state, const Move &move) {
+struct UndoState ExecuteMove(State &state, const Move &move) {
+  piece_t old_piece = PIECE_COUNT;
   if (move.src < FIELD_COUNT) {
     if (!IsEmpty(state.fields[move.dst])) {
-      color_t color = state.NextPlayer();
-      piece_t piece = Piece(state.fields[move.dst]);
-      ++state.captured[color][piece];
+      old_piece = Piece(state.fields[move.dst]);
+      ++state.captured[state.NextPlayer()][old_piece];
     }
     state.fields[move.dst] = state.fields[move.src];
     state.fields[move.src] = EMPTY_FIELD;
@@ -72,6 +72,30 @@ void ExecuteMove(State &state, const Move &move) {
     --state.captured[color][piece];
   }
   ++state.turn;
+  return UndoState{
+    .src = move.src,
+    .dst = move.dst,
+    .old_piece = old_piece,
+  };
+}
+
+void UndoMove(State &state, const UndoState &undo) {
+  --state.turn;
+  if (undo.src < FIELD_COUNT) {
+    // Undo move src->dst
+    state.fields[undo.src] = state.fields[undo.dst];
+    if (undo.old_piece < PIECE_COUNT) {
+      color_t next_player = state.NextPlayer();
+      --state.captured[next_player][undo.old_piece];
+      state.fields[undo.dst] = Field(Other(next_player), undo.old_piece);
+    } else {
+      state.fields[undo.dst] = EMPTY_FIELD;
+    }
+  } else {
+    // Undo drop on dst
+    ++state.captured[state.NextPlayer()][undo.src - FIELD_COUNT];
+    state.fields[undo.dst] = EMPTY_FIELD;
+  }
 }
 
 void ExecuteSetupMove(State &state, const SetupMove &move) {
