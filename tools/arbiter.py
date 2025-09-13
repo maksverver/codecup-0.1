@@ -77,7 +77,7 @@ def RunGame(command1: str, command2: str, transcript: str|None, logfile1: str, l
     procs = [Launch(command1, logfile1), Launch(command2, logfile2)]
     times = [0.0, 0.0]
 
-    state = zpo.GameState()
+    state = zpo.GameState(max_turns=102)
     last_move = None
 
     with (open(transcript, 'wt') if transcript is not None else nullcontext()) as transcript_file:
