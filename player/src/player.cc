@@ -197,9 +197,6 @@ void PlayGame(rng_t &rng) {
     next_line = std::move(line);
   }
   while (!state.GameOver()) {
-    // Maybe TODO: print compact state
-    //DebugPrint(std::cerr, state);
-
     if (state.NextPlayer() == my_color) {
       auto pause_duration = timer.Resume();
       LogPause(pause_duration, timer.Elapsed(false));
