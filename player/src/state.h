@@ -16,15 +16,6 @@
 #include <string>
 #include <vector>
 
-enum piece_t : uint8_t {
-  WAZIR       = 0,
-  KNIGHT      = 1,
-  FERZ        = 2,
-  DABBABA     = 3,
-  ALFIL       = 4,
-  PIECE_COUNT = 5,
-};
-
 enum color_t : uint8_t {
   RED         = 0,
   BLUE        = 1,
@@ -32,6 +23,15 @@ enum color_t : uint8_t {
 };
 
 inline color_t Other(color_t color) { return static_cast<color_t>(color ^ 1); }
+
+enum piece_t : uint8_t {
+  WAZIR       = 0,  // 0.1
+  KNIGHT      = 1,  // 1.2
+  FERZ        = 2,  // 1.1
+  DABBABA     = 3,  // 0.2
+  ALFIL       = 4,  // 2.2
+  PIECE_COUNT = 5,
+};
 
 constexpr int piece_counts[PIECE_COUNT] = { 1, 1, 2, 4, 8 };
 
@@ -112,7 +112,7 @@ struct Move {
 // For the first player (red), the pieces go into fields 0 through 15,
 // and for the second player (blue), the pieces go into fields 48 through 47.
 struct SetupMove {
-  piece_t pieces[16];
+  std::array<piece_t, 16> pieces;
 
   auto operator<=>(const SetupMove&) const = default;
 };

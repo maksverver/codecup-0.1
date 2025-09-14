@@ -181,6 +181,19 @@ std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<M
   return {best_moves, best_value};
 }
 
+SetupMove GenerateSetupMove(const State &state) {
+  // TODO: randomly distribute pieces while avoiding ALFIL/DABBABA/FERZ
+  // blocking each other.
+  std::array<piece_t, 16> pieces = {
+      ALFIL,   ALFIL,   DABBABA, WAZIR,   KNIGHT,  DABBABA, ALFIL,   ALFIL,
+      FERZ,    DABBABA, ALFIL,   ALFIL,   ALFIL,   ALFIL,   DABBABA, FERZ,
+  };
+  if (state.NextPlayer() == BLUE) {
+    std::ranges::reverse(pieces);
+  }
+  return SetupMove{.pieces = pieces};
+}
+
 void PlayGame(rng_t &rng) {
   Timer timer(false);
 
@@ -204,13 +217,7 @@ void PlayGame(rng_t &rng) {
       std::string output;
       if (state.turn < 2) {
         // Place initial pieces.
-        SetupMove setup_move = {
-          .pieces = {
-            WAZIR, KNIGHT, FERZ, FERZ, DABBABA, DABBABA, DABBABA, DABBABA,
-            ALFIL, ALFIL, ALFIL, ALFIL, ALFIL, ALFIL, ALFIL, ALFIL },
-        };
-        // Generate a random permutation. TODO: do something smarter here.
-        std::ranges::shuffle(setup_move.pieces, rng);
+        SetupMove setup_move = GenerateSetupMove(state);
         output = FormatSetupMove(state.NextPlayer(), setup_move);
         ExecuteSetupMove(state, setup_move);
       } else {
