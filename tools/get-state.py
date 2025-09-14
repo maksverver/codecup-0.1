@@ -26,6 +26,8 @@ def Main(input):
         move.Execute(state)
     for line in state.DebugOutput():
         print(line)
+    w = state.Winner()
+    print('Winner:', 'none' if w is None else ['red', 'blue'][w])
 
 
 if __name__ == '__main__':
