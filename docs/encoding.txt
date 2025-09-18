@@ -1,0 +1,110 @@
+Compact state encoding
+======================
+
+The compact state encodes:
+
+  1. pieces on the board
+  2. pieces on hand for each player
+  3. number of turns played (implies the next player)
+
+This state is first encoded as a string of bits, which is then translated
+to text using base64 encoding.
+
+The encoding is designed to optimize for the standard case (with two wazirs,
+two times eight alfils, etc.) but supports any number of any type of pieces both
+in hand and on the board.
+
+
+Pieces on the board
+-------------------
+
+The 8x8 = 64 fields are encoded using the following prefix-free code:
+
+Piece           Bitstring   Len Freq*
+--------------- ----------- --- ---
+None            0             1  32
+Red Alfil       101           3   8
+Red Dabbaba     1001          4   4
+Red Ferz        10001         5   2
+Red Knight      100001        6   1
+Red Wazir       100000        6   1
+Blue Alfil      111           3   8
+Blue Dabbaba    1101          4   4
+Blue Ferz       11001         5   2
+Blue Knight     110001        6   1
+Blue Wazir      110000        6   1
+--------------- ----------- --- ---
+
+(*Frequency at game start, after setup, using standard rules.)
+
+Note that this is equivalent to:
+
+  - 1 bit to indicate whether the field is occupied (0=empty, 1=occupied)
+  - if occupied:
+      - 1 bit to indicate color (0=red, 1=blue)
+      - 1..4 bits to indicate the piece type
+
+A fully occupied board with 32 pieces takes 156 bits to encode.
+
+
+Pieces on hand
+--------------
+
+Next we encode 10 values:
+
+  1. Number of red wazirs
+  2. Number of red knights
+  3. Number of red ferzes
+  4. Number of red dabbabas
+  5. Number of red alfils
+  6. Number of blue wazirs
+  7. Number of blue knights
+  8. Number of blue ferzes
+  9. Number of blue dabbabas
+ 10. Number of blue alfils
+
+Each value is encoded as unary number, a sequence zeroes terminated by a one:
+
+Count   Bitstring
+-----   -------
+    0   1
+    1   01
+    2   001
+    3   0001
+    4   00001
+etc.
+
+This takes at least 10 bits to encode, with 1 additional bit for each piece
+on hand, for a maximum total of 40 bits with the standard set of pieces.
+
+
+Number of turns played
+----------------------
+
+The final bits are used to encode the number of turns played (least significant
+bit first), which determines the next player and time to draw. At least 1 bit
+should be used (i.e. turn 0 is encoded as "0", not the empty string "").
+
+If the exact number of turns played is unknown or intentionally omitted, the
+turn index should be set to a value between 0 and 4 (exclusive) to indicate
+whether the game is in setup or move mode, and which side moves next:
+
+  0   turn 0 (red to set up pieces)
+  1   turn 1 (blue to set up pieces)
+  2   even turn (red to move)
+  3   odd turn (blue to move)
+
+
+Base64 encoding
+---------------
+
+To encode the bits as text, the bitstring is padded with 0s to a length that is
+a multiple of 6, then split into groups of 6 bits. Each group is interpreted as
+an integer between 0 and 64 (exclusive) in little-endian format, and encoded in
+URL-safe base-64 (digits "A…Za…z0…9-_").
+
+
+TODO: a few examples?
+
+
+EOF
