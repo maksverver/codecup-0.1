@@ -30,7 +30,7 @@ DECLARE_OPTION(std::string, arg_seed, "", "seed",
     "Random seed in hexadecimal format. If empty, pick randomly. "
     "The chosen seed will be logged to stderr for reproducibility.");
 
-DECLARE_OPTION(int, arg_depth, 2, "depth", "Maximum search depth.");
+DECLARE_OPTION(int, arg_depth, 4, "depth", "Maximum search depth.");
 
 DECLARE_OPTION(int, arg_random_setup, 1, "random-setup",
     "How to randomize starting pieces: 0=fixed layout "
