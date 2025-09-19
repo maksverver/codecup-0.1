@@ -1,0 +1,58 @@
+Each player has 16 total pieces of 5 types:
+
+  1. Wazir    0.1   1x
+  2. Knight   1.2   1x
+  3. Ferz     1.1   2x
+  4. Dabbaba  0.2   4x
+  5. Alfil    2.2   8x
+
+Only the Wazir and Knight can reach every square on the board.
+
+The other piece types have the property that they are locked to disjoint subsets
+of the boards (like bishops in chess, which can cover either the black or the
+white squares, depending on where they start), but the number of copies of each
+piece matches the number of subsets, so by placing one piece on each subset we
+can effectively reach the entire board with each piece type (and practically, it
+seems beneficial to do so). It also has the benefit that those pieces of the
+same type cannot block each other, though the downside is that such pieces
+cannot protect each other either.
+
+So for the starting configuration, I want to create a setup where the pieces of
+each type are distributed over different subsets.
+
+For Alfil (2.2):
+
+    1 2 3 4 1 2 3 4
+    5 6 7 8 5 6 7 8
+
+(This means one Alfil must be placed on one of the two fields labeled 1,
+one on a field labeled 2, one on a field labeled 3, etc.)
+
+A total of 2**8 = 256 arrangements.
+
+For Dabbaba (0.2):
+
+    1 2 1 2 1 2 1 2
+    3 4 3 4 3 4 3 4
+
+A total of 4**4 = 256 arrangements.
+
+For Ferz (1.1):
+
+    1 2 1 2 1 2 1 2
+    2 1 2 1 2 1 2 1
+
+A total of 8**2 = 64 arrangements.
+
+However, some of these arrangements overlap.
+
+In particular, placing the Alfils removes exactly 2 out of the 4 dabbaba
+placements for each of the 4 sets. And placing Alfils and Dabbabas removes
+exactly 6 out of 8 Ferz placements for each of 2 sets.
+
+That means we effectively have 2**8 = 256 choices for placing Alfils, then
+2**4 = 16 choices for placing Dabbabas, then 2**2 choices for placing Ferzes,
+then finaly we have 2 choices for placing the Knight and Wazir, for a total
+of 2**(8 + 4 + 2 + 1) = 2**15 = 32768 possible arrangements.
+
+See tools/enum-setup.py for code to generate the possible arrangements.
