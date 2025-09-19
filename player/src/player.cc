@@ -110,21 +110,8 @@ constexpr int val_win = 900000000;
 //
 // Precondition: state.GameOver() == false
 int Evaluate(const State &state) {
-  // Note: technically we can skip the wazir, since if the game is not over yet,
-  // then both sides have 1 wazir, so they cancel out.
-  static constexpr int piece_values[PIECE_COUNT] = {
-    100,  // 1x Wazir    (0.1)
-      3,  // 1x Knight   (1.2)
-      2,  // 2x Ferz     (1.1)
-      2,  // 4x Dabbaba  (0.2)
-      1,  // 8x Alfil    (2.2)
-  };
-
-  int value = 0;
-  for (int piece = 0; piece < PIECE_COUNT; ++piece) {
-    value += (state.captured[RED][piece] - state.captured[BLUE][piece]) * piece_values[piece];
-  }
-  return state.NextPlayer() == RED ? value : -value;
+  int value = state.scores[0] - state.scores[1];
+  return state.NextPlayer() == 0 ? value : -value;
 }
 
 // Minimax search with alpha-beta pruning

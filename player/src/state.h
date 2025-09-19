@@ -62,6 +62,7 @@ struct State {
   field_t fields[FIELD_COUNT];
   uint8_t captured[2][PIECE_COUNT];
   int turn;
+  int scores[2];
 
   field_t &FieldAt(int row, int col) {
     return fields[(row << 3) | col];

@@ -53,6 +53,16 @@ const std::span<const Delta2D> piece_delta[PIECE_COUNT] = {
   {&piece_delta_data[20], &piece_delta_data[24]},  // Alfil
 };
 
+// Note: technically we can skip the wazir, since if the game is not over yet,
+// then both sides have 1 wazir, so they cancel out.
+static constexpr int piece_values[PIECE_COUNT] = {
+  100,  // 1x Wazir    (0.1)
+    3,  // 1x Knight   (1.2)
+    2,  // 2x Ferz     (1.1)
+    2,  // 4x Dabbaba  (0.2)
+    1,  // 8x Alfil    (2.2)
+};
+
 }  // namespace
 
 struct UndoState ExecuteMove(State &state, const Move &move) {
@@ -60,7 +70,9 @@ struct UndoState ExecuteMove(State &state, const Move &move) {
   if (move.src < FIELD_COUNT) {
     if (!IsEmpty(state.fields[move.dst])) {
       old_piece = Piece(state.fields[move.dst]);
-      ++state.captured[state.NextPlayer()][old_piece];
+      color_t next_player = state.NextPlayer();
+      ++state.captured[next_player][old_piece];
+      state.scores[next_player] += piece_values[old_piece];
     }
     state.fields[move.dst] = state.fields[move.src];
     state.fields[move.src] = EMPTY_FIELD;
@@ -86,6 +98,7 @@ void UndoMove(State &state, const UndoState &undo) {
     state.fields[undo.src] = state.fields[undo.dst];
     if (undo.old_piece < PIECE_COUNT) {
       color_t next_player = state.NextPlayer();
+      state.scores[next_player] -= piece_values[undo.old_piece];
       --state.captured[next_player][undo.old_piece];
       state.fields[undo.dst] = Field(Other(next_player), undo.old_piece);
     } else {
