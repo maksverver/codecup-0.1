@@ -112,11 +112,9 @@ void UndoMove(State &state, const UndoState &undo) {
 }
 
 void ExecuteSetupMove(State &state, const SetupMove &move) {
-  constexpr int m = std::size(move.pieces);
-  static_assert(m == 16);
   color_t next_player = state.NextPlayer();
-  field_t *fp = &state.fields[next_player == RED ? 0 : FIELD_COUNT - m];
-  for (size_t i = 0; i < m; ++i) {
+  field_t *fp = &state.fields[next_player == RED ? 0 : FIELD_COUNT - move.pieces.size()];
+  for (size_t i = 0; i < move.pieces.size(); ++i) {
     fp[i] = Field(next_player, move.pieces[i]);
   }
   ++state.turn;
@@ -204,11 +202,9 @@ std::optional<Move> ParseMove(color_t color, std::string_view s) {
 
 std::optional<SetupMove> ParseSetupMove(color_t color, std::string_view s) {
   SetupMove move;
-  constexpr int n = std::size(move.pieces);
-  static_assert(n == 16);
-  if (s.size() != n) return {};
+  if (s.size() != move.pieces.size()) return {};
   int counts[PIECE_COUNT] = {};
-  for (size_t i = 0; i < n; ++i) {
+  for (size_t i = 0; i < move.pieces.size(); ++i) {
     auto p = piece_chars[color].find(s[i]);
     if (p == std::string_view::npos) return {};
     move.pieces[i] = static_cast<piece_t>(p);
@@ -237,9 +233,8 @@ std::string FormatMove(color_t color, const Move &move) {
 }
 
 std::string FormatSetupMove(color_t color, const SetupMove &setup_move) {
-  constexpr int n = std::size(setup_move.pieces);
-  std::string s(n, '\0');
-  for (size_t i = 0; i < n; ++i) {
+  std::string s(setup_move.pieces.size(), '\0');
+  for (size_t i = 0; i < setup_move.pieces.size(); ++i) {
     s[i] = FormatColoredPiece(color, setup_move.pieces[i]);
   }
   return s;
