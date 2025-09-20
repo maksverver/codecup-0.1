@@ -1,0 +1,22 @@
+R Olive (64 bit) (compiler v13.3.0) (commit a36db47)
+SEED 0e6fedfe5bbf668267be378af1c6facf
+IO RCVD [Start]
+PAUSE 2 2
+IO SEND [NADFADADAAAADAWF]
+TIME 0 0
+IO RCVD [wnffddddaaaaaaaa]
+PAUSE 22 24
+MOVES 19 19 0
+IO SEND [a7c5]
+TIME 2 2
+IO RCVD [g2f4]
+PAUSE 21 46
+MOVES 23 1 1
+IO SEND [c5e3]
+TIME 3 5
+IO RCVD [h5f7]
+PAUSE 21 68
+MOVES 24 1 900000003
+IO SEND [e3g1]
+TIME 11 16
+# Total time used: 0.019 seconds
