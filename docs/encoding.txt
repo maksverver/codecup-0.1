@@ -12,7 +12,8 @@ to text using base64 encoding.
 
 The encoding is designed to optimize for the standard case (with two wazirs,
 two times eight alfils, etc.) but supports any number of any type of pieces both
-in hand and on the board.
+in hand and on the board. Standard states have length of up to 29 characters.
+After 256 turns, a 30th character is needed.
 
 
 Pieces on the board
