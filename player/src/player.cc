@@ -235,7 +235,7 @@ SetupMove GenerateSetupMove(const State &state, rng_t &rng) {
 void PlayGame(rng_t &rng) {
   Timer timer(false);
 
-  State state = {};
+  State state = State::Initial();
 
   // First line of input contains either "Start" if I play first, or else the
   // first move played by the opponent.

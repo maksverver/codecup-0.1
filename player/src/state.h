@@ -87,6 +87,8 @@ struct State {
   }
 
   auto operator<=>(const State&) const = default;
+
+  inline static State Initial() { return State{}; }
 };
 
 inline uint8_t FieldIndex(uint8_t row, uint8_t col) { return (row << 3) | col; }
