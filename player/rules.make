@@ -36,7 +36,7 @@ COMBINED_SRCS=\
 
 all: $(BINARIES)
 
-$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)random.h $(SRC)state.h
+$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)options.h $(SRC)random.h $(SRC)state.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)options.o: $(SRC)options.cc $(SRC)options.h
