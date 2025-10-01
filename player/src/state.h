@@ -134,6 +134,14 @@ void UndoMove(State &state, const UndoState &undo);
 // Executes the setup move in the given state (the setup move MUST be valid!)
 void ExecuteSetupMove(State &state, const SetupMove &setup_move);
 
+// Maximum number of moves in any position (see ../docs/max-moves.txt for details.)
+constexpr size_t MAX_MOVES = 256;
+
+// Generates moves into the given `moves` buffer, and returns the number of moves.
+size_t GenerateAllMoves(const State &state, Move (&moves)[MAX_MOVES]);
+
+// Same as GenerateAllMoves() above, but copies the result into a vector.
+// Easier to use in places where maximal performance doesn't matter.
 std::vector<Move> GenerateAllMoves(const State &state);
 
 // I/O support

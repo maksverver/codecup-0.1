@@ -1,0 +1,106 @@
+Maximum number of moves in a valid game state
+---------------------------------------------
+
+tl;dr: the maximum number of moves is 256
+
+To calculate an initial upper bound on the maximum number of moves, consider
+that I can control at most 1 wazir, 2 knights, 4 ferzes, 8 dabbabbas, 16 alfils,
+which all can move in up to 4 directions, except for the knight which can do 8,
+for an upper bound of (1 + 4 + 8 + 16)*4 + 2*8 = 132 moves.
+
+In addition to that, I may have pieces of each of the 4 types in hand, and up to
+62 empty fields to drop them on, for a maximum number of 4*62 == 248 drop moves.
+
+This gives an initial upper bound of 132 + 248 = 380 moves, though clearly the
+real maximum must be less, because some of these cases overlap (I cannot have
+all pieces on the board _and_ some in hand, for example).
+
+But we can do better! First, observe that it is indeed optimal for me to control
+all the pieces (except the opponent's wazir, which I cannot capture without
+ending the game), since moving an opponent's piece to my hand (whether from his
+hand or from the board) cannot invalidate any move I had previously, but it can
+create additional drop moves.
+
+Secondly, note that since the number of pieces on the board is at most 32, each
+piece type can be dropped in at least 64 - 32 = 32 empty spaces. That means it's
+optimal to have at least one piece of each type on hand, since a piece on board
+can give me at most 8 moves (the knight).
+
+Now we can assume that I have a piece of each type on hand. But that means
+moving a piece other than a knight from the board to my hand will not reduce the
+total number of moves, because I lose at most 4 moves on the board, but gain
+exactly 4 drop moves: 1 for each piece type, onto the vacated square.
+
+Following this logic, I should move all pieces to my hand, except for my second
+knight. Then, it's easy to create a situation where my Wazir and Knight each
+have the maximal number of moves:
+
+    . o . . . . . .
+    o W o . . . . .
+    . o . . o . o .
+    . . . o . . . o
+    . . . . . N . .
+    . . . o . . . o
+    . w . . o . o .
+    . . . . . . . .
+
+(AIAAAAAhAgBAAKEgAAwP)
+
+There are 4 Wazir moves, 8 Knight moves, and 4 * 61 drop moves, for a total of
+4 + 8 + 4*61 = 256 moves.
+
+Transcript that leads to such a state (52 moves):
+
+FNDDAAAAFWDDAAAA
+fwddaaaafnddaaaa
+a2c3
+h2f3
+c3e2
+f3d2
+e2g1
+d2b1
+g1h3
+b1a3
+h3g5
+a3b5
+g5h7
+b5a7
+h7f6
+a7c6
+f6g8
+c6b8
+g8h6
+b8a6
+h6g4
+a6b4
+g4e5
+b4d5
+e5g6
+d5b6
+g6h4
+b6a4
+h4g6
+a4b6
+g6h8
+b6a8
+h8g6
+a8b6
+g6f8
+b6c8
+f8e6
+c8d6
+e6g7
+d6b7
+g7h5
+b7a5
+h5g3
+a5b3
+g3h1
+b3a1
+h1f2
+a1c2
+f2d1
+c2e3
+d1e3
+g2g3
+(end)

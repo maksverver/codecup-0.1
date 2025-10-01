@@ -120,9 +120,9 @@ void ExecuteSetupMove(State &state, const SetupMove &move) {
   ++state.turn;
 }
 
-std::vector<Move> GenerateAllMoves(const State &state) {
+size_t GenerateAllMoves(const State &state, Move (&moves)[MAX_MOVES]) {
   color_t next_player = state.NextPlayer();
-  std::vector<Move> moves;
+  size_t nmove = 0;
 
   // Move any piece:
   for (int r1 = 0; r1 < 8; ++r1) {
@@ -134,7 +134,10 @@ std::vector<Move> GenerateAllMoves(const State &state) {
           int r2 = r1 + dr;
           int c2 = c1 + dc;
           if (InBounds(r2, c2) && !HasColor(state.FieldAt(r2, c2), next_player)) {
-            moves.push_back(Move{.src=FieldIndex(r1, c1), .dst=FieldIndex(r2, c2)});
+            moves[nmove++] = Move{
+              .src=FieldIndex(r1, c1),
+              .dst=FieldIndex(r2, c2),
+            };
           }
         }
       }
@@ -149,12 +152,20 @@ std::vector<Move> GenerateAllMoves(const State &state) {
           Move move = {};
           move.src = FIELD_COUNT + p;
           move.dst = dst;
-          moves.push_back(move);
+          moves[nmove++] = move;
         }
       }
     }
   }
-  return moves;
+
+  assert(nmove <= MAX_MOVES);
+  return nmove;
+}
+
+std::vector<Move> GenerateAllMoves(const State &state) {
+  Move moves[MAX_MOVES];
+  size_t nmove = GenerateAllMoves(state, moves);
+  return std::vector<Move>(moves, moves + nmove);
 }
 
 std::optional<std::pair<color_t, piece_t>> ParseColoredPiece(char ch) {

@@ -35,9 +35,11 @@ int Search(State &state, int depth_left, int alpha, int beta) {
     return Evaluate(state);
   }
 
+  Move moves[MAX_MOVES];
+  size_t nmove = GenerateAllMoves(state, moves);
   int best_value = -val_inf;
-  for (const Move &move : GenerateAllMoves(state)) {
-    UndoState undo = ExecuteMove(state, move);
+  for (size_t i = 0; i < nmove; ++i) {
+    UndoState undo = ExecuteMove(state, moves[i]);
     int value = -Search(state, depth_left - 1, -beta, -alpha);
     UndoMove(state, undo);
     if (value > best_value) {
