@@ -79,6 +79,29 @@ class GameState:
             lines.append(f'{ROW_COORDS[r]} {line}')
         return lines
 
+    def Encode(self, reduce_turn=False) -> str:
+        '''Encodes the game state using the simple state encoding (docs/encoding.txt)
+
+            If reduce_turn is True, then the number of turns is limited to 0, 1,
+            2 or 3, depending on who is left to move. This is helpful to detect
+            repeated positions.'''
+        res = ''
+        for row in self.fields:
+            for f in row:
+                res += '_' if f is None else PIECE_IDS[f.color][f.piece]
+            res += '-'
+        for color, pieces in enumerate(self.captured):
+            for piece, n in enumerate(pieces):
+                res += PIECE_IDS[color][piece] * n
+            res += '-'
+        res += 'Rb'[self.turn % 2]
+        res += '-'
+        turn = self.turn
+        if reduce_turn and turn >= 4:
+            turn = 2 + turn % 2
+        res += str(turn)
+        return res
+
 
 class Move(ABC):
     @abstractmethod

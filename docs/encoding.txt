@@ -1,3 +1,42 @@
+Simple state encoding
+=====================
+
+row1-row2-row3-row4-row5-row6-row7-row8-hand1-hand2-player-turns
+
+Example:
+
+W_AADADd-F__F___D-__F_AD__-__N_NFd_-___d____-________-____wad_-_______A--aaaaaaaaaa-R-102
+
+Or wrapped at hyphens:
+
+W_AADADd-
+F__F___D-
+__F_AD__-
+__N_NFd_-
+___d____-
+________-
+____wad_-
+_______A-
+-
+aaaaaaaaaa-
+R-102
+
+`row1` through `row8` describe the pieces of the board: '_' for an empty field,
+or a piece letter. `hand1` and `hand2` describe the captured pieces on hand.
+`player` is the next player, either `R` (for player 1, Red) or `b` (for player 2,
+blue). Finally, `turncount` may describe the total number of turns played, if
+known; it may also be omitted.
+
+The hyphens between parts are optional and may be omitted.
+
+The final string should match the following regexp:
+
+^([ADFNWadfnw_]{8}-?){8}[ADFNW]*-?[adfnw]*-?[Rb]-?(0|[1-9][0-9]*)$
+
+Note that while hyphens are optional, if included, they must be inserted at the
+specific locations where it makes logical sense.
+
+
 Compact state encoding
 ======================
 
