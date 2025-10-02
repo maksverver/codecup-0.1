@@ -1,11 +1,60 @@
 #include "analysis.h"
 
+#include <cstring>
 #include <vector>
 #include <utility>
 
 #include "options.h"
 
 DECLARE_OPTION(int, arg_depth, 4, "depth", "Maximum search depth.");
+
+DECLARE_OPTION(int, arg_tt_depth, 99, "tt-depth", "Minimum search depth left to use transposition table. (0 disables)");
+
+namespace {
+
+// Equality for the purpose of the transposition table.
+// Must be consistent with StateHash defined below.
+struct StateEqual {
+  bool operator()(const State &s, const State &t) const {
+    return
+      (s.turn & 1) == (t.turn & 1) &&
+      memcmp(s.fields,   t.fields,   sizeof(s.fields))   == 0 &&
+      memcmp(s.captured, t.captured, sizeof(s.captured)) == 0;
+  }
+};
+
+// Hash for the purpose of the transposition table.
+// Must be consistent with StateEqual defined above.
+struct StateHash {
+  size_t operator()(const State& state) const {
+    // 64-bit FNV-1a; can be made a lot faster with e.g. xxHash, or
+    // Zobrist hashing.
+    uint64_t hash = 0xcbf29ce484222325;
+    auto add = [&hash](uint64_t val) {
+      hash ^= val;
+      hash *= 0x00000100000001b3;
+    };
+    for (auto f : state.fields) add(f);
+    for (const auto &c : state.captured) for (auto n : c) add(n);
+    add(state.turn & 1);
+    return hash;
+  }
+};
+
+struct TTEntry {
+  int depth_left  = 0;
+  int lower_bound = 0;
+  int upper_bound = 0;
+};
+
+std::unordered_map<State, TTEntry, StateHash, StateEqual> tt;
+
+static long long nodes_evaluated = 0;
+static long long tt_hits = 0;
+static long long tt_used = 0;
+
+
+}  // namespace
 
 // Evaluates an intermediate game state.
 //
@@ -26,28 +75,62 @@ int Evaluate(const State &state) {
 //
 // Precondition: alpha < beta
 int Search(State &state, int depth_left, int alpha, int beta) {
+
   if (state.GameOver()) {
     int value = val_win + depth_left;
     return state.Winner() == state.NextPlayer() ? value : -value;
   }
 
   if (depth_left == 0) {
+    ++nodes_evaluated;
     return Evaluate(state);
   }
 
-  Move moves[MAX_MOVES];
-  size_t nmove = GenerateAllMoves(state, moves);
-  int best_value = -val_inf;
-  for (size_t i = 0; i < nmove; ++i) {
-    UndoState undo = ExecuteMove(state, moves[i]);
-    int value = -Search(state, depth_left - 1, -beta, -alpha);
-    UndoMove(state, undo);
-    if (value > best_value) {
-      if (value >= beta) return value;  // beta cut-off
-      if (value > alpha) alpha = value;
-      best_value = value;
+  // Query transposition table.
+  TTEntry *entry = nullptr;
+  if (depth_left >= arg_tt_depth) {
+    entry = &tt[state];
+    if (entry->depth_left > 0) ++tt_hits;
+    // Note: we do use cached values with *higher* depth_left, which potentially
+    // changes the result compared to not using the TT at all.
+    // (May want to make this optional for deterministic testing.)
+    if (entry->depth_left >= arg_tt_depth) {
+      if (entry->lower_bound == entry->upper_bound ||
+          entry->lower_bound >= beta) {
+        ++tt_used;
+        return entry->lower_bound;
+      } else if (entry->upper_bound <= alpha) {
+        ++tt_used;
+        return entry->upper_bound;
+      }
     }
   }
+
+  // Try all moves.
+  int best_value = -val_inf;
+  {
+    Move moves[MAX_MOVES];
+    size_t nmove = GenerateAllMoves(state, moves);
+    int alpha2 = alpha;
+    for (size_t i = 0; i < nmove; ++i) {
+      UndoState undo = ExecuteMove(state, moves[i]);
+      int value = -Search(state, depth_left - 1, -beta, -alpha2);
+      UndoMove(state, undo);
+      if (value > best_value) {
+        best_value = value;
+        if (value > alpha2) alpha2 = value;
+        if (value >= beta) break;  // beta cut-off
+      }
+    }
+  }
+
+  // Update transposition table.
+  if (entry != nullptr && entry->depth_left <= depth_left) {
+    entry->lower_bound = best_value > alpha ? best_value : -val_inf;
+    entry->upper_bound = best_value < beta  ? best_value : +val_inf;
+    entry->depth_left = depth_left;
+  }
+
   return best_value;
 }
 
@@ -75,5 +158,11 @@ std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<M
       best_moves.push_back(move);
     }
   }
+
+  std::cerr
+    << "nodes_evaluated=" << nodes_evaluated << ' '
+    << "tt_hits=" << tt_hits << ' '
+    << "tt_used=" << tt_used << std::endl;
+
   return {best_moves, best_value};
 }

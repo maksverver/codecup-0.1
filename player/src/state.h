@@ -59,10 +59,10 @@ inline color_t Color(field_t f) { return static_cast<color_t>((f >> 1) & 1); }
 inline piece_t Piece(field_t f) { return static_cast<piece_t>((f >> 2) & 7); }
 
 struct State {
-  field_t fields[FIELD_COUNT];
-  uint8_t captured[2][PIECE_COUNT];
-  int turn;
-  int scores[2];
+  field_t fields[FIELD_COUNT];       // 64 bytes
+  uint8_t captured[2][PIECE_COUNT];  // 10 bytes (can be reduced to 8)
+  int turn;                          //  4 bytes (can be reduced to 1)
+  int scores[2];                     //  8 bytes (can be reduced?)
 
   field_t &FieldAt(int row, int col) {
     return fields[(row << 3) | col];
@@ -86,10 +86,12 @@ struct State {
     return COLOR_COUNT;
   }
 
+  // Can be optimized by omitting `scores`.
   auto operator<=>(const State&) const = default;
 
   inline static State Initial() { return State{}; }
 };
+
 
 inline uint8_t FieldIndex(uint8_t row, uint8_t col) { return (row << 3) | col; }
 inline uint8_t Row(uint8_t i) { return i >> 3; }
