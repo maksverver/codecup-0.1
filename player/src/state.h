@@ -17,20 +17,20 @@
 #include <vector>
 
 enum color_t : uint8_t {
-  RED         = 0,
-  BLUE        = 1,
-  COLOR_COUNT = 2,
+    RED         = 0,
+    BLUE        = 1,
+    COLOR_COUNT = 2,
 };
 
 inline color_t Other(color_t color) { return static_cast<color_t>(color ^ 1); }
 
 enum piece_t : uint8_t {
-  WAZIR       = 0,  // 0.1
-  KNIGHT      = 1,  // 1.2
-  FERZ        = 2,  // 1.1
-  DABBABA     = 3,  // 0.2
-  ALFIL       = 4,  // 2.2
-  PIECE_COUNT = 5,
+    WAZIR       = 0,  // 0.1
+    KNIGHT      = 1,  // 1.2
+    FERZ        = 2,  // 1.1
+    DABBABA     = 3,  // 0.2
+    ALFIL       = 4,  // 2.2
+    PIECE_COUNT = 5,
 };
 
 constexpr int piece_counts[PIECE_COUNT] = { 1, 1, 2, 4, 8 };
@@ -49,7 +49,7 @@ constexpr int FIELD_COUNT = ROW_COUNT * COL_COUNT;
 constexpr field_t EMPTY_FIELD = 0;
 
 inline field_t Field(color_t color, piece_t piece) {
-  return (piece << 2) | (color << 1) | 1;
+    return (piece << 2) | (color << 1) | 1;
 }
 
 inline bool IsEmpty(field_t f) { return f == 0; }
@@ -59,41 +59,41 @@ inline color_t Color(field_t f) { return static_cast<color_t>((f >> 1) & 1); }
 inline piece_t Piece(field_t f) { return static_cast<piece_t>((f >> 2) & 7); }
 
 struct State {
-  field_t fields[FIELD_COUNT];       // 64 bytes
-  uint8_t captured[2][PIECE_COUNT];  // 10 bytes (can be reduced to 8)
-  int turn;                          //  4 bytes (can be reduced to 1)
-  int scores[2];                     //  8 bytes (can be reduced?)
+    field_t fields[FIELD_COUNT];       // 64 bytes
+    uint8_t captured[2][PIECE_COUNT];  // 10 bytes (can be reduced to 8)
+    int turn;                          //  4 bytes (can be reduced to 1)
+    int scores[2];                     //  8 bytes (can be reduced?)
 
-  field_t &FieldAt(int row, int col) {
-    return fields[(row << 3) | col];
-  }
+    field_t &FieldAt(int row, int col) {
+        return fields[(row << 3) | col];
+    }
 
-  const field_t &FieldAt(int row, int col) const {
-    return fields[(row << 3) | col];
-  }
+    const field_t &FieldAt(int row, int col) const {
+        return fields[(row << 3) | col];
+    }
 
-  color_t NextPlayer() const {
-    return static_cast<color_t>(turn & 1);
-  }
+    color_t NextPlayer() const {
+        return static_cast<color_t>(turn & 1);
+    }
 
-  bool GameOver() const {
-    return captured[RED][WAZIR] || captured[BLUE][WAZIR];
-  }
+    bool GameOver() const {
+        return captured[RED][WAZIR] || captured[BLUE][WAZIR];
+    }
 
-  bool HasWon(color_t color) const {
-    return captured[color][WAZIR];
-  }
+    bool HasWon(color_t color) const {
+        return captured[color][WAZIR];
+    }
 
-  color_t Winner() const {
-    if (HasWon(RED))  return RED;
-    if (HasWon(BLUE)) return BLUE;
-    return COLOR_COUNT;
-  }
+    color_t Winner() const {
+        if (HasWon(RED))  return RED;
+        if (HasWon(BLUE)) return BLUE;
+        return COLOR_COUNT;
+    }
 
-  // Can be optimized by omitting `scores`.
-  auto operator<=>(const State&) const = default;
+    // Can be optimized by omitting `scores`.
+    auto operator<=>(const State&) const = default;
 
-  inline static State Initial() { return State{}; }
+    inline static State Initial() { return State{}; }
 };
 
 
@@ -110,14 +110,14 @@ inline bool InBounds(int r, int c) { return 0 <= r && r < 8 && 0 <= c && c < 8; 
 // at field dst.
 //
 struct Move {
-  uint8_t src;
-  uint8_t dst;
+    uint8_t src;
+    uint8_t dst;
 
-  auto operator<=>(const Move&) const = default;
+    auto operator<=>(const Move&) const = default;
 
-  bool IsNull() const { return src == 0 && dst == 0; }
+    bool IsNull() const { return src == 0 && dst == 0; }
 
-  static Move Null() { return {}; }
+    static Move Null() { return {}; }
 };
 
 // Encodes a move that sets up one player's pieces.
@@ -125,15 +125,15 @@ struct Move {
 // For the first player (red), the pieces go into fields 0 through 15,
 // and for the second player (blue), the pieces go into fields 48 through 47.
 struct SetupMove {
-  std::array<piece_t, 16> pieces;
+    std::array<piece_t, 16> pieces;
 
-  auto operator<=>(const SetupMove&) const = default;
+    auto operator<=>(const SetupMove&) const = default;
 };
 
 struct UndoState {
-  uint8_t src;
-  uint8_t dst;
-  piece_t old_piece;
+    uint8_t src;
+    uint8_t dst;
+    piece_t old_piece;
 };
 
 // Executes the move in the given state (the move MUST be valid!)

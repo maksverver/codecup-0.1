@@ -27,14 +27,14 @@ int Search(State &state, int depth_left, int alpha, int beta);
 std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<Move> &all_moves);
 
 struct PnsResult {
-  // +1 if proven win, -1 if proven loss, 0 if the search was aborted.
-  int status = 0;
+    // +1 if proven win, -1 if proven loss, 0 if the search was aborted.
+    int status = 0;
 
-  // Winning move (if status == +1)
-  Move winning_move = Move::Null();
+    // Winning move (if status == +1)
+    Move winning_move = Move::Null();
 
-  // Informative; number of nodes expanded during the search.
-  int nodes_expanded = 0;
+    // Informative; number of nodes expanded during the search.
+    int nodes_expanded = 0;
 };
 
 // Searches for a winning move using Proof Number Search.

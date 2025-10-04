@@ -48,9 +48,9 @@ std::string FormatSeed(const rng_seed_t &seed);
 rng_t CreateRng(const rng_seed_t &seed);
 
 template<class T> const T &RandomSample(const std::vector<T> &v, rng_t &rng) {
-  assert(!v.empty());
-  std::uniform_int_distribution<size_t> dist(0, v.size() - 1);
-  return v[dist(rng)];
+    assert(!v.empty());
+    std::uniform_int_distribution<size_t> dist(0, v.size() - 1);
+    return v[dist(rng)];
 }
 
 #endif // ndef RANDOM_H_INCLUDED
