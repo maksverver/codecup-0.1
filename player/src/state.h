@@ -80,9 +80,13 @@ struct State {
     return captured[RED][WAZIR] || captured[BLUE][WAZIR];
   }
 
+  bool HasWon(color_t color) const {
+    return captured[color][WAZIR];
+  }
+
   color_t Winner() const {
-    if (captured[RED][WAZIR]) return RED;
-    if (captured[BLUE][WAZIR]) return BLUE;
+    if (HasWon(RED))  return RED;
+    if (HasWon(BLUE)) return BLUE;
     return COLOR_COUNT;
   }
 
@@ -110,6 +114,10 @@ struct Move {
   uint8_t dst;
 
   auto operator<=>(const Move&) const = default;
+
+  bool IsNull() const { return src == 0 && dst == 0; }
+
+  static Move Null() { return {}; }
 };
 
 // Encodes a move that sets up one player's pieces.

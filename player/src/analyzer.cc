@@ -122,6 +122,16 @@ int main(int argc, char *argv[]) {
                 std::cout << "... (" << moves.size() << " total)";
             }
             std::cout << std::endl;
+
+            if (PnsResult pns = FindWinningMove(state); pns.status == 1) {
+                std::cout << "PNS: won! Nodes expanded: " << pns.nodes_expanded << "; "
+                    << "winning move: " << FormatMove(state.NextPlayer(), pns.winning_move) << '\n';
+            } else if (pns.status == -1) {
+                std::cout << "PNS: lost! Nodes expanded: " << pns.nodes_expanded << "\n";
+            } else {
+                assert(pns.status == 0);
+                std::cout << "PNS: incomplete (nodes expanded: " << pns.nodes_expanded << ")\n";
+            }
         }
         if (i < arg_turns.size()) {
             std::cout

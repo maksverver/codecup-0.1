@@ -226,7 +226,9 @@ std::optional<SetupMove> ParseSetupMove(color_t color, std::string_view s) {
 }
 
 std::string FormatMove(color_t color, const Move &move) {
-  if (move.src < FIELD_COUNT) {
+  if (move.IsNull()) {
+    return "NULL";
+  } else if (move.src < FIELD_COUNT) {
     std::string s(4, '\0');
     s[0] = FormatRow(Row(move.src));
     s[1] = FormatCol(Col(move.src));
