@@ -2,7 +2,7 @@
 #
 # Don't invoke this file directly. It is meant to be included in other files.
 
-BINARIES=$(BIN)player $(BIN)analyzer
+BINARIES=$(BIN)play $(BIN)analyze
 
 COMMON_HDRS=\
 	$(SRC)analysis.h \
@@ -22,8 +22,8 @@ COMMON_OBJS=\
 	$(OBJ)random.o \
 	$(OBJ)state.o
 
-PLAYER_OBJS=$(OBJ)player.o $(COMMON_OBJS)
-ANALYZER_OBJS=$(OBJ)analyzer.o $(COMMON_OBJS)
+PLAY_OBJS=$(OBJ)play.o $(COMMON_OBJS)
+ANALYZE_OBJS=$(OBJ)analyze.o $(COMMON_OBJS)
 
 # Note that headers must be included in dependency order.
 COMBINED_SRCS=\
@@ -32,7 +32,7 @@ COMBINED_SRCS=\
 	$(SRC)state.h $(SRC)state.cc \
 	$(SRC)logging.h \
 	$(SRC)analysis.h $(SRC)analysis.cc \
-	$(SRC)player.cc
+	$(SRC)play.cc
 
 all: $(BINARIES)
 
@@ -48,17 +48,17 @@ $(OBJ)random.o: $(SRC)random.cc $(SRC)random.h
 $(OBJ)state.o: $(SRC)state.cc $(SRC)state.h $(SRC)random.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJ)player.o: $(SRC)player.cc $(COMMON_HDRS)
+$(OBJ)play.o: $(SRC)play.cc $(COMMON_HDRS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(OBJ)analyzer.o: $(SRC)analyzer.cc $(COMMON_HDRS)
+$(OBJ)analyze.o: $(SRC)analyze.cc $(COMMON_HDRS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(BIN)player: $(PLAYER_OBJS)
-	$(CXX) $(CXXFLAGS) $(PLAYER_OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+$(BIN)play: $(PLAY_OBJS)
+	$(CXX) $(CXXFLAGS) $(PLAY_OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
 
-$(BIN)analyzer: $(ANALYZER_OBJS)
-	$(CXX) $(CXXFLAGS) $(ANALYZER_OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
+$(BIN)analyze: $(ANALYZE_OBJS)
+	$(CXX) $(CXXFLAGS) $(ANALYZE_OBJS) -o $@ $(LDFLAGS) $(LDLIBS)
 
 $(OUT)combined-player.cc: $(COMBINED_SRCS) combine-sources.sh
 	./combine-sources.sh $(COMBINED_SRCS) > $@
@@ -66,9 +66,9 @@ $(OUT)combined-player.cc: $(COMBINED_SRCS) combine-sources.sh
 $(BIN)combined-player: $(OUT)combined-player.cc
 	$(CXX) $(CXXFLAGS) -ULOCAL_BUILD -o $@ $<  $(LDFLAGS) $(LDLIBS)
 
-player: $(BIN)player
+play: $(BIN)play
 
-analyzer: $(BIN)analyzer
+analyze: $(BIN)analyze
 
 combined: $(BIN)combined-player
 
@@ -77,4 +77,4 @@ clean:
 
 .DELETE_ON_ERROR:
 
-.PHONY: all clean player analyzer combined
+.PHONY: all clean play analyze combined
