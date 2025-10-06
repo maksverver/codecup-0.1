@@ -272,20 +272,25 @@ static_assert(sizeof(PnsNode) == 20);
 
 class ProofNumberSearch {
 public:
-    ProofNumberSearch(State state, int max_moves) :
+    ProofNumberSearch(const State &state, int max_moves) :
             root_state(state),  // temp, for debugging
-            state(std::move(state)) {
+            state(state),
+            player(state.NextPlayer())
+    {
         assert(!state.GameOver());
         assert(max_moves > 0);
         nodes.reserve(max_moves);
-        nodes.push_back(PnsNode::Create(state.NextPlayer(), state, Move::Null()));  // root
+        nodes.push_back(PnsNode::Create(player, state, Move::Null()));  // root
     }
 
     PnsResult FindWinningMoves() {
+        assert(!nodes.empty());
         const PnsNode &root = nodes.front();
         while (!root.IsFixed()) {
             if (!ExpandMostProving<true>(0)) break;
         }
+
+        if (false) PrintTree(std::cerr, true);  // debug print tree
 
         PnsResult result;
         if (!root.IsFixed()) {
@@ -381,26 +386,27 @@ private:
 
     // Debug-prints the entire tree from the root (no matter what the current
     // state is).
-    void PrintTree(std::ostream &os) {
+    void PrintTree(std::ostream &os, bool fixed_only=false) {
         if (nodes.empty()) return;
         State copy = root_state;
-        PrintTree(os, copy, 0, 0);
+        PrintTree(os, copy, 0, 0, fixed_only);
         assert(copy == root_state);
     }
 
     // Debug-prints a subtree. `state` must match the state at index `node_index`
     // and is modified during execution but restored to the original state on
     // return.
-    void PrintTree(std::ostream &os, State &state, int node_index, int depth = 0) {
+    void PrintTree(std::ostream &os, State &state, int node_index, int depth = 0, bool fixed_only=false) {
         const PnsNode &node = nodes[node_index];
         std::string indent(depth*2, ' ');
         os << "[" << node_index << "] "
                 << (player == state.NextPlayer() ? "OR" : "AND")
                 << " p/d=" << node.pn << "/" << node.dn << '\n';
         for (int i = node.children_begin; i != node.children_end; ++i) {
+            if (fixed_only && !nodes[i].IsFixed()) continue;
             os << indent << "- " << FormatMove(state.NextPlayer(), nodes[i].last_move);
             UndoState undo_state = ExecuteMove(state, nodes[i].last_move);
-            PrintTree(os, state, i, depth + 1);
+            PrintTree(os, state, i, depth + 1, fixed_only);
             UndoMove(state, undo_state);
         }
     }
