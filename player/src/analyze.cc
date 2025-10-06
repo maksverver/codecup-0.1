@@ -10,10 +10,12 @@
 #include <algorithm>
 #include <cassert>
 #include <span>
+#include <string_view>
 #include <vector>
 #include <variant>
 
 #include "analysis.h"
+#include "codec.h"
 #include "options.h"
 #include "state.h"
 
@@ -38,9 +40,14 @@ bool ParsePlainArgs(std::span<const char* const> args) {
     if (!ParseSetupMove(state.NextPlayer(), args[0])) {
         // If the first argument isn't a valid setup move, then we assume
         // it must be a state string.
-        std::cerr << "TODO: parse state string!\n";
+        std::optional<State> res = DecodeCompactState(args[0]);
+        if (!res) {
+            std::cerr << "Could not parse initial argument "
+                    "(as compact state or setup move): " << args[0] << '\n';
+            return false;
+        }
+        state = *res;
         args = args.subspan(1);
-        return false;  // not yet implemented
     }
 
     arg_states.push_back(state);

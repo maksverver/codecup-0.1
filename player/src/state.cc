@@ -1,6 +1,7 @@
 #include "state.h"
 
 #include <cassert>
+#include <cstring>
 #include <span>
 #include <string_view>
 
@@ -57,13 +58,46 @@ const std::span<const Delta2D> piece_delta[PIECE_COUNT] = {
 // then both sides have 1 wazir, so they cancel out.
 static constexpr int piece_values[PIECE_COUNT] = {
     100,  // 1x Wazir    (0.1)
-        3,  // 1x Knight   (1.2)
-        2,  // 2x Ferz     (1.1)
-        2,  // 4x Dabbaba  (0.2)
-        1,  // 8x Alfil    (2.2)
+      3,  // 1x Knight   (1.2)
+      2,  // 2x Ferz     (1.1)
+      2,  // 4x Dabbaba  (0.2)
+      1,  // 8x Alfil    (2.2)
 };
 
+// Recalculates scores in the state.
+//
+// Important: this logic must be kept in sync with ExecuteMove() and
+// UndoMove() below, wich update the score incrementally.
+void RecalculateScores(State &state) {
+    int count[2][PIECE_COUNT];
+    for (int c = 0; c < COLOR_COUNT; ++c) {
+        for (int p = 0; p < PIECE_COUNT; ++p) {
+            count[c][p] = state.captured[c][p];
+        }
+    }
+    for (field_t f : state.fields) {
+        if (!IsEmpty(f)) count[Color(f)][Piece(f)]++;
+    }
+    state.scores[0] = 0;
+    state.scores[1] = 0;
+    for (int p = 0; p < PIECE_COUNT; ++p) {
+        int delta = count[0][p] - count[1][p];
+        assert(delta % 2 == 0);
+        if (delta > 0) state.scores[0] += ( delta / 2)*piece_values[p];
+        if (delta < 0) state.scores[1] += (-delta / 2)*piece_values[p];
+    }
+}
+
 }  // namespace
+
+State State::Create(field_t fields[FIELD_COUNT], uint8_t captured[2][PIECE_COUNT], int turn) {
+    State res = {};
+    memcpy(res.fields,   fields,   sizeof(res.fields));
+    memcpy(res.captured, captured, sizeof(res.captured));
+    res.turn = turn;
+    RecalculateScores(res);
+    return res;
+}
 
 struct UndoState ExecuteMove(State &state, const Move &move) {
     piece_t old_piece = PIECE_COUNT;
@@ -273,4 +307,14 @@ void DebugPrint(std::ostream &os, const State &state) {
         }
         os << '\n';
     }
+    os << "Captured:";
+    for (int c = 0; c < COLOR_COUNT; ++c) {
+        os << ' ';
+        for (int p = 0; p < PIECE_COUNT; ++p) {
+            for (int n = 0; n < state.captured[c][p]; ++n) {
+                os << piece_chars[c][p];
+            }
+        }
+    }
+    os << '\n';
 }

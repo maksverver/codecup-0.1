@@ -59,10 +59,28 @@ inline color_t Color(field_t f) { return static_cast<color_t>((f >> 1) & 1); }
 inline piece_t Piece(field_t f) { return static_cast<piece_t>((f >> 2) & 7); }
 
 struct State {
-    field_t fields[FIELD_COUNT];       // 64 bytes
-    uint8_t captured[2][PIECE_COUNT];  // 10 bytes (can be reduced to 8)
-    int turn;                          //  4 bytes (can be reduced to 1)
-    int scores[2];                     //  8 bytes (can be reduced?)
+    // Pieces on the board (64 bytes)
+    field_t fields[FIELD_COUNT];
+
+    // Captured pieces on hand (10 bytes; might be reduced to 8)
+    uint8_t captured[2][PIECE_COUNT];
+
+    // 0-based turn index; indicates next player (4 bytes; can be reduced to 1)
+    int turn;
+
+    //
+    // Derived data follows
+    //
+
+    // Scores used for evaluation (8 bytes, can be reduced)
+    int scores[2];
+
+    // Returns the initial state.
+    inline static State Initial() { return State{}; }
+
+    // Initializes a state from the given arguments, and correctly initializes
+    // derived fields like `scores`.
+    static State Create(field_t fields[FIELD_COUNT], uint8_t captured[2][PIECE_COUNT], int turn);
 
     field_t &FieldAt(int row, int col) {
         return fields[(row << 3) | col];
@@ -92,8 +110,6 @@ struct State {
 
     // Can be optimized by omitting `scores`.
     auto operator<=>(const State&) const = default;
-
-    inline static State Initial() { return State{}; }
 };
 
 

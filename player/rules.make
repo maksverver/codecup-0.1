@@ -23,7 +23,7 @@ COMMON_OBJS=\
 	$(OBJ)state.o
 
 PLAY_OBJS=$(OBJ)play.o $(COMMON_OBJS)
-ANALYZE_OBJS=$(OBJ)analyze.o $(COMMON_OBJS)
+ANALYZE_OBJS=$(OBJ)analyze.o $(COMMON_OBJS) $(OBJ)codec.o
 
 # Note that headers must be included in dependency order.
 COMBINED_SRCS=\
@@ -37,6 +37,9 @@ COMBINED_SRCS=\
 all: $(BINARIES)
 
 $(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)options.h $(SRC)random.h $(SRC)state.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ)codec.o: $(SRC)codec.cc $(SRC)codec.h $(SRC)state.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)options.o: $(SRC)options.cc $(SRC)options.h

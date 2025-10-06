@@ -39,11 +39,14 @@ def Main(input):
     # Print information about repeated states
     first_repeat = inf
     max_repeat = 0
-    for state, turns in sorted(seen.items(), key=lambda kv: len(kv[1]), reverse=True):
+    for turns in sorted(seen.values(), key=lambda v: len(v), reverse=True):
         if len(turns) <= 1:
             break
         first_repeat = min(first_repeat, turns[1])
         max_repeat = max(max_repeat, len(turns))
+
+    print('Simple state string:', state.Encode())
+    print('Compact state string:', state.EncodeCompact())
 
     if first_repeat < inf:
         print('First repetition at turn:', first_repeat)

@@ -2,6 +2,7 @@
 
 from collections import Counter
 from abc import ABC, abstractmethod
+from codec import Encoder
 
 HEIGHT=8
 WIDTH=8
@@ -101,6 +102,28 @@ class GameState:
             turn = 2 + turn % 2
         res += str(turn)
         return res
+
+    def EncodeCompact(self, reduce_turn=False) -> str:
+        enc = Encoder()
+        # Pieces on board.
+        for row in self.fields:
+            for cp in row:
+                if cp is None:
+                    enc.add_bit(0)
+                else:
+                    enc.add_bit(1)
+                    enc.add_bit(cp.color)
+                    enc.add_bits([0, 8, 4, 2, 1][cp.piece], [4, 4, 3, 2, 1][cp.piece])
+        # Pieces in hand.
+        for color in range(COLOR_COUNT):
+            for piece in range(PIECE_COUNT):
+                enc.add_unary_int(self.captured[color][piece])
+        # Turn.
+        turn = self.turn
+        if reduce_turn and turn >= 4:
+            turn = 2 + turn % 2
+        enc.add_last_int(turn)
+        return enc.finish()
 
 
 class Move(ABC):
