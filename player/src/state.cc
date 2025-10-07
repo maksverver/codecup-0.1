@@ -5,15 +5,6 @@
 #include <span>
 #include <string_view>
 
-namespace {
-
-const std::string_view piece_chars[2] = {
-    "WNFDA",
-    "wnfda",
-};
-
-struct Delta2D { int8_t dr, dc; };
-
 const Delta2D piece_delta_data[24] = {
     // Wazir (0.1)
     { -1,  0 },  //  0
@@ -54,14 +45,11 @@ const std::span<const Delta2D> piece_delta[PIECE_COUNT] = {
     {&piece_delta_data[20], &piece_delta_data[24]},  // Alfil
 };
 
-// Note: technically we can skip the wazir, since if the game is not over yet,
-// then both sides have 1 wazir, so they cancel out.
-static constexpr int piece_values[PIECE_COUNT] = {
-    100,  // 1x Wazir    (0.1)
-      3,  // 1x Knight   (1.2)
-      2,  // 2x Ferz     (1.1)
-      2,  // 4x Dabbaba  (0.2)
-      1,  // 8x Alfil    (2.2)
+namespace {
+
+const std::string_view piece_chars[2] = {
+    "WNFDA",
+    "wnfda",
 };
 
 // Recalculates scores in the state.

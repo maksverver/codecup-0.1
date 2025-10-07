@@ -189,4 +189,22 @@ std::string FormatSetupMove(color_t color, const SetupMove &setup_move);
 
 void DebugPrint(std::ostream &os, const State &state);
 
+// Details exported for use in analysis.cc
+
+struct Delta2D { int8_t dr, dc; };
+
+extern const Delta2D piece_delta_data[24];
+
+extern const std::span<const Delta2D> piece_delta[PIECE_COUNT];
+
+// Note: technically we can skip the wazir, since if the game is not over yet,
+// then both sides have 1 wazir, so they cancel out.
+static constexpr int piece_values[PIECE_COUNT] = {
+    100,  // 1x Wazir    (0.1)
+      3,  // 1x Knight   (1.2)
+      2,  // 2x Ferz     (1.1)
+      2,  // 4x Dabbaba  (0.2)
+      1,  // 8x Alfil    (2.2)
+};
+
 #endif // ndef STATE_H_INCLUDED

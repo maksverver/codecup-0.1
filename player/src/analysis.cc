@@ -12,6 +12,8 @@ DECLARE_OPTION(int, arg_tt_depth, 99, "tt-depth", "Minimum search depth left to 
 
 DECLARE_OPTION(int, arg_pns_max_nodes, 0, "pns-max-nodes", "Maximum number of PNS nodes (in millions)");
 
+DECLARE_OPTION(bool, arg_complex_eval, false, "complex-eval", "More detailed evaluation");
+
 namespace {
 
 // Equality for the purpose of the transposition table.
@@ -57,12 +59,85 @@ static long long tt_used = 0;
 
 }  // namespace
 
+int SimpleEval(const State &state) {
+    int value = state.scores[0] - state.scores[1];
+    return state.NextPlayer() == 0 ? value : -value;
+}
+
+// Complex evaluation of gameplay state.
+int ComplexEval(const State &state) {
+    constexpr int material_weight      =  8;
+    constexpr int drop_move_value      =  1;
+    constexpr int wazir_move_bonus     =  5;  // value of the wazir having a move
+    constexpr int move_value           =  5;  // move to empty space
+    constexpr int guard_value          =  1;  // "attack" space occupied by friendly piece
+    constexpr int attack_value         =  8;  // attack space occupied by opponent's piece
+    constexpr int wazir_flank_value    =  5;  // attack space next to oponnent's wazir
+    constexpr int wazir_attack_value   = 25;  // attack space occupied by opponent's wazir
+
+    int scores[COLOR_COUNT] = {};
+    int empty = 0;
+
+    // maybe: add unique fields attacked?
+
+    for (int i = 0; i < FIELD_COUNT; ++i) {
+        field_t f = state.fields[i];
+        if (IsEmpty(f)) {
+            ++empty;
+            continue;
+        }
+        color_t color = Color(f);
+        piece_t piece = Piece(f);
+
+        scores[color] += piece_values[piece] * material_weight;
+
+        int r1 = static_cast<unsigned>(i) / 8;
+        int c1 = static_cast<unsigned>(i) % 8;
+        for (auto [dr, dc] : piece_delta[piece]) {
+            int r2 = r1 + dr;
+            int c2 = c1 + dc;
+            if (!InBounds(r2, c2)) continue;
+            field_t g = state.FieldAt(r2, c2);
+            if (IsEmpty(g)) {
+                if ( (r2 > 0 && state.FieldAt(r2 - 1, c2) == Field(Other(color), WAZIR)) ||
+                     (r2 < 7 && state.FieldAt(r2 + 1, c2) == Field(Other(color), WAZIR)) ||
+                     (c2 > 0 && state.FieldAt(r2, c2 - 1) == Field(Other(color), WAZIR)) ||
+                     (c2 < 7 && state.FieldAt(r2, c2 + 1) == Field(Other(color), WAZIR)) ) {
+                    scores[color] += wazir_flank_value;
+                } else {
+                    scores[color] += move_value;
+                }
+            } else if (Color(g) == color) {
+                scores[color] += guard_value;
+            } else if (Piece(g) == WAZIR) {
+                scores[color] += wazir_attack_value;
+            } else {
+                scores[color] += attack_value;
+            }
+            if (piece == WAZIR && Color(g) != color) {
+                scores[color] += wazir_move_bonus;
+            }
+        }
+    }
+
+    for (int c = 0; c < COLOR_COUNT; ++c) {
+        for (int p = 0; p < PIECE_COUNT; ++p) {
+            int n = state.captured[c][p];
+            scores[c] += piece_values[p] * n * material_weight;
+            // TODO: count all copies or just one?
+            scores[c] += drop_move_value * n * empty;
+        }
+    }
+
+    color_t player = state.NextPlayer();
+    return scores[player] - scores[Other(player)];
+}
+
 // Evaluates an intermediate game state.
 //
 // Precondition: state.GameOver() == false
 int Evaluate(const State &state) {
-    int value = state.scores[0] - state.scores[1];
-    return state.NextPlayer() == 0 ? value : -value;
+    return arg_complex_eval ? ComplexEval(state) : SimpleEval(state);
 }
 
 // Minimax search with alpha-beta pruning
