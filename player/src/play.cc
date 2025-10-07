@@ -19,6 +19,10 @@
 #define LOCAL_BUILD 0
 #endif
 
+#if LOCAL_BUILD
+#include "transcript.h"
+#endif
+
 namespace {
 
 // TODO: real player name
@@ -230,6 +234,33 @@ void PlayGame(rng_t &rng) {
     LogInfo() << "Game over.";
 }
 
+#if LOCAL_BUILD
+void PlaySingleMove(const State &state, rng_t &rng) {
+    if (state.GameOver()) {
+        std::cerr << "Game is over!";
+        exit(1);
+    }
+    color_t player = state.NextPlayer();
+    std::string output;
+    if (state.turn < 2) {
+        SetupMove move = GenerateSetupMove(state, rng);
+        output = FormatSetupMove(player, move);
+    } else {
+        std::vector<Move> all_moves = GenerateAllMoves(state);
+        if (all_moves.empty()) {
+            std::cerr << "No moves left!";
+            exit(1);
+        }
+        auto [best_moves, best_score] = FindBestMoves(state, all_moves);
+        assert(!best_moves.empty());
+        Move move = RandomSample(best_moves, rng);
+        output = FormatMove(player, move);
+    }
+    assert(!output.empty());
+    std::cout << output << std::endl;
+}
+#endif
+
 bool InitializeSeed(rng_seed_t &seed, std::string_view hex_string) {
     if (hex_string.empty()) {
         // Generate a new random 128-bit seed
@@ -256,9 +287,8 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    LogId('R', player_name);
-
-    if (!ParseOptions(argc, argv) || arg_help) {
+    std::vector<char*> args;
+    if (!ParseOptions(argc, argv, args) || arg_help) {
         std::ostream &os = arg_help ? std::cout : std::clog;
         os << "\nOptions:\n";
         PrintOptionUsage(os);
@@ -268,8 +298,23 @@ int main(int argc, char *argv[]) {
     // Initialize RNG.
     rng_seed_t seed;
     if (!InitializeSeed(seed, arg_seed)) return EXIT_FAILURE;
-    LogSeed(seed);
     rng_t rng = CreateRng(seed);
 
-    PlayGame(rng);
+    if (args.empty()) {
+        // Play a full game via the Caia protocol.
+        LogId('R', player_name);
+        LogSeed(seed);
+        PlayGame(rng);
+    } else {
+        // Play a single move in the state given on the command line.
+        // (This is only supported in local builds.)
+#       if LOCAL_BUILD
+            if (!ParseTranscript(args)) return EXIT_FAILURE;
+            assert(!arg_states.empty());
+            PlaySingleMove(arg_states.back(), rng);
+#       else
+            std::clog << "Unexpected command line arguments!\n";
+            return EXIT_FAILURE;
+#       endif
+    }
 }

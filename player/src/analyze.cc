@@ -7,98 +7,25 @@
 //  analyzer CjZbrWtZGYBJRALAgZo__h5u___fD g5e3 d4e3 h2g3 Af3
 //
 
-#include <algorithm>
 #include <cassert>
 #include <span>
 #include <string_view>
 #include <vector>
-#include <variant>
 
 #include "analysis.h"
-#include "codec.h"
 #include "options.h"
 #include "state.h"
+#include "transcript.h"
 
 DECLARE_OPTION(bool, arg_help, false, "help", "show usage information");
 
 DECLARE_OPTION(int, arg_print_moves, 5, "print-moves", "number of best moves to print");
 
-namespace {
-
-using Turn = std::variant<SetupMove, Move>;
-
-std::vector<State> arg_states;
-std::vector<Turn> arg_turns;
-
-bool ParsePlainArgs(std::span<const char* const> args) {
-    if (args.empty()) {
-        std::cerr << "Missing arguments.\n";
-        return false;
-    }
-
-    State state = State::Initial();
-    if (!ParseSetupMove(state.NextPlayer(), args[0])) {
-        // If the first argument isn't a valid setup move, then we assume
-        // it must be a state string.
-        std::optional<State> res = DecodeCompactState(args[0]);
-        if (!res) {
-            std::cerr << "Could not parse initial argument "
-                    "(as compact state or setup move): " << args[0] << '\n';
-            return false;
-        }
-        state = *res;
-        args = args.subspan(1);
-    }
-
-    arg_states.push_back(state);
-    for (const char *arg : args) {
-        Turn turn = {};
-        if (state.turn < 2) {
-            auto setup_move = ParseSetupMove(state.NextPlayer(), arg);
-            if (!setup_move) {
-                std::cerr << "Could not parse setup move: " << arg << '\n';
-                return false;
-            }
-            ExecuteSetupMove(state, *setup_move);
-            turn = *setup_move;
-        } else {
-            auto move = ParseMove(state.NextPlayer(), arg);
-            if (!move) {
-                std::cerr << "Could not parse move: " << arg << '\n';
-                return false;
-            }
-            auto all_moves = GenerateAllMoves(state);
-            if (std::ranges::find(all_moves, *move) == all_moves.end()) {
-                std::cerr << "Invalid move: " << arg << '\n';
-                return false;
-            }
-            ExecuteMove(state, *move);
-            turn = *move;
-        }
-        arg_turns.push_back(turn);
-        arg_states.push_back(state);
-    }
-    assert(arg_states.size() == arg_turns.size() + 1);
-    return true;
-}
-
-std::string FormatTurn(color_t color, const Turn &t) {
-    if (std::holds_alternative<SetupMove>(t)) {
-        return FormatSetupMove(color, std::get<SetupMove>(t));
-    }
-    if (std::holds_alternative<Move>(t)) {
-        return FormatMove(color, std::get<Move>(t));
-    }
-    return "";
-}
-
-}  // namespace
-
 int main(int argc, char *argv[]) {
     std::vector<char*> plain_args;
     if ( !ParseOptions(argc, argv, plain_args) ||
          arg_help ||
-         !ParsePlainArgs(plain_args)) {
+         !ParseTranscript(plain_args)) {
         std::ostream &os = arg_help ? std::cout : std::clog;
         os << "\nOptions:\n";
         PrintOptionUsage(os);

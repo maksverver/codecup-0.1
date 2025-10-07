@@ -6,24 +6,30 @@ BINARIES=$(BIN)play $(BIN)analyze
 
 COMMON_HDRS=\
 	$(SRC)analysis.h \
+	$(SRC)codec.h \
 	$(SRC)logging.h \
 	$(SRC)options.h \
 	$(SRC)random.h \
-	$(SRC)state.h
+	$(SRC)state.h \
+	$(SRC)transcript.h
 
 COMMON_SRCS=\
 	$(SRC)analysis.cc \
+	$(SRC)codec.cc \
 	$(SRC)random.cc \
-	$(SRC)state.cc
+	$(SRC)state.cc \
+	$(SRC)transcript.cc
 
 COMMON_OBJS=\
 	$(OBJ)analysis.o \
+	$(OBJ)codec.o \
 	$(OBJ)options.o \
 	$(OBJ)random.o \
-	$(OBJ)state.o
+	$(OBJ)state.o \
+	$(OBJ)transcript.o
 
 PLAY_OBJS=$(OBJ)play.o $(COMMON_OBJS)
-ANALYZE_OBJS=$(OBJ)analyze.o $(COMMON_OBJS) $(OBJ)codec.o
+ANALYZE_OBJS=$(OBJ)analyze.o $(COMMON_OBJS)
 
 # Note that headers must be included in dependency order.
 COMBINED_SRCS=\
@@ -49,6 +55,9 @@ $(OBJ)random.o: $(SRC)random.cc $(SRC)random.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)state.o: $(SRC)state.cc $(SRC)state.h $(SRC)random.h
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+$(OBJ)transcript.o: $(SRC)transcript.cc $(SRC)state.h $(SRC)codec.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)play.o: $(SRC)play.cc $(COMMON_HDRS)
