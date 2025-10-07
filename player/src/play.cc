@@ -48,6 +48,11 @@ DECLARE_OPTION(int, arg_time_limit, LOCAL_BUILD ? 0 : 25, "time-limit",
         "account for overhead.");
 */
 
+#if LOCAL_BUILD
+DECLARE_OPTION(bool, arg_move, false, "move", "Output a single move. "
+        "Game state is passed via command line arguments.");
+#endif
+
 // A simple timer. Can be running or paused. Tracks time both while running and
 // while paused. Use Elapsed() to query, Pause() and Resume() to switch states.
 class Timer {
@@ -290,6 +295,7 @@ int main(int argc, char *argv[]) {
     std::vector<char*> args;
     if (!ParseOptions(argc, argv, args) || arg_help) {
         std::ostream &os = arg_help ? std::cout : std::clog;
+        LogId('R', player_name);
         os << "\nOptions:\n";
         PrintOptionUsage(os);
         return EXIT_FAILURE;
@@ -300,21 +306,21 @@ int main(int argc, char *argv[]) {
     if (!InitializeSeed(seed, arg_seed)) return EXIT_FAILURE;
     rng_t rng = CreateRng(seed);
 
-    if (args.empty()) {
-        // Play a full game via the Caia protocol.
-        LogId('R', player_name);
-        LogSeed(seed);
-        PlayGame(rng);
-    } else {
-        // Play a single move in the state given on the command line.
-        // (This is only supported in local builds.)
-#       if LOCAL_BUILD
-            if (!ParseTranscript(args)) return EXIT_FAILURE;
-            assert(!arg_states.empty());
-            PlaySingleMove(arg_states.back(), rng);
-#       else
-            std::clog << "Unexpected command line arguments!\n";
-            return EXIT_FAILURE;
-#       endif
+#if LOCAL_BUILD
+    if (arg_move) {
+        if (!ParseTranscript(args)) return EXIT_FAILURE;
+        assert(!arg_states.empty());
+        PlaySingleMove(arg_states.back(), rng);
+        return EXIT_SUCCESS;
     }
+#endif
+    if (!args.empty()) {
+        std::clog << "Unexpected command line arguments!\n";
+        return EXIT_FAILURE;
+    }
+
+    // Play a full game via the Caia protocol.
+    LogId('R', player_name);
+    LogSeed(seed);
+    PlayGame(rng);
 }

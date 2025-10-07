@@ -9,13 +9,11 @@ std::vector<State> arg_states;
 std::vector<Turn> arg_turns;
 
 bool ParseTranscript(std::span<const char* const> args) {
-    if (args.empty()) {
-        std::cerr << "Missing arguments.\n";
-        return false;
-    }
+    arg_states.clear();
+    arg_turns.clear();
 
     State state = State::Initial();
-    if (!ParseSetupMove(state.NextPlayer(), args[0])) {
+    if (!args.empty() && !ParseSetupMove(state.NextPlayer(), args[0])) {
         // If the first argument isn't a valid setup move, then we assume
         // it must be a state string.
         std::optional<State> res = DecodeCompactState(args[0]);
