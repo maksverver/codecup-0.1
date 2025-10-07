@@ -9,29 +9,27 @@
 
 using Turn = std::variant<SetupMove, Move>;
 
-// List of states.
-//
-// If not empty, arg_states.size() == arg_turns.size() + 1, and arg_states[i]
-// contains the game state before turn[i], and arg_states[i + 1] the state after.
-extern std::vector<State> arg_states;
+using ParseTranscriptResult = std::pair<std::vector<State>, std::vector<Turn>>;
+using ParseTranscriptError  = std::pair<const char*, const char*>;
 
-// List of turns. At most the first two turns can be SetupMoves, the following
-// turns are regular mvoes.
-extern std::vector<Turn> arg_turns;
-
-// Parses a transcript from command line arguments, writes the results to
-// arg_states and arg_turns, and returns true.
+// Parses a transcript from a list of strings (usually command line arguments),
+// and returns the result as a pair of two vectors: states and turns.
 //
-// When an error occurs, a message is printed to stderr, and this function
-// returns false.
+// `states` contains all the game states, and `turns` the turns between states,
+// so that states[i] is the state before turn[i], and states[i + 1] the state
+// after. It is guaranteed that states.size() == turns.size() + 1.
 //
-// This function is intended to be called from main() to parse command line
-// arguments, and if it fails, the program should exit immediately.
-bool ParseTranscript(std::span<const char* const> args);
+// At most the first two turns can be SetupMoves, the rest are regular Moves.
+//
+// If an error occurs during parsing, an error message is returned as a pair
+// of strings: the first describes the error, and the second is element of
+// `args` that caused the error.
+std::variant<ParseTranscriptResult, ParseTranscriptError>
+ParseTranscript(std::span<const char* const> args);
 
 // Formats a turn as a string.
 //
-// This is a small wrapper around FormatMove() and SetupMove().
+// This is a small wrapper around FormatMove() and FormatSetupMove().
 std::string FormatTurn(color_t color, const Turn &t);
 
 #endif  // ndef TRANSCRIPT_H_INCLUDED

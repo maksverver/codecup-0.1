@@ -229,7 +229,7 @@ void PlayGame(rng_t &rng) {
                     exit(1);
                 }
                 if (std::ranges::find(all_moves, *move) == all_moves.end()) {
-                    LogError() << "Opponent's move is invalid: " << line;
+                    LogError() << "Opponent's move is illegal: " << line;
                     exit(1);
                 }
                 ExecuteMove(state, *move);
@@ -292,8 +292,8 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    std::vector<char*> args;
-    if (!ParseOptions(argc, argv, args) || arg_help) {
+    std::vector<char*> plain_args;
+    if (!ParseOptions(argc, argv, plain_args) || arg_help) {
         std::ostream &os = arg_help ? std::cout : std::clog;
         LogId('R', player_name);
         os << "\nOptions:\n";
@@ -308,13 +308,20 @@ int main(int argc, char *argv[]) {
 
 #if LOCAL_BUILD
     if (arg_move) {
-        if (!ParseTranscript(args)) return EXIT_FAILURE;
-        assert(!arg_states.empty());
-        PlaySingleMove(arg_states.back(), rng);
+        auto parse_res = ParseTranscript(plain_args);
+        if (std::holds_alternative<ParseTranscriptError>(parse_res)) {
+            auto [msg, arg] = std::get<ParseTranscriptError>(parse_res);
+            std::cerr << msg << ": " << arg << std::endl;
+            return EXIT_FAILURE;
+        }
+        assert(std::holds_alternative<ParseTranscriptResult>(parse_res));
+        auto [states, turns] = std::get<ParseTranscriptResult>(parse_res);
+        assert(!states.empty());
+        PlaySingleMove(states.back(), rng);
         return EXIT_SUCCESS;
     }
 #endif
-    if (!args.empty()) {
+    if (!plain_args.empty()) {
         std::clog << "Unexpected command line arguments!\n";
         return EXIT_FAILURE;
     }
