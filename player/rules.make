@@ -8,12 +8,13 @@ COMMON_HDRS=\
 	$(SRC)analysis.h \
 	$(SRC)codec.h \
 	$(SRC)logging.h \
-	$(SRC)pieces.h \
 	$(SRC)options.h \
+	$(SRC)pieces.h \
+	$(SRC)pns.h \
 	$(SRC)random.h \
 	$(SRC)state.h \
-	$(SRC)weights.h \
-	$(SRC)transcript.h
+	$(SRC)transcript.h \
+	$(SRC)weights.h
 
 COMMON_SRCS=\
 	$(SRC)analysis.cc \
@@ -43,12 +44,13 @@ COMBINED_SRCS=\
 	$(SRC)weights.h $(SRC)weights.cc \
 	$(SRC)state.h $(SRC)state.cc \
 	$(SRC)logging.h \
+    $(SRC)pns.h \
 	$(SRC)analysis.h $(SRC)analysis.cc \
 	$(SRC)play.cc
 
 all: $(BINARIES)
 
-$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)options.h $(SRC)random.h $(SRC)pieces.h $(SRC)state.h $(SRC)weights.h
+$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)options.h $(SRC)pns.h $(SRC)random.h $(SRC)pieces.h $(SRC)state.h $(SRC)weights.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)codec.o: $(SRC)codec.cc $(SRC)codec.h $(SRC)state.h

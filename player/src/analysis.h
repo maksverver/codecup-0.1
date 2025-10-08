@@ -2,6 +2,7 @@
 #define ANALYSIS_H_INCLUDED
 
 #include "state.h"
+#include "pns.h"
 
 constexpr int val_inf = 999999999;
 constexpr int val_win = 900000000;
@@ -25,17 +26,6 @@ int Search(State &state, int depth_left, int alpha, int beta);
 
 // Returns a list of best moves paired with the maximum game tree value.
 std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<Move> &all_moves);
-
-struct PnsResult {
-    // +1 if proven win, -1 if proven loss, 0 if the search was aborted.
-    int status = 0;
-
-    // Winning move (if status == +1)
-    Move winning_move = Move::Null();
-
-    // Informative; number of nodes expanded during the search.
-    int nodes_expanded = 0;
-};
 
 // Searches for a winning move using Proof Number Search.
 PnsResult FindWinningMove(const State &state);
