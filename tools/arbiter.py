@@ -272,7 +272,7 @@ def RunGames(commands, names, rounds, logdir, executor=None):
             PrintRowStart(game_index, names[i], names[j])
             PrintRowFinish(results)
 
-        print('---- ------------------ ------------------ ----- ----- ----- ----- ---- ---- ------ ------', file=f)
+        print('---- ------------------ ------------------ --- --- ----- ----- ---- ---- ------ ------', file=f)
 
     # Print summary of players.
     if len(pairings) > 1:
