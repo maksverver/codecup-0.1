@@ -1,5 +1,7 @@
 #include "state.h"
 
+#include "weights.h"
+
 #include <cassert>
 #include <cstring>
 #include <span>

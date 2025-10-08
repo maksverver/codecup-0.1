@@ -16,6 +16,7 @@
 #include "options.h"
 #include "state.h"
 #include "transcript.h"
+#include "weights.h"
 
 DECLARE_OPTION(bool, arg_help, false, "help", "show usage information");
 
@@ -33,6 +34,7 @@ int main(int argc, char *argv[]) {
         PrintUsage(arg_help ? std::cout : std::clog);
         return EXIT_FAILURE;
     }
+    InitializeWeights();
     if (plain_args.empty()) {
         std::cerr << "Missing arguments.\n";
         PrintUsage(std::cerr);

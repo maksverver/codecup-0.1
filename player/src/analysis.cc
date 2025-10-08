@@ -1,10 +1,11 @@
 #include "analysis.h"
 
+#include "options.h"
+#include "weights.h"
+
 #include <cstring>
 #include <vector>
 #include <utility>
-
-#include "options.h"
 
 DECLARE_OPTION(int, arg_depth, 4, "depth", "Maximum search depth.");
 

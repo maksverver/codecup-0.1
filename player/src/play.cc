@@ -3,6 +3,7 @@
 #include "options.h"
 #include "random.h"
 #include "state.h"
+#include "weights.h"
 
 #include <cassert>
 #include <chrono>
@@ -300,6 +301,8 @@ int main(int argc, char *argv[]) {
         PrintOptionUsage(os);
         return EXIT_FAILURE;
     }
+
+    InitializeWeights();
 
     // Initialize RNG.
     rng_seed_t seed;

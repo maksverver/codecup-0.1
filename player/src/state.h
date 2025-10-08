@@ -1,6 +1,7 @@
 #ifndef STATE_H_INCLUDED
 #define STATE_H_INCLUDED
 
+#include "pieces.h"
 #include "random.h"
 
 #include <algorithm>
@@ -14,6 +15,7 @@
 #include <random>
 #include <span>
 #include <string>
+#include <string_view>
 #include <vector>
 
 enum color_t : uint8_t {
@@ -23,17 +25,6 @@ enum color_t : uint8_t {
 };
 
 inline color_t Other(color_t color) { return static_cast<color_t>(color ^ 1); }
-
-enum piece_t : uint8_t {
-    WAZIR       = 0,  // 0.1
-    KNIGHT      = 1,  // 1.2
-    FERZ        = 2,  // 1.1
-    DABBABA     = 3,  // 0.2
-    ALFIL       = 4,  // 2.2
-    PIECE_COUNT = 5,
-};
-
-constexpr int piece_counts[PIECE_COUNT] = { 1, 1, 2, 4, 8 };
 
 // Encodes the piece on a field:
 //
@@ -196,15 +187,5 @@ struct Delta2D { int8_t dr, dc; };
 extern const Delta2D piece_delta_data[24];
 
 extern const std::span<const Delta2D> piece_delta[PIECE_COUNT];
-
-// Note: technically we can skip the wazir, since if the game is not over yet,
-// then both sides have 1 wazir, so they cancel out.
-static constexpr int piece_values[PIECE_COUNT] = {
-    100,  // 1x Wazir    (0.1)
-      3,  // 1x Knight   (1.2)
-      2,  // 2x Ferz     (1.1)
-      2,  // 4x Dabbaba  (0.2)
-      1,  // 8x Alfil    (2.2)
-};
 
 #endif // ndef STATE_H_INCLUDED
