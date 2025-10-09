@@ -2,10 +2,16 @@
 
 #include "options.h"
 
-DECLARE_OPTION(int, arg_knight,  1, "knight",   "Piece value of a knight");
-DECLARE_OPTION(int, arg_ferz,    1, "ferz",     "Piece value of a ferz");
-DECLARE_OPTION(int, arg_dabbaba, 1, "dabbaba",  "Piece value of a dabbaba");
-DECLARE_OPTION(int, arg_alfil,   1, "alfil",    "Piece value of a alfil");
+constexpr int default_value_wazir   = 100;
+constexpr int default_value_knight  =   9;
+constexpr int default_value_ferz    =   1;
+constexpr int default_value_dabbaba =   4;
+constexpr int default_value_alfil   =   2;
+
+DECLARE_OPTION(int, arg_knight,  default_value_knight,  "knight",   "Piece value of a knight");
+DECLARE_OPTION(int, arg_ferz,    default_value_ferz,    "ferz",     "Piece value of a ferz");
+DECLARE_OPTION(int, arg_dabbaba, default_value_dabbaba, "dabbaba",  "Piece value of a dabbaba");
+DECLARE_OPTION(int, arg_alfil,   default_value_alfil,   "alfil",    "Piece value of a alfil");
 
 void InitializeWeights() {
     piece_values[KNIGHT]  = arg_knight;
@@ -15,9 +21,9 @@ void InitializeWeights() {
 }
 
 int piece_values[PIECE_COUNT] {
-    100,  // 1x Wazir    (0.1)
-      1,  // 1x Knight   (1.2)
-      1,  // 2x Ferz     (1.1)
-      1,  // 4x Dabbaba  (0.2)
-      1,  // 8x Alfil    (2.2)
+    default_value_wazir,    // 1x Wazir    (0.1)
+    default_value_knight,   // 1x Knight   (1.2)
+    default_value_ferz,     // 2x Ferz     (1.1)
+    default_value_dabbaba,  // 4x Dabbaba  (0.2)
+    default_value_alfil,    // 8x Alfil    (2.2)
 };
