@@ -21,15 +21,52 @@
 #ifndef PNS_H_INCLUDED
 #define PNS_H_INCLUDED
 
+#include "logging.h"
 #include "state.h"
 
 #include <iostream>  // for debug printing
 
+// Maximum number of PNS nodes (in millions). Defined in analysis.cc.
+extern int arg_pns_max_nodes;
+
 const int pn_inf = 999999999;
 
+// A single node in the Proof Number Search tree.
+//
+// A node has two properties: whether its children have been expanded,
+// and whether the node's value is fixed. These are independent.
+//
+//  1. Fixed and not expanded: represents a game-over state. It is proven
+//     if the target player is the winner, or disproven if the target player
+//     lost or the game is a draw.
+//
+//  2. Fixed and not expanded: represents an intermediate state whose value
+//     has been inferred from its children.
+//
+//  3. Not fixed and not expanded: represents a node that may be expanded,
+//     if it is the most proving node in the tree.
+//
+//  4. Not fixed and expanded: represents a node that has been expanded;
+//     its value may change when its descendants are expanded.
+//
 struct PnsNode {
     Move last_move = Move::Null();
-    int pn = 1, dn = 1;  // proof/disproof numbers
+
+    // Proof/disproof numbers.
+    //
+    // The proof (resp. disproof) number represents a lower bound on the number
+    // of descendant nodes that need to be expanded to prove (resp. disprove)
+    // this node.
+    //
+    // If the node is proven, pn == 0, dn == pn_inf.
+    // If the node is disproven, pn == 0, dn == pn_inf.
+    // If the noed is neither proven nor disproven, pn > 0 and dn > 0.
+    //
+    int pn = 1, dn = 1;
+
+    // Child node indices. If the node is not expanded, begin == end == 0,
+    // otherwise 0 < begin <= end. Since the root has index 0, the root node's
+    // first child index will be 1.
     int children_begin = 0, children_end = 0;
 
     static PnsNode Create(color_t player, const State &state, Move last_move) {
@@ -116,6 +153,12 @@ static_assert(sizeof(PnsNode) == 20);
 
 class ProofNumberSearch {
 public:
+
+    static ProofNumberSearch Create(const State &state) {
+        assert(std::numeric_limits<int>::max() / 1000000 >= arg_pns_max_nodes);
+        return ProofNumberSearch(state, arg_pns_max_nodes * 1000000);
+    }
+
     ProofNumberSearch(const State &state, int max_moves) :
             root_state(state),  // temp, for debugging
             state(state),
@@ -153,6 +196,66 @@ public:
         }
         result.nodes_expanded = nodes.size();
         return result;
+    }
+
+    // Changes the root state to the successor `next_state`, which must be
+    // exactly two steps down from the root (i.e., the earliest state where the
+    // same player is next move).
+    //
+    // The idea is that we can reuse part of the existing search tree this way,
+    // but in practice it doesn't seem beneficial, since the fraction of the search
+    // tree that can be reused is minimal.
+    void AdvanceState(const State &next_state) {
+        assert(state == root_state);
+        if (state == next_state) {
+            LogWarning() << "PNS state unchanged!\n";
+            return;
+        }
+        assert(player == next_state.NextPlayer());
+        assert(!nodes.empty());
+        const size_t old_capacity = nodes.capacity();
+        const PnsNode &root = nodes.front();
+        for (const PnsNode &child : root.Children(nodes)) {
+            UndoState undo_state = ExecuteMove(state, child.last_move);
+            for (int i = child.children_begin; i < child.children_end; ++i) {
+                UndoState undo_state = ExecuteMove(state, nodes[i].last_move);
+                if (state == next_state) {
+                    // Found successor state! Create new node tree.
+                    std::vector<PnsNode> new_nodes;
+                    new_nodes.reserve(old_capacity);
+                    new_nodes.push_back(nodes[i]);
+                    new_nodes[0].last_move = Move::Null();
+                    for (size_t i = 0; i < new_nodes.size(); ++i) {
+                        PnsNode &node = new_nodes[i];
+                        size_t old_begin = node.children_begin;
+                        if (old_begin == 0) continue;  // unexpanded
+                        size_t old_end   = node.children_end;
+                        size_t count     = old_end - old_begin;
+                        size_t new_begin = new_nodes.size();
+                        size_t new_end   = new_begin + count;
+                        node.children_begin = new_begin;
+                        node.children_end   = new_end;
+                        new_nodes.resize(new_end);
+                        for (size_t j = 0; j < count; ++j) {
+                            new_nodes[new_begin + j] = nodes[old_begin + j];
+                        }
+                    }
+                    LogInfo() << "PNS reused " << new_nodes.size()
+                            << " of " << nodes.size() << " tree nodes";
+                    nodes = std::move(new_nodes);
+                    root_state = state = next_state;
+                    assert(nodes.capacity() == old_capacity);
+                    return;
+                }
+                UndoMove(state, undo_state);
+            }
+            UndoMove(state, undo_state);
+        }
+        LogWarning() << "PNS next state not found! clearing tree.";
+        root_state = state = next_state;
+        nodes.clear();
+        nodes.push_back(PnsNode::Create(player, state, Move::Null()));
+        assert(nodes.capacity() == old_capacity);
     }
 
 private:

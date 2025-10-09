@@ -257,7 +257,5 @@ PnsResult FindWinningMove(const State &state) {
         return PnsResult{};
     }
     // Note this copies state, but that's okay.
-    assert(std::numeric_limits<int>::max() / 1000000 >= arg_pns_max_nodes);
-    ProofNumberSearch search(state, arg_pns_max_nodes * 1000000);
-    return search.FindWinningMoves();
+    return ProofNumberSearch::Create(state).FindWinningMoves();
 }

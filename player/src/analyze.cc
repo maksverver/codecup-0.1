@@ -56,8 +56,19 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
+    std::optional<ProofNumberSearch> pns_per_player[2];
     for (size_t i = 0; i < states.size(); ++i) {
         const State &state = states[i];
+        std::optional<ProofNumberSearch> &pns = pns_per_player[state.NextPlayer()];
+        if (arg_pns_max_nodes > 0) {
+            if (state.turn < 2 || state.GameOver()) {
+                pns.reset();
+            } else if (!pns) {
+                pns = ProofNumberSearch::Create(state);
+            } else {
+                pns->AdvanceState(state);
+            }
+        }
         if (state.turn >= 2) {
             auto [moves, score] = FindBestMoves(state, GenerateAllMoves(state));
             color_t color = state.NextPlayer();
@@ -73,14 +84,17 @@ int main(int argc, char *argv[]) {
             }
             std::cout << std::endl;
 
-            if (PnsResult pns = FindWinningMove(state); pns.status == 1) {
-                std::cout << "PNS: won! Nodes expanded: " << pns.nodes_expanded << "; "
-                    << "winning move: " << FormatMove(state.NextPlayer(), pns.winning_move) << '\n';
-            } else if (pns.status == -1) {
-                std::cout << "PNS: lost! Nodes expanded: " << pns.nodes_expanded << "\n";
-            } else {
-                assert(pns.status == 0);
-                std::cout << "PNS: incomplete (nodes expanded: " << pns.nodes_expanded << ")\n";
+            if (pns) {
+                PnsResult res = pns->FindWinningMoves();
+                if (res.status == 1) {
+                    std::cout << "PNS: won! Nodes expanded: " << res.nodes_expanded << "; "
+                        << "winning move: " << FormatMove(state.NextPlayer(), res.winning_move) << '\n';
+                } else if (res.status == -1) {
+                    std::cout << "PNS: lost! Nodes expanded: " << res.nodes_expanded << "\n";
+                } else {
+                    assert(res.status == 0);
+                    std::cout << "PNS: incomplete (nodes expanded: " << res.nodes_expanded << ")\n";
+                }
             }
         }
         if (i < turns.size()) {

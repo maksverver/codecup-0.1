@@ -50,7 +50,7 @@ COMBINED_SRCS=\
 
 all: $(BINARIES)
 
-$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)options.h $(SRC)pns.h $(SRC)random.h $(SRC)pieces.h $(SRC)state.h $(SRC)weights.h
+$(OBJ)analysis.o: $(SRC)analysis.cc $(SRC)analysis.h $(SRC)logging.h $(SRC)options.h $(SRC)pns.h $(SRC)random.h $(SRC)pieces.h $(SRC)state.h $(SRC)weights.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(OBJ)codec.o: $(SRC)codec.cc $(SRC)codec.h $(SRC)state.h
