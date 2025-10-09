@@ -16,6 +16,8 @@ DECLARE_OPTION(int, arg_pns_max_nodes, 0, "pns-max-nodes", "Maximum number of PN
 
 DECLARE_OPTION(bool, arg_complex_eval, false, "complex-eval", "More detailed evaluation");
 
+DECLARE_OPTION(int, arg_search_ext, 0, "search-ext", "Max. search extensions");
+
 namespace {
 
 // Equality for the purpose of the transposition table.
@@ -152,7 +154,7 @@ int Evaluate(const State &state) {
 //  beta <= v:        v is a lower bound on the exact value
 //
 // Precondition: alpha < beta
-int Search(State &state, int depth_left, int alpha, int beta) {
+int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
 
     if (state.GameOver()) {
         int value = val_win + depth_left;
@@ -192,7 +194,10 @@ int Search(State &state, int depth_left, int alpha, int beta) {
         int alpha2 = alpha;
         for (size_t i = 0; i < nmove; ++i) {
             UndoState undo = ExecuteMove(state, moves[i]);
-            int value = -Search(state, depth_left - 1, -beta, -alpha2);
+            int d = depth_left - 1;
+            int e = ext_left;
+            if (d == 0 && undo.old_piece < PIECE_COUNT && e > 0) ++d, --e;
+            int value = -Search(state, d, e, -beta, -alpha2);
             UndoMove(state, undo);
             if (value > best_value) {
                 best_value = value;
@@ -220,7 +225,7 @@ std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<M
     int alpha = -val_inf;
     for (const Move &move : all_moves) {
         UndoState undo = ExecuteMove(state, move);
-        int value = -Search(state, arg_depth - 1, -val_inf, -alpha);
+        int value = -Search(state, arg_depth - 1, arg_search_ext, -val_inf, -alpha);
         UndoMove(state, undo);
         if (value > best_value) {
             best_moves.clear();

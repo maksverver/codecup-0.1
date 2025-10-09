@@ -22,7 +22,7 @@ int Evaluate(const State &state);
 //  beta <= v:        v is a lower bound on the exact value
 //
 // Precondition: alpha < beta
-int Search(State &state, int depth_left, int alpha, int beta);
+int Search(State &state, int depth_left, int ext_left, int alpha, int beta);
 
 // Returns a list of best moves paired with the maximum game tree value.
 std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<Move> &all_moves);
