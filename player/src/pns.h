@@ -29,6 +29,9 @@
 // Maximum number of PNS nodes (in millions). Defined in analysis.cc.
 extern int arg_pns_max_nodes;
 
+// Initialize PNS nodes using move count. Defined in analysis.cc
+extern bool arg_pns_init_moves;
+
 const int pn_inf = 999999999;
 
 // A single node in the Proof Number Search tree.
@@ -81,6 +84,24 @@ struct PnsNode {
                 // Disproven
                 node.pn = pn_inf;
                 node.dn = 0;
+            }
+        } else if (arg_pns_init_moves) {
+            size_t nmove = CountAllMoves(state);
+            if (nmove == 0) {
+                // No moves -> loss -> disproven
+                if (state.NextPlayer() == player) {
+                    node.pn = pn_inf;
+                    node.dn = 0;
+                } else {
+                    node.pn = 0;
+                    node.dn = pn_inf;
+                }
+            } else {
+                if (state.NextPlayer() == player) {
+                    node.dn = nmove;
+                } else {
+                    node.pn = nmove;
+                }
             }
         }
         return node;

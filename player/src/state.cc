@@ -186,6 +186,33 @@ size_t GenerateAllMoves(const State &state, Move (&moves)[MAX_MOVES]) {
     return nmove;
 }
 
+size_t CountAllMoves(const State &state) {
+    color_t next_player = state.NextPlayer();
+    size_t nmove = 0;
+    size_t drops =
+        (state.captured[next_player][KNIGHT]  > 0) +
+        (state.captured[next_player][FERZ]    > 0) +
+        (state.captured[next_player][DABBABA] > 0) +
+        (state.captured[next_player][ALFIL]   > 0);
+    for (int r1 = 0; r1 < 8; ++r1) {
+        for (int c1 = 0; c1 < 8; ++c1) {
+            field_t field = state.FieldAt(r1, c1);
+            if (IsEmpty(field)) {
+                nmove += drops;
+            } else if (HasColor(field, next_player)) {
+                piece_t piece = Piece(field);
+                for (auto [dr, dc] : piece_delta[piece]) {
+                    int r2 = r1 + dr;
+                    int c2 = c1 + dc;
+                    if (InBounds(r2, c2) && !HasColor(state.FieldAt(r2, c2), next_player)) ++nmove;
+                }
+            }
+        }
+    }
+    return nmove;
+}
+
+
 std::vector<Move> GenerateAllMoves(const State &state) {
     Move moves[MAX_MOVES];
     size_t nmove = GenerateAllMoves(state, moves);

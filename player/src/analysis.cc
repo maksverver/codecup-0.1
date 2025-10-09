@@ -12,6 +12,8 @@ DECLARE_OPTION(int, arg_depth, 4, "depth", "Maximum search depth.");
 
 DECLARE_OPTION(int, arg_tt_depth, 99, "tt-depth", "Minimum search depth left to use transposition table. (0 disables)");
 
+DECLARE_OPTION(bool, arg_pns_init_moves, false, "pns-init-moves", "Initialize PNS nodes using move count");
+
 DECLARE_OPTION(int, arg_pns_max_nodes, 0, "pns-max-nodes", "Maximum number of PNS nodes (in millions)");
 
 DECLARE_OPTION(bool, arg_complex_eval, false, "complex-eval", "More detailed evaluation");
