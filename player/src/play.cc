@@ -196,12 +196,19 @@ void PlayGame(rng_t &rng) {
                 output = FormatSetupMove(state.NextPlayer(), setup_move);
                 ExecuteSetupMove(state, setup_move);
             } else {
-                std::vector<Move> all_moves = GenerateAllMoves(state);
-                assert(!all_moves.empty());
-                auto [best_moves, best_score] = FindBestMoves(state, all_moves);
-                LogMoveCount(all_moves.size(), best_moves.size(), best_score);
-                assert(!best_moves.empty());
-                Move move = RandomSample(best_moves, rng);
+                Move move = Move::Null();
+                PnsResult pns_res = FindWinningMove(state);
+                LogPnsResult(pns_res.status, pns_res.nodes_expanded);
+                if (pns_res.status == 1) {
+                    move = pns_res.winning_move;
+                } else {
+                    std::vector<Move> all_moves = GenerateAllMoves(state);
+                    assert(!all_moves.empty());
+                    auto [best_moves, best_score] = FindBestMoves(state, all_moves);
+                    LogMoveCount(all_moves.size(), best_moves.size(), best_score);
+                    assert(!best_moves.empty());
+                    move = RandomSample(best_moves, rng);
+                }
                 output = FormatMove(state.NextPlayer(), move);
                 ExecuteMove(state, move);
             }
@@ -252,14 +259,20 @@ void PlaySingleMove(const State &state, rng_t &rng) {
         SetupMove move = GenerateSetupMove(state, rng);
         output = FormatSetupMove(player, move);
     } else {
-        std::vector<Move> all_moves = GenerateAllMoves(state);
-        if (all_moves.empty()) {
-            std::cerr << "No moves left!";
-            exit(1);
+        PnsResult pns_res = FindWinningMove(state);
+        Move move = Move::Null();
+        if (pns_res.status == 1) {
+            move = pns_res.winning_move;
+        } else {
+            std::vector<Move> all_moves = GenerateAllMoves(state);
+            if (all_moves.empty()) {
+                std::cerr << "No moves left!";
+                exit(1);
+            }
+            auto [best_moves, best_score] = FindBestMoves(state, all_moves);
+            assert(!best_moves.empty());
+            move = RandomSample(best_moves, rng);
         }
-        auto [best_moves, best_score] = FindBestMoves(state, all_moves);
-        assert(!best_moves.empty());
-        Move move = RandomSample(best_moves, rng);
         output = FormatMove(player, move);
     }
     assert(!output.empty());

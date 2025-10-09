@@ -131,4 +131,8 @@ inline void LogMoveCount(int total_moves, int best_moves, int best_score) {
     LogStream("MOVES") << total_moves << ' ' << best_moves << ' ' << best_score;
 }
 
+inline void LogPnsResult(int status, int nodes_expanded) {
+    LogStream("PNS") << status << ' ' << nodes_expanded;
+}
+
 #endif  // ndef LOGGING_H_INCLUDED
