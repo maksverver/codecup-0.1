@@ -189,6 +189,7 @@ void PlayGame(rng_t &rng) {
             auto pause_duration = timer.Resume();
             LogPause(pause_duration, timer.Elapsed(false));
             // Calculate my move.
+            log_duration_t pns_duration = timer.Elapsed();
             std::string output;
             if (state.turn < 2) {
                 // Place initial pieces.
@@ -198,16 +199,22 @@ void PlayGame(rng_t &rng) {
             } else {
                 Move move = Move::Null();
                 PnsResult pns_res = FindWinningMove(state);
-                LogPnsResult(pns_res.status, pns_res.nodes_expanded);
+                LogPnsResult(pns_res.status, pns_res.nodes_expanded, timer.Elapsed());
                 if (pns_res.status == 1) {
                     move = pns_res.winning_move;
                 } else {
                     std::vector<Move> all_moves = GenerateAllMoves(state);
                     assert(!all_moves.empty());
-                    auto [best_moves, best_score] = FindBestMoves(state, all_moves);
-                    LogMoveCount(all_moves.size(), best_moves.size(), best_score);
-                    assert(!best_moves.empty());
-                    move = RandomSample(best_moves, rng);
+                    FindBestMovesResult search_res = FindBestMoves(state, all_moves);
+                    LogSearchResult(
+                        all_moves.size(),
+                        search_res.best_moves.size(),
+                        search_res.best_value,
+                        search_res.nodes_evaluated,
+                        search_res.tt_hits,
+                        search_res.tt_used);
+                    assert(!search_res.best_moves.empty());
+                    move = RandomSample(search_res.best_moves, rng);
                 }
                 output = FormatMove(state.NextPlayer(), move);
                 ExecuteMove(state, move);
@@ -269,9 +276,9 @@ void PlaySingleMove(const State &state, rng_t &rng) {
                 std::cerr << "No moves left!";
                 exit(1);
             }
-            auto [best_moves, best_score] = FindBestMoves(state, all_moves);
-            assert(!best_moves.empty());
-            move = RandomSample(best_moves, rng);
+            FindBestMovesResult res = FindBestMoves(state, all_moves);
+            assert(!res.best_moves.empty());
+            move = RandomSample(res.best_moves, rng);
         }
         output = FormatMove(player, move);
     }

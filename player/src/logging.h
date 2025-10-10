@@ -125,14 +125,16 @@ inline void LogPause(log_duration_t interval, log_duration_t total) {
     LogStream("PAUSE") << interval << ' ' << total;
 }
 
-// Logs the number of possible moves, the number of optimal moves, and the
-// score for those moves.
-inline void LogMoveCount(int total_moves, int best_moves, int best_score) {
-    LogStream("MOVES") << total_moves << ' ' << best_moves << ' ' << best_score;
+inline void LogSearchResult(
+        int total_moves, int best_moves, int best_score,
+        int evals, int tt_hits, int tt_used) {
+    LogStream("SEARCH")
+        << total_moves << ' ' << best_moves << ' ' << best_score << ' '
+        << evals << ' ' << tt_hits << ' ' << tt_used;
 }
 
-inline void LogPnsResult(int status, int nodes_expanded) {
-    LogStream("PNS") << status << ' ' << nodes_expanded;
+inline void LogPnsResult(int status, int nodes_expanded, log_duration_t time) {
+    LogStream("PNS") << status << ' ' << nodes_expanded << ' ' << time;
 }
 
 #endif  // ndef LOGGING_H_INCLUDED

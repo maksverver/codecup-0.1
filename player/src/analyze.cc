@@ -70,17 +70,17 @@ int main(int argc, char *argv[]) {
             }
         }
         if (state.turn >= 2) {
-            auto [moves, score] = FindBestMoves(state, GenerateAllMoves(state));
+            auto res = FindBestMoves(state, GenerateAllMoves(state));
             color_t color = state.NextPlayer();
             std::cout
                 << "Player " << int{color} << "; "
-                << "Score: " << score << "; "
+                << "Score: " << res.best_value << "; "
                 << "Best moves:";
-            for (size_t j = 0; j < moves.size() && j < (size_t) arg_print_moves; ++j) {
-                std::cout << ' ' << FormatMove(state.NextPlayer(), moves[j]);
+            for (size_t j = 0; j < res.best_moves.size() && j < (size_t) arg_print_moves; ++j) {
+                std::cout << ' ' << FormatMove(state.NextPlayer(), res.best_moves[j]);
             }
-            if (moves.size() > (size_t) arg_print_moves) {
-                std::cout << "... (" << moves.size() << " total)";
+            if (res.best_moves.size() > (size_t) arg_print_moves) {
+                std::cout << "... (" << res.best_moves.size() << " total)";
             }
             std::cout << std::endl;
 

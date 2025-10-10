@@ -8,7 +8,9 @@
 #include <vector>
 #include <utility>
 
-DECLARE_OPTION(int, arg_depth, 4, "depth", "Maximum search depth.");
+DECLARE_OPTION(int, arg_max_depth, 4, "max-depth", "Maximum search depth.");
+
+DECLARE_OPTION(int, arg_max_evals, 1000000000, "max-evals", "Maximum search states evaluated.");
 
 DECLARE_OPTION(int, arg_tt_depth, 99, "tt-depth", "Minimum search depth left to use transposition table. (0 disables)");
 
@@ -59,9 +61,11 @@ struct TTEntry {
 
 std::unordered_map<State, TTEntry, StateHash, StateEqual> tt;
 
-static long long nodes_evaluated = 0;
-static long long tt_hits = 0;
-static long long tt_used = 0;
+struct SearchContext {
+    int64_t evals_left = 0;
+    int64_t tt_hits = 0;
+    int64_t tt_used = 0;
+};
 
 }  // namespace
 
@@ -156,7 +160,7 @@ int Evaluate(const State &state) {
 //  beta <= v:        v is a lower bound on the exact value
 //
 // Precondition: alpha < beta
-int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
+int Search(State &state, int depth_left, int ext_left, int alpha, int beta, SearchContext &ctx) {
 
     if (state.GameOver()) {
         int value = val_win + depth_left;
@@ -164,7 +168,8 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
     }
 
     if (depth_left == 0) {
-        ++nodes_evaluated;
+        if (ctx.evals_left == 0) return 0;
+        --ctx.evals_left;
         return Evaluate(state);
     }
 
@@ -172,17 +177,17 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
     TTEntry *entry = nullptr;
     if (depth_left >= arg_tt_depth) {
         entry = &tt[state];
-        if (entry->depth_left > 0) ++tt_hits;
+        if (entry->depth_left > 0) ++ctx.tt_hits;
         // Note: we do use cached values with *higher* depth_left, which potentially
         // changes the result compared to not using the TT at all.
         // (May want to make this optional for deterministic testing.)
         if (entry->depth_left >= arg_tt_depth) {
             if (entry->lower_bound == entry->upper_bound ||
                     entry->lower_bound >= beta) {
-                ++tt_used;
+                ++ctx.tt_used;
                 return entry->lower_bound;
             } else if (entry->upper_bound <= alpha) {
-                ++tt_used;
+                ++ctx.tt_used;
                 return entry->upper_bound;
             }
         }
@@ -199,7 +204,7 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
             int d = depth_left - 1;
             int e = ext_left;
             if (d == 0 && undo.old_piece < PIECE_COUNT && e > 0) ++d, --e;
-            int value = -Search(state, d, e, -beta, -alpha2);
+            int value = -Search(state, d, e, -beta, -alpha2, ctx);
             UndoMove(state, undo);
             if (value > best_value) {
                 best_value = value;
@@ -220,38 +225,47 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta) {
 }
 
 // Returns a list of best moves paired with the maximum game tree value.
-std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<Move> &all_moves) {
-    assert(arg_depth > 0);
-    std::vector<Move> best_moves;
-    int best_value = -val_inf;
-    int alpha = -val_inf;
-    for (const Move &move : all_moves) {
-        UndoState undo = ExecuteMove(state, move);
-        int value = -Search(state, arg_depth - 1, arg_search_ext, -val_inf, -alpha);
-        UndoMove(state, undo);
-        if (value > best_value) {
-            best_moves.clear();
-            best_value = value;
-            // The -1 here is important because we want to collect ALL best moves.
-            // Setting alpha = best_value might give a small speedup, but then only
-            // the first move discovered can be used, since for any subsequent moves
-            // with value == best_move would only be an upper bound and might not be
-            // optimal.
-            alpha = value - 1;
+// TODO: return result struct which includes depth
+FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_moves) {
+    assert(arg_max_depth > 0);
+    SearchContext ctx = {};
+    ctx.evals_left = arg_max_evals;
+    FindBestMovesResult res = {};
+    // TODO: predict when the next depth will exceed evals_left
+    for (int depth = 2; depth < arg_max_depth; ++depth) {
+        std::vector<Move> best_moves;
+        int best_value = -val_inf;
+        int alpha = -val_inf;
+        for (const Move &move : all_moves) {
+            UndoState undo = ExecuteMove(state, move);
+            int value = -Search(state, arg_max_depth - 1, arg_search_ext, -val_inf, -alpha, ctx);
+            UndoMove(state, undo);
+            if (ctx.evals_left == 0) {
+                break;
+            }
+            if (value > best_value) {
+                best_moves.clear();
+                best_value = value;
+                // The -1 here is important because we want to collect ALL best moves.
+                // Setting alpha = best_value might give a small speedup, but then only
+                // the first move discovered can be used, since for any subsequent moves
+                // with value == best_move would only be an upper bound and might not be
+                // optimal.
+                alpha = value - 1;
+            }
+            if (value == best_value) {
+                best_moves.push_back(move);
+            }
         }
-        if (value == best_value) {
-            best_moves.push_back(move);
+        if (!best_moves.empty()) {
+            res.best_moves = std::move(best_moves);
+            res.best_value = best_value;
+            res.nodes_evaluated = arg_max_evals - ctx.evals_left;
+            res.tt_hits = ctx.tt_hits;
+            res.tt_used = ctx.tt_used;
         }
     }
-
-    if (false) {
-        std::cerr
-            << "nodes_evaluated=" << nodes_evaluated << ' '
-            << "tt_hits=" << tt_hits << ' '
-            << "tt_used=" << tt_used << std::endl;
-    }
-
-    return {best_moves, best_value};
+    return res;
 }
 
 PnsResult FindWinningMove(const State &state) {

@@ -24,8 +24,17 @@ int Evaluate(const State &state);
 // Precondition: alpha < beta
 int Search(State &state, int depth_left, int ext_left, int alpha, int beta);
 
+struct FindBestMovesResult {
+    std::vector<Move> best_moves;
+    int best_value = 0;
+
+    int nodes_evaluated = 0;
+    int tt_hits = 0;
+    int tt_used = 0;
+};
+
 // Returns a list of best moves paired with the maximum game tree value.
-std::pair<std::vector<Move>, int> FindBestMoves(State state, const std::vector<Move> &all_moves);
+FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_moves);
 
 // Searches for a winning move using Proof Number Search.
 PnsResult FindWinningMove(const State &state);
