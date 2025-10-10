@@ -188,7 +188,6 @@ void PlayGame(rng_t &rng) {
             auto pause_duration = timer.Resume();
             LogPause(pause_duration, timer.Elapsed(false));
             // Calculate my move.
-            log_duration_t pns_duration = timer.Elapsed();
             std::string output;
             if (state.turn < 2) {
                 // Place initial pieces.
@@ -197,8 +196,9 @@ void PlayGame(rng_t &rng) {
                 ExecuteSetupMove(state, setup_move);
             } else {
                 Move move = Move::Null();
+                auto pns_start = timer.Elapsed();
                 PnsResult pns_res = FindWinningMove(state);
-                LogPnsResult(pns_res.status, pns_res.nodes_expanded, timer.Elapsed());
+                LogPnsResult(pns_res.status, pns_res.nodes_expanded, timer.Elapsed() - pns_start);
                 if (pns_res.status == 1) {
                     move = pns_res.winning_move;
                 } else {
