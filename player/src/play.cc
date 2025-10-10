@@ -26,8 +26,7 @@
 
 namespace {
 
-// TODO: real player name
-const std::string player_name = "Olive";
+const std::string player_name = "P-1.0-n";
 
 DECLARE_OPTION(bool, arg_help, false, "help",
         "show usage information");
