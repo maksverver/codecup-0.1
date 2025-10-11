@@ -26,7 +26,7 @@
 
 namespace {
 
-const std::string player_name = "P-1.0-n";
+const std::string player_name = "P10n";
 
 DECLARE_OPTION(bool, arg_help, false, "help",
         "show usage information");
