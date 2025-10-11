@@ -10,7 +10,7 @@
 
 DECLARE_OPTION(int, arg_max_depth, 4, "max-depth", "Maximum search depth.");
 
-DECLARE_OPTION(int, arg_max_evals, 1000000000, "max-evals", "Maximum search states evaluated.");
+DECLARE_OPTION(int64_t, arg_max_evals, 1000000, "max-evals", "Maximum search states evaluated.");
 
 DECLARE_OPTION(int, arg_tt_depth, 99, "tt-depth", "Minimum search depth left to use transposition table. (0 disables)");
 
