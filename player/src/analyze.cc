@@ -75,6 +75,9 @@ int main(int argc, char *argv[]) {
             std::cout
                 << "Player " << int{color} << "; "
                 << "Score: " << res.best_value << "; "
+                << "Depth: " << res.search_depth << "; "
+                << "Evals: " << res.nodes_evaluated << "; "
+                << "TT used/hits: " << res.tt_used + '/' + res.tt_hits << "; "
                 << "Best moves:";
             for (size_t j = 0; j < res.best_moves.size() && j < (size_t) arg_print_moves; ++j) {
                 std::cout << ' ' << FormatMove(state.NextPlayer(), res.best_moves[j]);

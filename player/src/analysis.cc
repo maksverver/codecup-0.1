@@ -168,7 +168,7 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
     }
 
     if (depth_left == 0) {
-        if (ctx.evals_left == 0) return 0;
+        if (ctx.evals_left <= 0) return 0;  // aborted
         --ctx.evals_left;
         return Evaluate(state);
     }
@@ -206,6 +206,11 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
             if (d == 0 && undo.old_piece < PIECE_COUNT && e > 0) ++d, --e;
             int value = -Search(state, d, e, -beta, -alpha2, ctx);
             UndoMove(state, undo);
+            if (ctx.evals_left <= 0) {
+                // Search aborted. Return immediately so we DO NOT overwrite
+                // the transposition table with an invalid value.
+                return 0;
+            }
             if (value > best_value) {
                 best_value = value;
                 if (value > alpha2) alpha2 = value;
@@ -227,21 +232,21 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
 // Returns a list of best moves paired with the maximum game tree value.
 // TODO: return result struct which includes depth
 FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_moves) {
-    assert(arg_max_depth > 0);
     SearchContext ctx = {};
     ctx.evals_left = arg_max_evals;
     FindBestMovesResult res = {};
     // TODO: predict when the next depth will exceed evals_left
-    for (int depth = 2; depth < arg_max_depth; ++depth) {
+    assert(arg_max_depth >= 2);
+    for (int depth = 2; depth <= arg_max_depth; ++depth) {
         std::vector<Move> best_moves;
         int best_value = -val_inf;
         int alpha = -val_inf;
         for (const Move &move : all_moves) {
             UndoState undo = ExecuteMove(state, move);
-            int value = -Search(state, arg_max_depth - 1, arg_search_ext, -val_inf, -alpha, ctx);
+            int value = -Search(state, depth - 1, arg_search_ext, -val_inf, -alpha, ctx);
             UndoMove(state, undo);
-            if (ctx.evals_left == 0) {
-                break;
+            if (ctx.evals_left <= 0) {
+                goto search_aborted;
             }
             if (value > best_value) {
                 best_moves.clear();
@@ -257,14 +262,15 @@ FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_move
                 best_moves.push_back(move);
             }
         }
-        if (!best_moves.empty()) {
-            res.best_moves = std::move(best_moves);
-            res.best_value = best_value;
-            res.nodes_evaluated = arg_max_evals - ctx.evals_left;
-            res.tt_hits = ctx.tt_hits;
-            res.tt_used = ctx.tt_used;
-        }
+        res = FindBestMovesResult{
+            .best_moves = std::move(best_moves),
+            .best_value = best_value,
+            .search_depth = depth,
+            .nodes_evaluated = arg_max_evals - ctx.evals_left,
+            .tt_hits = ctx.tt_hits,
+            .tt_used = ctx.tt_used};
     }
+search_aborted:
     return res;
 }
 

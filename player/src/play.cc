@@ -209,6 +209,7 @@ void PlayGame(rng_t &rng) {
                         all_moves.size(),
                         search_res.best_moves.size(),
                         search_res.best_value,
+                        search_res.search_depth,
                         search_res.nodes_evaluated,
                         search_res.tt_hits,
                         search_res.tt_used);

@@ -127,10 +127,10 @@ inline void LogPause(log_duration_t interval, log_duration_t total) {
 
 inline void LogSearchResult(
         int total_moves, int best_moves, int best_score,
-        int evals, int tt_hits, int tt_used) {
+        int depth, int evals, int tt_hits, int tt_used) {
     LogStream("SEARCH")
         << total_moves << ' ' << best_moves << ' ' << best_score << ' '
-        << evals << ' ' << tt_hits << ' ' << tt_used;
+        << depth << ' ' << evals << ' ' << tt_hits << ' ' << tt_used;
 }
 
 inline void LogPnsResult(int status, int nodes_expanded, log_duration_t time) {
