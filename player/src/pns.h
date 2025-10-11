@@ -176,18 +176,17 @@ class ProofNumberSearch {
 public:
 
     static ProofNumberSearch Create(const State &state) {
-        assert(std::numeric_limits<int>::max() / 1000000 >= arg_pns_max_nodes);
-        return ProofNumberSearch(state, arg_pns_max_nodes * 1000000);
+        return ProofNumberSearch(state, arg_pns_max_nodes);
     }
 
-    ProofNumberSearch(const State &state, int max_moves) :
+    ProofNumberSearch(const State &state, int max_nodes) :
             root_state(state),  // temp, for debugging
             state(state),
             player(state.NextPlayer())
     {
         assert(!state.GameOver());
-        assert(max_moves > 0);
-        nodes.reserve(max_moves);
+        assert(max_nodes > 0);
+        nodes.reserve(max_nodes);
         nodes.push_back(PnsNode::Create(player, state, Move::Null()));  // root
     }
 
