@@ -10,9 +10,17 @@ RELEASE INSTRUCTIONS
 
 AFTER THE COMPETITION
 
-  - Download competition.csv and place in competition-results/
-  - export SSL_CERT_FILE=tools/codecup.pem  # fix SSL certificate issue
-  - tools/fetch-competition-playerlogs.sh test-X-competition-YYY 'Maks Verver'
-  - tools/fetch-competition-transcripts.py tmp/cache/ \
-      competition-results/test-X-competition-YYY.csv \
-      competition-results/test-X-competition-YYY-transcripts.csv
+  1. Download competition.csv and place in competition-results/
+  2. Optional, if you get SSL errors due toe missing intermediate certificates
+     export SSL_CERT_FILE=tools/codecup.pem (This may not be necessary anymore.)
+  3. tools/fetch-competition-playerlogs.sh competition-XXX 'Maks Verver'
+     (This will ask for the value of the codecupid cookie, which you can get by
+     logging in at https://www.codecup.nl/ and then finding it in the Developer
+     Tools under Application > Storage > Cookies.)
+  4. tools/fetch-competition-transcripts.py tmp/cache/ \
+      competition-results/competition-XXX.csv \
+      competition-results/competition-XXX-transcripts.csv
+  5. Symlink files:
+     ln -s competition-XXX.csv competition-results/test-N-competition.csv
+     ln -s competition-XXX-transcripts.csv competition-results/test-N-competition-transcripts.csv
+     ln -s competition-XXX playerlogs/test-N
