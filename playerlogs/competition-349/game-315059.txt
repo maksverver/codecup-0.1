@@ -1,0 +1,9 @@
+R P-1.0-n (64 bit) (compiler v13.3.0) (commit a258564)
+SEED 10e53b6ad23b489ea8df284be1bd0920
+IO RCVD [Start]
+PAUSE 0 0
+IO SEND [ADNFWADAAFAAAADD]
+TIME 0 0
+IO RCVD [WFNADAAADDFDAAAA]
+ERROR Could not parse setup move: WFNADAAADDFDAAAA
+# Total time used: 0.003 seconds

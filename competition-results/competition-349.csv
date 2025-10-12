@@ -1,0 +1,1581 @@
+Game,Round,IsSwiss,Player,User,Score,Status
+314305,1,swiss,Red,"Kirk Brown",1,LOSE
+314305,1,swiss,Blue,"Test Player A",21,WIN
+314306,1,swiss,Red,"Test Player A",1,LOSE
+314306,1,swiss,Blue,"Kirk Brown",21,WIN
+314307,1,swiss,Red,"Rens van der Avoird",1,LOSE
+314307,1,swiss,Blue,"Marcel Vlastuin",21,WIN
+314308,1,swiss,Red,"Marcel Vlastuin",1,LOSE
+314308,1,swiss,Blue,"Rens van der Avoird",21,WIN
+314309,1,swiss,Red,"Peter van den Brand",21,WIN
+314309,1,swiss,Blue,"Matthijs Tijink",0,TIMEOUT
+314310,1,swiss,Red,"Matthijs Tijink",0,TIMEOUT
+314310,1,swiss,Blue,"Peter van den Brand",21,WIN
+314311,1,swiss,Red,"Marc Oldenhof",21,WIN
+314311,1,swiss,Blue,"Mark ter Brugge",1,LOSE
+314312,1,swiss,Red,"Mark ter Brugge",1,LOSE
+314312,1,swiss,Blue,"Marc Oldenhof",21,WIN
+314313,1,swiss,Red,"Nikita Kurgin",21,WIN
+314313,1,swiss,Blue,"Jelle van der Drift",1,LOSE
+314314,1,swiss,Red,"Jelle van der Drift",1,LOSE
+314314,1,swiss,Blue,"Nikita Kurgin",21,WIN
+314315,1,swiss,Red,"Bas van der Ven",1,LOSE
+314315,1,swiss,Blue,"Marty McScan",21,WIN
+314316,1,swiss,Red,"Marty McScan",21,WIN
+314316,1,swiss,Blue,"Bas van der Ven",1,LOSE
+314317,1,swiss,Red,"Emil Riedeman",1,LOSE
+314317,1,swiss,Blue,"Pieter Marsman",21,WIN
+314318,1,swiss,Red,"Pieter Marsman",21,WIN
+314318,1,swiss,Blue,"Emil Riedeman",1,LOSE
+314319,1,swiss,Red,"Tapani Utriainen",21,WIN
+314319,1,swiss,Blue,"Maks Verver",1,LOSE
+314320,1,swiss,Red,"Maks Verver",1,LOSE
+314320,1,swiss,Blue,"Tapani Utriainen",21,WIN
+314321,1,swiss,Red,"Louis Verhaard",21,WIN
+314321,1,swiss,Blue,"Arco Voets",1,LOSE
+314322,1,swiss,Red,"Arco Voets",1,LOSE
+314322,1,swiss,Blue,"Louis Verhaard",21,WIN
+314323,1,swiss,Red,"Abdessamad El Kasimi",21,WIN
+314323,1,swiss,Blue,"Jan Nunnink",1,LOSE
+314324,1,swiss,Red,"Jan Nunnink",1,LOSE
+314324,1,swiss,Blue,"Abdessamad El Kasimi",21,WIN
+314325,1,swiss,Red,"Alvaro Begue",1,LOSE
+314325,1,swiss,Blue,"Alan Ansell",21,WIN
+314326,1,swiss,Red,"Alan Ansell",21,WIN
+314326,1,swiss,Blue,"Alvaro Begue",1,LOSE
+314327,1,swiss,Red,"Akhil Konduru",1,LOSE
+314327,1,swiss,Blue,"Jelle van Cappelle",21,WIN
+314328,1,swiss,Red,"Jelle van Cappelle",21,WIN
+314328,1,swiss,Blue,"Akhil Konduru",1,LOSE
+314329,1,swiss,Red,"Niklas Een",21,WIN
+314329,1,swiss,Blue,"Jorik Mandemaker",1,LOSE
+314330,1,swiss,Red,"Jorik Mandemaker",21,WIN
+314330,1,swiss,Blue,"Niklas Een",1,LOSE
+314331,1,swiss,Red,"Rhythmay Girdhar",1,LOSE
+314331,1,swiss,Blue,"Fakih Karademir",21,WIN
+314332,1,swiss,Red,"Fakih Karademir",21,WIN
+314332,1,swiss,Blue,"Rhythmay Girdhar",1,LOSE
+314333,2,swiss,Red,"Peter van den Brand",1,LOSE
+314333,2,swiss,Blue,"Marc Oldenhof",21,WIN
+314334,2,swiss,Red,"Marc Oldenhof",21,WIN
+314334,2,swiss,Blue,"Peter van den Brand",1,LOSE
+314335,2,swiss,Red,"Nikita Kurgin",21,WIN
+314335,2,swiss,Blue,"Marty McScan",1,LOSE
+314336,2,swiss,Red,"Marty McScan",1,LOSE
+314336,2,swiss,Blue,"Nikita Kurgin",21,WIN
+314337,2,swiss,Red,"Pieter Marsman",1,LOSE
+314337,2,swiss,Blue,"Tapani Utriainen",21,WIN
+314338,2,swiss,Red,"Tapani Utriainen",21,WIN
+314338,2,swiss,Blue,"Pieter Marsman",1,LOSE
+314339,2,swiss,Red,"Louis Verhaard",21,WIN
+314339,2,swiss,Blue,"Abdessamad El Kasimi",1,LOSE
+314340,2,swiss,Red,"Abdessamad El Kasimi",1,LOSE
+314340,2,swiss,Blue,"Louis Verhaard",21,WIN
+314341,2,swiss,Red,"Alan Ansell",21,WIN
+314341,2,swiss,Blue,"Jelle van Cappelle",1,LOSE
+314342,2,swiss,Red,"Jelle van Cappelle",1,LOSE
+314342,2,swiss,Blue,"Alan Ansell",21,WIN
+314343,2,swiss,Red,"Fakih Karademir",21,WIN
+314343,2,swiss,Blue,"Kirk Brown",1,LOSE
+314344,2,swiss,Red,"Kirk Brown",1,LOSE
+314344,2,swiss,Blue,"Fakih Karademir",21,WIN
+314345,2,swiss,Red,"Test Player A",1,LOSE
+314345,2,swiss,Blue,"Rens van der Avoird",21,WIN
+314346,2,swiss,Red,"Rens van der Avoird",21,WIN
+314346,2,swiss,Blue,"Test Player A",1,LOSE
+314347,2,swiss,Red,"Marcel Vlastuin",1,LOSE
+314347,2,swiss,Blue,"Niklas Een",21,WIN
+314348,2,swiss,Red,"Niklas Een",21,WIN
+314348,2,swiss,Blue,"Marcel Vlastuin",1,LOSE
+314349,2,swiss,Red,"Jorik Mandemaker",21,WIN
+314349,2,swiss,Blue,"Mark ter Brugge",1,LOSE
+314350,2,swiss,Red,"Mark ter Brugge",21,WIN
+314350,2,swiss,Blue,"Jorik Mandemaker",1,LOSE
+314351,2,swiss,Red,"Jelle van der Drift",21,WIN
+314351,2,swiss,Blue,"Bas van der Ven",1,LOSE
+314352,2,swiss,Red,"Bas van der Ven",1,LOSE
+314352,2,swiss,Blue,"Jelle van der Drift",21,WIN
+314353,2,swiss,Red,"Emil Riedeman",1,LOSE
+314353,2,swiss,Blue,"Maks Verver",21,WIN
+314354,2,swiss,Red,"Maks Verver",21,WIN
+314354,2,swiss,Blue,"Emil Riedeman",1,LOSE
+314355,2,swiss,Red,"Arco Voets",21,WIN
+314355,2,swiss,Blue,"Jan Nunnink",1,LOSE
+314356,2,swiss,Red,"Jan Nunnink",1,LOSE
+314356,2,swiss,Blue,"Arco Voets",21,WIN
+314357,2,swiss,Red,"Alvaro Begue",21,WIN
+314357,2,swiss,Blue,"Akhil Konduru",1,LOSE
+314358,2,swiss,Red,"Akhil Konduru",1,LOSE
+314358,2,swiss,Blue,"Alvaro Begue",21,WIN
+314359,2,swiss,Red,"Rhythmay Girdhar",1,LOSE
+314359,2,swiss,Blue,"Matthijs Tijink",21,WIN
+314360,2,swiss,Red,"Matthijs Tijink",11,DRAW
+314360,2,swiss,Blue,"Rhythmay Girdhar",11,DRAW
+314361,3,swiss,Red,"Marc Oldenhof",1,LOSE
+314361,3,swiss,Blue,"Nikita Kurgin",21,WIN
+314362,3,swiss,Red,"Nikita Kurgin",21,WIN
+314362,3,swiss,Blue,"Marc Oldenhof",1,LOSE
+314363,3,swiss,Red,"Tapani Utriainen",1,LOSE
+314363,3,swiss,Blue,"Louis Verhaard",21,WIN
+314364,3,swiss,Red,"Louis Verhaard",21,WIN
+314364,3,swiss,Blue,"Tapani Utriainen",1,LOSE
+314365,3,swiss,Red,"Alan Ansell",21,WIN
+314365,3,swiss,Blue,"Fakih Karademir",1,LOSE
+314366,3,swiss,Red,"Fakih Karademir",1,LOSE
+314366,3,swiss,Blue,"Alan Ansell",21,WIN
+314367,3,swiss,Red,"Rens van der Avoird",1,LOSE
+314367,3,swiss,Blue,"Niklas Een",21,WIN
+314368,3,swiss,Red,"Niklas Een",21,WIN
+314368,3,swiss,Blue,"Rens van der Avoird",1,LOSE
+314369,3,swiss,Red,"Peter van den Brand",21,WIN
+314369,3,swiss,Blue,"Jelle van der Drift",1,LOSE
+314370,3,swiss,Red,"Jelle van der Drift",1,LOSE
+314370,3,swiss,Blue,"Peter van den Brand",21,WIN
+314371,3,swiss,Red,"Marty McScan",21,WIN
+314371,3,swiss,Blue,"Pieter Marsman",1,LOSE
+314372,3,swiss,Red,"Pieter Marsman",21,WIN
+314372,3,swiss,Blue,"Marty McScan",1,LOSE
+314373,3,swiss,Red,"Maks Verver",21,WIN
+314373,3,swiss,Blue,"Arco Voets",1,LOSE
+314374,3,swiss,Red,"Arco Voets",21,WIN
+314374,3,swiss,Blue,"Maks Verver",1,LOSE
+314375,3,swiss,Red,"Abdessamad El Kasimi",1,LOSE
+314375,3,swiss,Blue,"Alvaro Begue",21,WIN
+314376,3,swiss,Red,"Alvaro Begue",21,WIN
+314376,3,swiss,Blue,"Abdessamad El Kasimi",1,LOSE
+314377,3,swiss,Red,"Jelle van Cappelle",1,LOSE
+314377,3,swiss,Blue,"Jorik Mandemaker",21,WIN
+314378,3,swiss,Red,"Jorik Mandemaker",21,WIN
+314378,3,swiss,Blue,"Jelle van Cappelle",1,LOSE
+314379,3,swiss,Red,"Matthijs Tijink",21,WIN
+314379,3,swiss,Blue,"Kirk Brown",1,LOSE
+314380,3,swiss,Red,"Kirk Brown",1,LOSE
+314380,3,swiss,Blue,"Matthijs Tijink",21,WIN
+314381,3,swiss,Red,"Test Player A",1,LOSE
+314381,3,swiss,Blue,"Marcel Vlastuin",21,WIN
+314382,3,swiss,Red,"Marcel Vlastuin",21,WIN
+314382,3,swiss,Blue,"Test Player A",1,LOSE
+314383,3,swiss,Red,"Mark ter Brugge",0,ILLEGAL
+314383,3,swiss,Blue,"Rhythmay Girdhar",21,WIN
+314384,3,swiss,Red,"Rhythmay Girdhar",1,LOSE
+314384,3,swiss,Blue,"Mark ter Brugge",21,WIN
+314385,3,swiss,Red,"Bas van der Ven",11,DRAW
+314385,3,swiss,Blue,"Emil Riedeman",11,DRAW
+314386,3,swiss,Red,"Emil Riedeman",11,DRAW
+314386,3,swiss,Blue,"Bas van der Ven",11,DRAW
+314387,3,swiss,Red,"Jan Nunnink",21,WIN
+314387,3,swiss,Blue,"Akhil Konduru",0,TIMEOUT
+314388,3,swiss,Red,"Akhil Konduru",21,WIN
+314388,3,swiss,Blue,"Jan Nunnink",1,LOSE
+314389,4,swiss,Red,"Nikita Kurgin",21,WIN
+314389,4,swiss,Blue,"Louis Verhaard",1,LOSE
+314390,4,swiss,Red,"Louis Verhaard",21,WIN
+314390,4,swiss,Blue,"Nikita Kurgin",1,LOSE
+314391,4,swiss,Red,"Alan Ansell",21,WIN
+314391,4,swiss,Blue,"Niklas Een",1,LOSE
+314392,4,swiss,Red,"Niklas Een",1,LOSE
+314392,4,swiss,Blue,"Alan Ansell",21,WIN
+314393,4,swiss,Red,"Peter van den Brand",1,LOSE
+314393,4,swiss,Blue,"Tapani Utriainen",21,WIN
+314394,4,swiss,Red,"Marc Oldenhof",1,LOSE
+314394,4,swiss,Blue,"Alvaro Begue",21,WIN
+314395,4,swiss,Red,"Tapani Utriainen",21,WIN
+314395,4,swiss,Blue,"Peter van den Brand",1,LOSE
+314396,4,swiss,Red,"Alvaro Begue",21,WIN
+314396,4,swiss,Blue,"Marc Oldenhof",1,LOSE
+314397,4,swiss,Red,"Jorik Mandemaker",11,DRAW
+314397,4,swiss,Blue,"Fakih Karademir",11,DRAW
+314398,4,swiss,Red,"Fakih Karademir",1,LOSE
+314398,4,swiss,Blue,"Jorik Mandemaker",21,WIN
+314399,4,swiss,Red,"Matthijs Tijink",21,WIN
+314399,4,swiss,Blue,"Rens van der Avoird",1,LOSE
+314400,4,swiss,Red,"Rens van der Avoird",1,LOSE
+314400,4,swiss,Blue,"Matthijs Tijink",21,WIN
+314401,4,swiss,Red,"Marcel Vlastuin",1,LOSE
+314401,4,swiss,Blue,"Marty McScan",21,WIN
+314402,4,swiss,Red,"Marty McScan",1,LOSE
+314402,4,swiss,Blue,"Marcel Vlastuin",21,WIN
+314403,4,swiss,Red,"Pieter Marsman",1,LOSE
+314403,4,swiss,Blue,"Maks Verver",21,WIN
+314404,4,swiss,Red,"Maks Verver",21,WIN
+314404,4,swiss,Blue,"Pieter Marsman",1,LOSE
+314405,4,swiss,Red,"Arco Voets",21,WIN
+314405,4,swiss,Blue,"Jelle van der Drift",1,LOSE
+314406,4,swiss,Red,"Jelle van der Drift",1,LOSE
+314406,4,swiss,Blue,"Arco Voets",21,WIN
+314407,4,swiss,Red,"Abdessamad El Kasimi",21,WIN
+314407,4,swiss,Blue,"Jelle van Cappelle",1,LOSE
+314408,4,swiss,Red,"Jelle van Cappelle",1,LOSE
+314408,4,swiss,Blue,"Abdessamad El Kasimi",21,WIN
+314409,4,swiss,Red,"Mark ter Brugge",21,WIN
+314409,4,swiss,Blue,"Kirk Brown",1,LOSE
+314410,4,swiss,Red,"Rhythmay Girdhar",21,WIN
+314410,4,swiss,Blue,"Test Player A",1,LOSE
+314411,4,swiss,Red,"Kirk Brown",1,LOSE
+314411,4,swiss,Blue,"Mark ter Brugge",21,WIN
+314412,4,swiss,Red,"Test Player A",11,DRAW
+314412,4,swiss,Blue,"Rhythmay Girdhar",11,DRAW
+314413,4,swiss,Red,"Bas van der Ven",1,LOSE
+314413,4,swiss,Blue,"Jan Nunnink",21,WIN
+314414,4,swiss,Red,"Emil Riedeman",1,LOSE
+314414,4,swiss,Blue,"Akhil Konduru",21,WIN
+314415,4,swiss,Red,"Jan Nunnink",11,DRAW
+314415,4,swiss,Blue,"Bas van der Ven",11,DRAW
+314416,4,swiss,Red,"Akhil Konduru",21,WIN
+314416,4,swiss,Blue,"Emil Riedeman",1,LOSE
+314417,5,swiss,Red,"Alan Ansell",21,WIN
+314417,5,swiss,Blue,"Nikita Kurgin",1,LOSE
+314418,5,swiss,Red,"Nikita Kurgin",1,LOSE
+314418,5,swiss,Blue,"Alan Ansell",21,WIN
+314419,5,swiss,Red,"Louis Verhaard",1,LOSE
+314419,5,swiss,Blue,"Alvaro Begue",21,WIN
+314420,5,swiss,Red,"Tapani Utriainen",21,WIN
+314420,5,swiss,Blue,"Jorik Mandemaker",1,LOSE
+314421,5,swiss,Red,"Alvaro Begue",1,LOSE
+314421,5,swiss,Blue,"Louis Verhaard",21,WIN
+314422,5,swiss,Red,"Jorik Mandemaker",1,LOSE
+314422,5,swiss,Blue,"Tapani Utriainen",21,WIN
+314423,5,swiss,Red,"Matthijs Tijink",21,WIN
+314423,5,swiss,Blue,"Maks Verver",1,LOSE
+314424,5,swiss,Red,"Maks Verver",21,WIN
+314424,5,swiss,Blue,"Matthijs Tijink",0,TIMEOUT
+314425,5,swiss,Red,"Arco Voets",1,LOSE
+314425,5,swiss,Blue,"Niklas Een",21,WIN
+314426,5,swiss,Red,"Niklas Een",21,WIN
+314426,5,swiss,Blue,"Arco Voets",1,LOSE
+314427,5,swiss,Red,"Fakih Karademir",1,LOSE
+314427,5,swiss,Blue,"Marcel Vlastuin",21,WIN
+314428,5,swiss,Red,"Marcel Vlastuin",21,WIN
+314428,5,swiss,Blue,"Fakih Karademir",1,LOSE
+314429,5,swiss,Red,"Peter van den Brand",21,WIN
+314429,5,swiss,Blue,"Marty McScan",1,LOSE
+314430,5,swiss,Red,"Marc Oldenhof",21,WIN
+314430,5,swiss,Blue,"Abdessamad El Kasimi",1,LOSE
+314431,5,swiss,Red,"Marty McScan",1,LOSE
+314431,5,swiss,Blue,"Peter van den Brand",21,WIN
+314432,5,swiss,Red,"Abdessamad El Kasimi",1,LOSE
+314432,5,swiss,Blue,"Marc Oldenhof",21,WIN
+314433,5,swiss,Red,"Mark ter Brugge",21,WIN
+314433,5,swiss,Blue,"Rens van der Avoird",1,LOSE
+314434,5,swiss,Red,"Rens van der Avoird",1,LOSE
+314434,5,swiss,Blue,"Mark ter Brugge",21,WIN
+314435,5,swiss,Red,"Pieter Marsman",0,CRASH
+314435,5,swiss,Blue,"Rhythmay Girdhar",21,WIN
+314436,5,swiss,Red,"Rhythmay Girdhar",1,LOSE
+314436,5,swiss,Blue,"Pieter Marsman",21,WIN
+314437,5,swiss,Red,"Akhil Konduru",1,LOSE
+314437,5,swiss,Blue,"Jelle van der Drift",21,WIN
+314438,5,swiss,Red,"Jan Nunnink",1,LOSE
+314438,5,swiss,Blue,"Jelle van Cappelle",21,WIN
+314439,5,swiss,Red,"Jelle van der Drift",21,WIN
+314439,5,swiss,Blue,"Akhil Konduru",1,LOSE
+314440,5,swiss,Red,"Jelle van Cappelle",21,WIN
+314440,5,swiss,Blue,"Jan Nunnink",1,LOSE
+314441,5,swiss,Red,"Test Player A",11,DRAW
+314441,5,swiss,Blue,"Bas van der Ven",11,DRAW
+314442,5,swiss,Red,"Bas van der Ven",11,DRAW
+314442,5,swiss,Blue,"Test Player A",11,DRAW
+314443,5,swiss,Red,"Kirk Brown",11,DRAW
+314443,5,swiss,Blue,"Emil Riedeman",11,DRAW
+314444,5,swiss,Red,"Emil Riedeman",21,WIN
+314444,5,swiss,Blue,"Kirk Brown",1,LOSE
+314445,6,final,Red,"Alan Ansell",21,WIN
+314445,6,final,Blue,"Jan Nunnink",1,LOSE
+314446,6,final,Red,"Jan Nunnink",1,LOSE
+314446,6,final,Blue,"Alan Ansell",21,WIN
+314447,6,final,Red,"Tapani Utriainen",21,WIN
+314447,6,final,Blue,"Emil Riedeman",1,LOSE
+314448,6,final,Red,"Emil Riedeman",1,LOSE
+314448,6,final,Blue,"Tapani Utriainen",21,WIN
+314449,6,final,Red,"Louis Verhaard",21,WIN
+314449,6,final,Blue,"Bas van der Ven",1,LOSE
+314450,6,final,Red,"Bas van der Ven",1,LOSE
+314450,6,final,Blue,"Louis Verhaard",21,WIN
+314451,6,final,Red,"Nikita Kurgin",21,WIN
+314451,6,final,Blue,"Akhil Konduru",1,LOSE
+314452,6,final,Red,"Akhil Konduru",1,LOSE
+314452,6,final,Blue,"Nikita Kurgin",21,WIN
+314453,6,final,Red,"Alvaro Begue",21,WIN
+314453,6,final,Blue,"Rens van der Avoird",1,LOSE
+314454,6,final,Red,"Rens van der Avoird",1,LOSE
+314454,6,final,Blue,"Alvaro Begue",21,WIN
+314455,6,final,Red,"Niklas Een",21,WIN
+314455,6,final,Blue,"Pieter Marsman",1,LOSE
+314456,6,final,Red,"Pieter Marsman",1,LOSE
+314456,6,final,Blue,"Niklas Een",21,WIN
+314457,6,final,Red,"Matthijs Tijink",11,DRAW
+314457,6,final,Blue,"Rhythmay Girdhar",11,DRAW
+314458,6,final,Red,"Rhythmay Girdhar",1,LOSE
+314458,6,final,Blue,"Matthijs Tijink",21,WIN
+314459,6,final,Red,"Marcel Vlastuin",1,LOSE
+314459,6,final,Blue,"Jelle van Cappelle",21,WIN
+314460,6,final,Red,"Jelle van Cappelle",1,LOSE
+314460,6,final,Blue,"Marcel Vlastuin",21,WIN
+314461,6,final,Red,"Peter van den Brand",21,WIN
+314461,6,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314462,6,final,Red,"Abdessamad El Kasimi",1,LOSE
+314462,6,final,Blue,"Peter van den Brand",21,WIN
+314463,6,final,Red,"Marc Oldenhof",21,WIN
+314463,6,final,Blue,"Marty McScan",1,LOSE
+314464,6,final,Red,"Marty McScan",1,LOSE
+314464,6,final,Blue,"Marc Oldenhof",21,WIN
+314465,6,final,Red,"Maks Verver",21,WIN
+314465,6,final,Blue,"Jelle van der Drift",1,LOSE
+314466,6,final,Red,"Jelle van der Drift",1,LOSE
+314466,6,final,Blue,"Maks Verver",21,WIN
+314467,6,final,Red,"Mark ter Brugge",21,WIN
+314467,6,final,Blue,"Fakih Karademir",1,LOSE
+314468,6,final,Red,"Fakih Karademir",1,LOSE
+314468,6,final,Blue,"Mark ter Brugge",21,WIN
+314469,6,final,Red,"Jorik Mandemaker",21,WIN
+314469,6,final,Blue,"Arco Voets",1,LOSE
+314470,6,final,Red,"Arco Voets",21,WIN
+314470,6,final,Blue,"Jorik Mandemaker",1,LOSE
+314471,7,final,Red,"Alan Ansell",21,WIN
+314471,7,final,Blue,"Emil Riedeman",1,LOSE
+314472,7,final,Red,"Emil Riedeman",1,LOSE
+314472,7,final,Blue,"Alan Ansell",21,WIN
+314473,7,final,Red,"Jan Nunnink",11,DRAW
+314473,7,final,Blue,"Bas van der Ven",11,DRAW
+314474,7,final,Red,"Bas van der Ven",1,LOSE
+314474,7,final,Blue,"Jan Nunnink",21,WIN
+314475,7,final,Red,"Tapani Utriainen",21,WIN
+314475,7,final,Blue,"Akhil Konduru",1,LOSE
+314476,7,final,Red,"Akhil Konduru",1,LOSE
+314476,7,final,Blue,"Tapani Utriainen",21,WIN
+314477,7,final,Red,"Louis Verhaard",21,WIN
+314477,7,final,Blue,"Rens van der Avoird",1,LOSE
+314478,7,final,Red,"Rens van der Avoird",1,LOSE
+314478,7,final,Blue,"Louis Verhaard",21,WIN
+314479,7,final,Red,"Nikita Kurgin",21,WIN
+314479,7,final,Blue,"Pieter Marsman",1,LOSE
+314480,7,final,Red,"Pieter Marsman",1,LOSE
+314480,7,final,Blue,"Nikita Kurgin",21,WIN
+314481,7,final,Red,"Alvaro Begue",0,ILLEGAL
+314481,7,final,Blue,"Rhythmay Girdhar",21,WIN
+314482,7,final,Red,"Rhythmay Girdhar",1,LOSE
+314482,7,final,Blue,"Alvaro Begue",21,WIN
+314483,7,final,Red,"Niklas Een",21,WIN
+314483,7,final,Blue,"Jelle van Cappelle",1,LOSE
+314484,7,final,Red,"Jelle van Cappelle",1,LOSE
+314484,7,final,Blue,"Niklas Een",21,WIN
+314485,7,final,Red,"Matthijs Tijink",0,TIMEOUT
+314485,7,final,Blue,"Abdessamad El Kasimi",21,WIN
+314486,7,final,Red,"Abdessamad El Kasimi",1,LOSE
+314486,7,final,Blue,"Matthijs Tijink",21,WIN
+314487,7,final,Red,"Marcel Vlastuin",21,WIN
+314487,7,final,Blue,"Marty McScan",1,LOSE
+314488,7,final,Red,"Marty McScan",21,WIN
+314488,7,final,Blue,"Marcel Vlastuin",1,LOSE
+314489,7,final,Red,"Peter van den Brand",21,WIN
+314489,7,final,Blue,"Jelle van der Drift",1,LOSE
+314490,7,final,Red,"Jelle van der Drift",1,LOSE
+314490,7,final,Blue,"Peter van den Brand",21,WIN
+314491,7,final,Red,"Marc Oldenhof",21,WIN
+314491,7,final,Blue,"Fakih Karademir",1,LOSE
+314492,7,final,Red,"Fakih Karademir",1,LOSE
+314492,7,final,Blue,"Marc Oldenhof",21,WIN
+314493,7,final,Red,"Maks Verver",21,WIN
+314493,7,final,Blue,"Arco Voets",1,LOSE
+314494,7,final,Red,"Arco Voets",21,WIN
+314494,7,final,Blue,"Maks Verver",1,LOSE
+314495,7,final,Red,"Mark ter Brugge",21,WIN
+314495,7,final,Blue,"Jorik Mandemaker",1,LOSE
+314496,7,final,Red,"Jorik Mandemaker",21,WIN
+314496,7,final,Blue,"Mark ter Brugge",1,LOSE
+314497,8,final,Red,"Alan Ansell",21,WIN
+314497,8,final,Blue,"Bas van der Ven",1,LOSE
+314498,8,final,Red,"Bas van der Ven",1,LOSE
+314498,8,final,Blue,"Alan Ansell",21,WIN
+314499,8,final,Red,"Emil Riedeman",1,LOSE
+314499,8,final,Blue,"Akhil Konduru",21,WIN
+314500,8,final,Red,"Akhil Konduru",21,WIN
+314500,8,final,Blue,"Emil Riedeman",1,LOSE
+314501,8,final,Red,"Jan Nunnink",1,LOSE
+314501,8,final,Blue,"Rens van der Avoird",21,WIN
+314502,8,final,Red,"Rens van der Avoird",21,WIN
+314502,8,final,Blue,"Jan Nunnink",1,LOSE
+314503,8,final,Red,"Tapani Utriainen",21,WIN
+314503,8,final,Blue,"Pieter Marsman",1,LOSE
+314504,8,final,Red,"Pieter Marsman",1,LOSE
+314504,8,final,Blue,"Tapani Utriainen",21,WIN
+314505,8,final,Red,"Louis Verhaard",0,ILLEGAL
+314505,8,final,Blue,"Rhythmay Girdhar",21,WIN
+314506,8,final,Red,"Rhythmay Girdhar",1,LOSE
+314506,8,final,Blue,"Louis Verhaard",21,WIN
+314507,8,final,Red,"Nikita Kurgin",21,WIN
+314507,8,final,Blue,"Jelle van Cappelle",1,LOSE
+314508,8,final,Red,"Jelle van Cappelle",1,LOSE
+314508,8,final,Blue,"Nikita Kurgin",21,WIN
+314509,8,final,Red,"Alvaro Begue",21,WIN
+314509,8,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314510,8,final,Red,"Abdessamad El Kasimi",1,LOSE
+314510,8,final,Blue,"Alvaro Begue",21,WIN
+314511,8,final,Red,"Niklas Een",21,WIN
+314511,8,final,Blue,"Marty McScan",1,LOSE
+314512,8,final,Red,"Marty McScan",1,LOSE
+314512,8,final,Blue,"Niklas Een",21,WIN
+314513,8,final,Red,"Matthijs Tijink",21,WIN
+314513,8,final,Blue,"Jelle van der Drift",1,LOSE
+314514,8,final,Red,"Jelle van der Drift",1,LOSE
+314514,8,final,Blue,"Matthijs Tijink",21,WIN
+314515,8,final,Red,"Marcel Vlastuin",11,DRAW
+314515,8,final,Blue,"Fakih Karademir",11,DRAW
+314516,8,final,Red,"Fakih Karademir",21,WIN
+314516,8,final,Blue,"Marcel Vlastuin",1,LOSE
+314517,8,final,Red,"Peter van den Brand",21,WIN
+314517,8,final,Blue,"Arco Voets",1,LOSE
+314518,8,final,Red,"Arco Voets",1,LOSE
+314518,8,final,Blue,"Peter van den Brand",21,WIN
+314519,8,final,Red,"Marc Oldenhof",21,WIN
+314519,8,final,Blue,"Jorik Mandemaker",1,LOSE
+314520,8,final,Red,"Jorik Mandemaker",1,LOSE
+314520,8,final,Blue,"Marc Oldenhof",21,WIN
+314521,8,final,Red,"Maks Verver",1,LOSE
+314521,8,final,Blue,"Mark ter Brugge",21,WIN
+314522,8,final,Red,"Mark ter Brugge",1,LOSE
+314522,8,final,Blue,"Maks Verver",21,WIN
+314523,9,final,Red,"Alan Ansell",21,WIN
+314523,9,final,Blue,"Akhil Konduru",1,LOSE
+314524,9,final,Red,"Akhil Konduru",1,LOSE
+314524,9,final,Blue,"Alan Ansell",21,WIN
+314525,9,final,Red,"Bas van der Ven",1,LOSE
+314525,9,final,Blue,"Rens van der Avoird",21,WIN
+314526,9,final,Red,"Rens van der Avoird",21,WIN
+314526,9,final,Blue,"Bas van der Ven",1,LOSE
+314527,9,final,Red,"Emil Riedeman",1,LOSE
+314527,9,final,Blue,"Pieter Marsman",21,WIN
+314528,9,final,Red,"Pieter Marsman",21,WIN
+314528,9,final,Blue,"Emil Riedeman",1,LOSE
+314529,9,final,Red,"Jan Nunnink",11,DRAW
+314529,9,final,Blue,"Rhythmay Girdhar",11,DRAW
+314530,9,final,Red,"Rhythmay Girdhar",1,LOSE
+314530,9,final,Blue,"Jan Nunnink",21,WIN
+314531,9,final,Red,"Tapani Utriainen",21,WIN
+314531,9,final,Blue,"Jelle van Cappelle",1,LOSE
+314532,9,final,Red,"Jelle van Cappelle",1,LOSE
+314532,9,final,Blue,"Tapani Utriainen",21,WIN
+314533,9,final,Red,"Louis Verhaard",21,WIN
+314533,9,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314534,9,final,Red,"Abdessamad El Kasimi",1,LOSE
+314534,9,final,Blue,"Louis Verhaard",21,WIN
+314535,9,final,Red,"Nikita Kurgin",21,WIN
+314535,9,final,Blue,"Marty McScan",1,LOSE
+314536,9,final,Red,"Marty McScan",1,LOSE
+314536,9,final,Blue,"Nikita Kurgin",21,WIN
+314537,9,final,Red,"Alvaro Begue",21,WIN
+314537,9,final,Blue,"Jelle van der Drift",1,LOSE
+314538,9,final,Red,"Jelle van der Drift",1,LOSE
+314538,9,final,Blue,"Alvaro Begue",21,WIN
+314539,9,final,Red,"Niklas Een",21,WIN
+314539,9,final,Blue,"Fakih Karademir",1,LOSE
+314540,9,final,Red,"Fakih Karademir",1,LOSE
+314540,9,final,Blue,"Niklas Een",21,WIN
+314541,9,final,Red,"Matthijs Tijink",0,TIMEOUT
+314541,9,final,Blue,"Arco Voets",21,WIN
+314542,9,final,Red,"Arco Voets",21,WIN
+314542,9,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314543,9,final,Red,"Marcel Vlastuin",1,LOSE
+314543,9,final,Blue,"Jorik Mandemaker",21,WIN
+314544,9,final,Red,"Jorik Mandemaker",21,WIN
+314544,9,final,Blue,"Marcel Vlastuin",1,LOSE
+314545,9,final,Red,"Peter van den Brand",21,WIN
+314545,9,final,Blue,"Mark ter Brugge",1,LOSE
+314546,9,final,Red,"Mark ter Brugge",21,WIN
+314546,9,final,Blue,"Peter van den Brand",1,LOSE
+314547,9,final,Red,"Marc Oldenhof",21,WIN
+314547,9,final,Blue,"Maks Verver",1,LOSE
+314548,9,final,Red,"Maks Verver",21,WIN
+314548,9,final,Blue,"Marc Oldenhof",1,LOSE
+314549,10,final,Red,"Alan Ansell",21,WIN
+314549,10,final,Blue,"Rens van der Avoird",1,LOSE
+314550,10,final,Red,"Rens van der Avoird",1,LOSE
+314550,10,final,Blue,"Alan Ansell",21,WIN
+314551,10,final,Red,"Akhil Konduru",1,LOSE
+314551,10,final,Blue,"Pieter Marsman",21,WIN
+314552,10,final,Red,"Pieter Marsman",21,WIN
+314552,10,final,Blue,"Akhil Konduru",1,LOSE
+314553,10,final,Red,"Bas van der Ven",0,ILLEGAL
+314553,10,final,Blue,"Rhythmay Girdhar",21,WIN
+314554,10,final,Red,"Rhythmay Girdhar",21,WIN
+314554,10,final,Blue,"Bas van der Ven",1,LOSE
+314555,10,final,Red,"Emil Riedeman",1,LOSE
+314555,10,final,Blue,"Jelle van Cappelle",21,WIN
+314556,10,final,Red,"Jelle van Cappelle",21,WIN
+314556,10,final,Blue,"Emil Riedeman",1,LOSE
+314557,10,final,Red,"Jan Nunnink",1,LOSE
+314557,10,final,Blue,"Abdessamad El Kasimi",21,WIN
+314558,10,final,Red,"Abdessamad El Kasimi",21,WIN
+314558,10,final,Blue,"Jan Nunnink",1,LOSE
+314559,10,final,Red,"Tapani Utriainen",21,WIN
+314559,10,final,Blue,"Marty McScan",1,LOSE
+314560,10,final,Red,"Marty McScan",1,LOSE
+314560,10,final,Blue,"Tapani Utriainen",21,WIN
+314561,10,final,Red,"Louis Verhaard",21,WIN
+314561,10,final,Blue,"Jelle van der Drift",1,LOSE
+314562,10,final,Red,"Jelle van der Drift",1,LOSE
+314562,10,final,Blue,"Louis Verhaard",21,WIN
+314563,10,final,Red,"Nikita Kurgin",21,WIN
+314563,10,final,Blue,"Fakih Karademir",1,LOSE
+314564,10,final,Red,"Fakih Karademir",1,LOSE
+314564,10,final,Blue,"Nikita Kurgin",21,WIN
+314565,10,final,Red,"Alvaro Begue",21,WIN
+314565,10,final,Blue,"Arco Voets",1,LOSE
+314566,10,final,Red,"Arco Voets",1,LOSE
+314566,10,final,Blue,"Alvaro Begue",21,WIN
+314567,10,final,Red,"Niklas Een",21,WIN
+314567,10,final,Blue,"Jorik Mandemaker",1,LOSE
+314568,10,final,Red,"Jorik Mandemaker",1,LOSE
+314568,10,final,Blue,"Niklas Een",21,WIN
+314569,10,final,Red,"Matthijs Tijink",1,LOSE
+314569,10,final,Blue,"Mark ter Brugge",21,WIN
+314570,10,final,Red,"Mark ter Brugge",21,WIN
+314570,10,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314571,10,final,Red,"Marcel Vlastuin",1,LOSE
+314571,10,final,Blue,"Maks Verver",21,WIN
+314572,10,final,Red,"Maks Verver",21,WIN
+314572,10,final,Blue,"Marcel Vlastuin",1,LOSE
+314573,10,final,Red,"Peter van den Brand",1,LOSE
+314573,10,final,Blue,"Marc Oldenhof",21,WIN
+314574,10,final,Red,"Marc Oldenhof",1,LOSE
+314574,10,final,Blue,"Peter van den Brand",21,WIN
+314575,11,final,Red,"Alan Ansell",21,WIN
+314575,11,final,Blue,"Pieter Marsman",1,LOSE
+314576,11,final,Red,"Pieter Marsman",1,LOSE
+314576,11,final,Blue,"Alan Ansell",21,WIN
+314577,11,final,Red,"Rens van der Avoird",0,TIMEOUT
+314577,11,final,Blue,"Rhythmay Girdhar",21,WIN
+314578,11,final,Red,"Rhythmay Girdhar",1,LOSE
+314578,11,final,Blue,"Rens van der Avoird",21,WIN
+314579,11,final,Red,"Akhil Konduru",1,LOSE
+314579,11,final,Blue,"Jelle van Cappelle",21,WIN
+314580,11,final,Red,"Jelle van Cappelle",21,WIN
+314580,11,final,Blue,"Akhil Konduru",1,LOSE
+314581,11,final,Red,"Bas van der Ven",1,LOSE
+314581,11,final,Blue,"Abdessamad El Kasimi",21,WIN
+314582,11,final,Red,"Abdessamad El Kasimi",21,WIN
+314582,11,final,Blue,"Bas van der Ven",1,LOSE
+314583,11,final,Red,"Emil Riedeman",1,LOSE
+314583,11,final,Blue,"Marty McScan",21,WIN
+314584,11,final,Red,"Marty McScan",21,WIN
+314584,11,final,Blue,"Emil Riedeman",1,LOSE
+314585,11,final,Red,"Jan Nunnink",1,LOSE
+314585,11,final,Blue,"Jelle van der Drift",21,WIN
+314586,11,final,Red,"Jelle van der Drift",21,WIN
+314586,11,final,Blue,"Jan Nunnink",1,LOSE
+314587,11,final,Red,"Tapani Utriainen",21,WIN
+314587,11,final,Blue,"Fakih Karademir",1,LOSE
+314588,11,final,Red,"Fakih Karademir",1,LOSE
+314588,11,final,Blue,"Tapani Utriainen",21,WIN
+314589,11,final,Red,"Louis Verhaard",21,WIN
+314589,11,final,Blue,"Arco Voets",1,LOSE
+314590,11,final,Red,"Arco Voets",1,LOSE
+314590,11,final,Blue,"Louis Verhaard",21,WIN
+314591,11,final,Red,"Nikita Kurgin",21,WIN
+314591,11,final,Blue,"Jorik Mandemaker",1,LOSE
+314592,11,final,Red,"Jorik Mandemaker",1,LOSE
+314592,11,final,Blue,"Nikita Kurgin",21,WIN
+314593,11,final,Red,"Alvaro Begue",21,WIN
+314593,11,final,Blue,"Mark ter Brugge",1,LOSE
+314594,11,final,Red,"Mark ter Brugge",1,LOSE
+314594,11,final,Blue,"Alvaro Begue",21,WIN
+314595,11,final,Red,"Niklas Een",21,WIN
+314595,11,final,Blue,"Maks Verver",1,LOSE
+314596,11,final,Red,"Maks Verver",1,LOSE
+314596,11,final,Blue,"Niklas Een",21,WIN
+314597,11,final,Red,"Matthijs Tijink",0,TIMEOUT
+314597,11,final,Blue,"Marc Oldenhof",21,WIN
+314598,11,final,Red,"Marc Oldenhof",21,WIN
+314598,11,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314599,11,final,Red,"Marcel Vlastuin",1,LOSE
+314599,11,final,Blue,"Peter van den Brand",21,WIN
+314600,11,final,Red,"Peter van den Brand",21,WIN
+314600,11,final,Blue,"Marcel Vlastuin",1,LOSE
+314601,12,final,Red,"Alan Ansell",21,WIN
+314601,12,final,Blue,"Rhythmay Girdhar",1,LOSE
+314602,12,final,Red,"Rhythmay Girdhar",1,LOSE
+314602,12,final,Blue,"Alan Ansell",21,WIN
+314603,12,final,Red,"Pieter Marsman",21,WIN
+314603,12,final,Blue,"Jelle van Cappelle",1,LOSE
+314604,12,final,Red,"Jelle van Cappelle",1,LOSE
+314604,12,final,Blue,"Pieter Marsman",21,WIN
+314605,12,final,Red,"Rens van der Avoird",21,WIN
+314605,12,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314606,12,final,Red,"Abdessamad El Kasimi",0,TIMEOUT
+314606,12,final,Blue,"Rens van der Avoird",21,WIN
+314607,12,final,Red,"Akhil Konduru",1,LOSE
+314607,12,final,Blue,"Marty McScan",21,WIN
+314608,12,final,Red,"Marty McScan",21,WIN
+314608,12,final,Blue,"Akhil Konduru",1,LOSE
+314609,12,final,Red,"Bas van der Ven",1,LOSE
+314609,12,final,Blue,"Jelle van der Drift",21,WIN
+314610,12,final,Red,"Jelle van der Drift",21,WIN
+314610,12,final,Blue,"Bas van der Ven",1,LOSE
+314611,12,final,Red,"Emil Riedeman",1,LOSE
+314611,12,final,Blue,"Fakih Karademir",21,WIN
+314612,12,final,Red,"Fakih Karademir",21,WIN
+314612,12,final,Blue,"Emil Riedeman",1,LOSE
+314613,12,final,Red,"Jan Nunnink",1,LOSE
+314613,12,final,Blue,"Arco Voets",21,WIN
+314614,12,final,Red,"Arco Voets",21,WIN
+314614,12,final,Blue,"Jan Nunnink",1,LOSE
+314615,12,final,Red,"Tapani Utriainen",21,WIN
+314615,12,final,Blue,"Jorik Mandemaker",1,LOSE
+314616,12,final,Red,"Jorik Mandemaker",1,LOSE
+314616,12,final,Blue,"Tapani Utriainen",21,WIN
+314617,12,final,Red,"Louis Verhaard",21,WIN
+314617,12,final,Blue,"Mark ter Brugge",1,LOSE
+314618,12,final,Red,"Mark ter Brugge",1,LOSE
+314618,12,final,Blue,"Louis Verhaard",21,WIN
+314619,12,final,Red,"Nikita Kurgin",21,WIN
+314619,12,final,Blue,"Maks Verver",1,LOSE
+314620,12,final,Red,"Maks Verver",1,LOSE
+314620,12,final,Blue,"Nikita Kurgin",21,WIN
+314621,12,final,Red,"Alvaro Begue",21,WIN
+314621,12,final,Blue,"Marc Oldenhof",1,LOSE
+314622,12,final,Red,"Marc Oldenhof",1,LOSE
+314622,12,final,Blue,"Alvaro Begue",21,WIN
+314623,12,final,Red,"Niklas Een",21,WIN
+314623,12,final,Blue,"Peter van den Brand",1,LOSE
+314624,12,final,Red,"Peter van den Brand",1,LOSE
+314624,12,final,Blue,"Niklas Een",21,WIN
+314625,12,final,Red,"Matthijs Tijink",0,TIMEOUT
+314625,12,final,Blue,"Marcel Vlastuin",21,WIN
+314626,12,final,Red,"Marcel Vlastuin",1,LOSE
+314626,12,final,Blue,"Matthijs Tijink",21,WIN
+314627,13,final,Red,"Alan Ansell",21,WIN
+314627,13,final,Blue,"Jelle van Cappelle",1,LOSE
+314628,13,final,Red,"Jelle van Cappelle",1,LOSE
+314628,13,final,Blue,"Alan Ansell",21,WIN
+314629,13,final,Red,"Rhythmay Girdhar",1,LOSE
+314629,13,final,Blue,"Abdessamad El Kasimi",21,WIN
+314630,13,final,Red,"Abdessamad El Kasimi",21,WIN
+314630,13,final,Blue,"Rhythmay Girdhar",1,LOSE
+314631,13,final,Red,"Pieter Marsman",21,WIN
+314631,13,final,Blue,"Marty McScan",1,LOSE
+314632,13,final,Red,"Marty McScan",21,WIN
+314632,13,final,Blue,"Pieter Marsman",1,LOSE
+314633,13,final,Red,"Rens van der Avoird",21,WIN
+314633,13,final,Blue,"Jelle van der Drift",1,LOSE
+314634,13,final,Red,"Jelle van der Drift",21,WIN
+314634,13,final,Blue,"Rens van der Avoird",1,LOSE
+314635,13,final,Red,"Akhil Konduru",1,LOSE
+314635,13,final,Blue,"Fakih Karademir",21,WIN
+314636,13,final,Red,"Fakih Karademir",21,WIN
+314636,13,final,Blue,"Akhil Konduru",1,LOSE
+314637,13,final,Red,"Bas van der Ven",1,LOSE
+314637,13,final,Blue,"Arco Voets",21,WIN
+314638,13,final,Red,"Arco Voets",21,WIN
+314638,13,final,Blue,"Bas van der Ven",1,LOSE
+314639,13,final,Red,"Emil Riedeman",1,LOSE
+314639,13,final,Blue,"Jorik Mandemaker",21,WIN
+314640,13,final,Red,"Jorik Mandemaker",21,WIN
+314640,13,final,Blue,"Emil Riedeman",1,LOSE
+314641,13,final,Red,"Jan Nunnink",1,LOSE
+314641,13,final,Blue,"Mark ter Brugge",21,WIN
+314642,13,final,Red,"Mark ter Brugge",21,WIN
+314642,13,final,Blue,"Jan Nunnink",1,LOSE
+314643,13,final,Red,"Tapani Utriainen",21,WIN
+314643,13,final,Blue,"Maks Verver",1,LOSE
+314644,13,final,Red,"Maks Verver",1,LOSE
+314644,13,final,Blue,"Tapani Utriainen",21,WIN
+314645,13,final,Red,"Louis Verhaard",21,WIN
+314645,13,final,Blue,"Marc Oldenhof",1,LOSE
+314646,13,final,Red,"Marc Oldenhof",1,LOSE
+314646,13,final,Blue,"Louis Verhaard",21,WIN
+314647,13,final,Red,"Nikita Kurgin",21,WIN
+314647,13,final,Blue,"Peter van den Brand",1,LOSE
+314648,13,final,Red,"Peter van den Brand",1,LOSE
+314648,13,final,Blue,"Nikita Kurgin",21,WIN
+314649,13,final,Red,"Alvaro Begue",21,WIN
+314649,13,final,Blue,"Marcel Vlastuin",1,LOSE
+314650,13,final,Red,"Marcel Vlastuin",1,LOSE
+314650,13,final,Blue,"Alvaro Begue",21,WIN
+314651,13,final,Red,"Niklas Een",21,WIN
+314651,13,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314652,13,final,Red,"Matthijs Tijink",1,LOSE
+314652,13,final,Blue,"Niklas Een",21,WIN
+314653,14,final,Red,"Alan Ansell",21,WIN
+314653,14,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314654,14,final,Red,"Abdessamad El Kasimi",1,LOSE
+314654,14,final,Blue,"Alan Ansell",21,WIN
+314655,14,final,Red,"Jelle van Cappelle",1,LOSE
+314655,14,final,Blue,"Marty McScan",21,WIN
+314656,14,final,Red,"Marty McScan",21,WIN
+314656,14,final,Blue,"Jelle van Cappelle",1,LOSE
+314657,14,final,Red,"Rhythmay Girdhar",1,LOSE
+314657,14,final,Blue,"Jelle van der Drift",21,WIN
+314658,14,final,Red,"Jelle van der Drift",0,ILLEGAL
+314658,14,final,Blue,"Rhythmay Girdhar",21,WIN
+314659,14,final,Red,"Pieter Marsman",21,WIN
+314659,14,final,Blue,"Fakih Karademir",1,LOSE
+314660,14,final,Red,"Fakih Karademir",1,LOSE
+314660,14,final,Blue,"Pieter Marsman",21,WIN
+314661,14,final,Red,"Rens van der Avoird",1,LOSE
+314661,14,final,Blue,"Arco Voets",21,WIN
+314662,14,final,Red,"Arco Voets",21,WIN
+314662,14,final,Blue,"Rens van der Avoird",1,LOSE
+314663,14,final,Red,"Akhil Konduru",1,LOSE
+314663,14,final,Blue,"Jorik Mandemaker",21,WIN
+314664,14,final,Red,"Jorik Mandemaker",21,WIN
+314664,14,final,Blue,"Akhil Konduru",1,LOSE
+314665,14,final,Red,"Bas van der Ven",1,LOSE
+314665,14,final,Blue,"Mark ter Brugge",21,WIN
+314666,14,final,Red,"Mark ter Brugge",21,WIN
+314666,14,final,Blue,"Bas van der Ven",1,LOSE
+314667,14,final,Red,"Emil Riedeman",1,LOSE
+314667,14,final,Blue,"Maks Verver",21,WIN
+314668,14,final,Red,"Maks Verver",21,WIN
+314668,14,final,Blue,"Emil Riedeman",1,LOSE
+314669,14,final,Red,"Jan Nunnink",1,LOSE
+314669,14,final,Blue,"Marc Oldenhof",21,WIN
+314670,14,final,Red,"Marc Oldenhof",21,WIN
+314670,14,final,Blue,"Jan Nunnink",1,LOSE
+314671,14,final,Red,"Tapani Utriainen",21,WIN
+314671,14,final,Blue,"Peter van den Brand",1,LOSE
+314672,14,final,Red,"Peter van den Brand",1,LOSE
+314672,14,final,Blue,"Tapani Utriainen",21,WIN
+314673,14,final,Red,"Louis Verhaard",21,WIN
+314673,14,final,Blue,"Marcel Vlastuin",1,LOSE
+314674,14,final,Red,"Marcel Vlastuin",1,LOSE
+314674,14,final,Blue,"Louis Verhaard",21,WIN
+314675,14,final,Red,"Nikita Kurgin",21,WIN
+314675,14,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314676,14,final,Red,"Matthijs Tijink",0,TIMEOUT
+314676,14,final,Blue,"Nikita Kurgin",21,WIN
+314677,14,final,Red,"Alvaro Begue",1,LOSE
+314677,14,final,Blue,"Niklas Een",21,WIN
+314678,14,final,Red,"Niklas Een",21,WIN
+314678,14,final,Blue,"Alvaro Begue",1,LOSE
+314679,15,final,Red,"Alan Ansell",21,WIN
+314679,15,final,Blue,"Marty McScan",1,LOSE
+314680,15,final,Red,"Marty McScan",1,LOSE
+314680,15,final,Blue,"Alan Ansell",21,WIN
+314681,15,final,Red,"Abdessamad El Kasimi",21,WIN
+314681,15,final,Blue,"Jelle van der Drift",1,LOSE
+314682,15,final,Red,"Jelle van der Drift",1,LOSE
+314682,15,final,Blue,"Abdessamad El Kasimi",21,WIN
+314683,15,final,Red,"Jelle van Cappelle",1,LOSE
+314683,15,final,Blue,"Fakih Karademir",21,WIN
+314684,15,final,Red,"Fakih Karademir",21,WIN
+314684,15,final,Blue,"Jelle van Cappelle",1,LOSE
+314685,15,final,Red,"Rhythmay Girdhar",1,LOSE
+314685,15,final,Blue,"Arco Voets",21,WIN
+314686,15,final,Red,"Arco Voets",0,EXIT
+314686,15,final,Blue,"Rhythmay Girdhar",21,WIN
+314687,15,final,Red,"Pieter Marsman",21,WIN
+314687,15,final,Blue,"Jorik Mandemaker",1,LOSE
+314688,15,final,Red,"Jorik Mandemaker",21,WIN
+314688,15,final,Blue,"Pieter Marsman",1,LOSE
+314689,15,final,Red,"Rens van der Avoird",1,LOSE
+314689,15,final,Blue,"Mark ter Brugge",21,WIN
+314690,15,final,Red,"Mark ter Brugge",21,WIN
+314690,15,final,Blue,"Rens van der Avoird",1,LOSE
+314691,15,final,Red,"Akhil Konduru",1,LOSE
+314691,15,final,Blue,"Maks Verver",21,WIN
+314692,15,final,Red,"Maks Verver",21,WIN
+314692,15,final,Blue,"Akhil Konduru",1,LOSE
+314693,15,final,Red,"Bas van der Ven",1,LOSE
+314693,15,final,Blue,"Marc Oldenhof",21,WIN
+314694,15,final,Red,"Marc Oldenhof",21,WIN
+314694,15,final,Blue,"Bas van der Ven",1,LOSE
+314695,15,final,Red,"Emil Riedeman",1,LOSE
+314695,15,final,Blue,"Peter van den Brand",21,WIN
+314696,15,final,Red,"Peter van den Brand",21,WIN
+314696,15,final,Blue,"Emil Riedeman",1,LOSE
+314697,15,final,Red,"Jan Nunnink",1,LOSE
+314697,15,final,Blue,"Marcel Vlastuin",21,WIN
+314698,15,final,Red,"Marcel Vlastuin",21,WIN
+314698,15,final,Blue,"Jan Nunnink",1,LOSE
+314699,15,final,Red,"Tapani Utriainen",21,WIN
+314699,15,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314700,15,final,Red,"Matthijs Tijink",0,TIMEOUT
+314700,15,final,Blue,"Tapani Utriainen",21,WIN
+314701,15,final,Red,"Louis Verhaard",21,WIN
+314701,15,final,Blue,"Niklas Een",1,LOSE
+314702,15,final,Red,"Niklas Een",1,LOSE
+314702,15,final,Blue,"Louis Verhaard",21,WIN
+314703,15,final,Red,"Nikita Kurgin",21,WIN
+314703,15,final,Blue,"Alvaro Begue",1,LOSE
+314704,15,final,Red,"Alvaro Begue",1,LOSE
+314704,15,final,Blue,"Nikita Kurgin",21,WIN
+314705,16,final,Red,"Alan Ansell",21,WIN
+314705,16,final,Blue,"Jelle van der Drift",1,LOSE
+314706,16,final,Red,"Jelle van der Drift",1,LOSE
+314706,16,final,Blue,"Alan Ansell",21,WIN
+314707,16,final,Red,"Marty McScan",21,WIN
+314707,16,final,Blue,"Fakih Karademir",1,LOSE
+314708,16,final,Red,"Fakih Karademir",1,LOSE
+314708,16,final,Blue,"Marty McScan",21,WIN
+314709,16,final,Red,"Abdessamad El Kasimi",21,WIN
+314709,16,final,Blue,"Arco Voets",0,TIMEOUT
+314710,16,final,Red,"Arco Voets",1,LOSE
+314710,16,final,Blue,"Abdessamad El Kasimi",21,WIN
+314711,16,final,Red,"Jelle van Cappelle",1,LOSE
+314711,16,final,Blue,"Jorik Mandemaker",21,WIN
+314712,16,final,Red,"Jorik Mandemaker",21,WIN
+314712,16,final,Blue,"Jelle van Cappelle",1,LOSE
+314713,16,final,Red,"Rhythmay Girdhar",1,LOSE
+314713,16,final,Blue,"Mark ter Brugge",21,WIN
+314714,16,final,Red,"Mark ter Brugge",0,ILLEGAL
+314714,16,final,Blue,"Rhythmay Girdhar",21,WIN
+314715,16,final,Red,"Pieter Marsman",21,WIN
+314715,16,final,Blue,"Maks Verver",1,LOSE
+314716,16,final,Red,"Maks Verver",21,WIN
+314716,16,final,Blue,"Pieter Marsman",1,LOSE
+314717,16,final,Red,"Rens van der Avoird",1,LOSE
+314717,16,final,Blue,"Marc Oldenhof",21,WIN
+314718,16,final,Red,"Marc Oldenhof",1,LOSE
+314718,16,final,Blue,"Rens van der Avoird",21,WIN
+314719,16,final,Red,"Akhil Konduru",1,LOSE
+314719,16,final,Blue,"Peter van den Brand",21,WIN
+314720,16,final,Red,"Peter van den Brand",21,WIN
+314720,16,final,Blue,"Akhil Konduru",1,LOSE
+314721,16,final,Red,"Bas van der Ven",1,LOSE
+314721,16,final,Blue,"Marcel Vlastuin",21,WIN
+314722,16,final,Red,"Marcel Vlastuin",21,WIN
+314722,16,final,Blue,"Bas van der Ven",1,LOSE
+314723,16,final,Red,"Emil Riedeman",1,LOSE
+314723,16,final,Blue,"Matthijs Tijink",21,WIN
+314724,16,final,Red,"Matthijs Tijink",21,WIN
+314724,16,final,Blue,"Emil Riedeman",1,LOSE
+314725,16,final,Red,"Jan Nunnink",1,LOSE
+314725,16,final,Blue,"Niklas Een",21,WIN
+314726,16,final,Red,"Niklas Een",21,WIN
+314726,16,final,Blue,"Jan Nunnink",1,LOSE
+314727,16,final,Red,"Tapani Utriainen",1,LOSE
+314727,16,final,Blue,"Alvaro Begue",21,WIN
+314728,16,final,Red,"Alvaro Begue",21,WIN
+314728,16,final,Blue,"Tapani Utriainen",1,LOSE
+314729,16,final,Red,"Louis Verhaard",21,WIN
+314729,16,final,Blue,"Nikita Kurgin",1,LOSE
+314730,16,final,Red,"Nikita Kurgin",21,WIN
+314730,16,final,Blue,"Louis Verhaard",1,LOSE
+314731,17,final,Red,"Alan Ansell",21,WIN
+314731,17,final,Blue,"Fakih Karademir",1,LOSE
+314732,17,final,Red,"Fakih Karademir",1,LOSE
+314732,17,final,Blue,"Alan Ansell",21,WIN
+314733,17,final,Red,"Jelle van der Drift",1,LOSE
+314733,17,final,Blue,"Arco Voets",21,WIN
+314734,17,final,Red,"Arco Voets",21,WIN
+314734,17,final,Blue,"Jelle van der Drift",1,LOSE
+314735,17,final,Red,"Marty McScan",21,WIN
+314735,17,final,Blue,"Jorik Mandemaker",1,LOSE
+314736,17,final,Red,"Jorik Mandemaker",1,LOSE
+314736,17,final,Blue,"Marty McScan",21,WIN
+314737,17,final,Red,"Abdessamad El Kasimi",1,LOSE
+314737,17,final,Blue,"Mark ter Brugge",21,WIN
+314738,17,final,Red,"Mark ter Brugge",21,WIN
+314738,17,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314739,17,final,Red,"Jelle van Cappelle",1,LOSE
+314739,17,final,Blue,"Maks Verver",21,WIN
+314740,17,final,Red,"Maks Verver",21,WIN
+314740,17,final,Blue,"Jelle van Cappelle",1,LOSE
+314741,17,final,Red,"Rhythmay Girdhar",1,LOSE
+314741,17,final,Blue,"Marc Oldenhof",21,WIN
+314742,17,final,Red,"Marc Oldenhof",21,WIN
+314742,17,final,Blue,"Rhythmay Girdhar",1,LOSE
+314743,17,final,Red,"Pieter Marsman",1,LOSE
+314743,17,final,Blue,"Peter van den Brand",21,WIN
+314744,17,final,Red,"Peter van den Brand",21,WIN
+314744,17,final,Blue,"Pieter Marsman",1,LOSE
+314745,17,final,Red,"Rens van der Avoird",21,WIN
+314745,17,final,Blue,"Marcel Vlastuin",1,LOSE
+314746,17,final,Red,"Marcel Vlastuin",1,LOSE
+314746,17,final,Blue,"Rens van der Avoird",21,WIN
+314747,17,final,Red,"Akhil Konduru",1,LOSE
+314747,17,final,Blue,"Matthijs Tijink",21,WIN
+314748,17,final,Red,"Matthijs Tijink",21,WIN
+314748,17,final,Blue,"Akhil Konduru",1,LOSE
+314749,17,final,Red,"Bas van der Ven",1,LOSE
+314749,17,final,Blue,"Niklas Een",21,WIN
+314750,17,final,Red,"Niklas Een",21,WIN
+314750,17,final,Blue,"Bas van der Ven",1,LOSE
+314751,17,final,Red,"Emil Riedeman",1,LOSE
+314751,17,final,Blue,"Alvaro Begue",21,WIN
+314752,17,final,Red,"Alvaro Begue",21,WIN
+314752,17,final,Blue,"Emil Riedeman",1,LOSE
+314753,17,final,Red,"Jan Nunnink",1,LOSE
+314753,17,final,Blue,"Nikita Kurgin",21,WIN
+314754,17,final,Red,"Nikita Kurgin",21,WIN
+314754,17,final,Blue,"Jan Nunnink",1,LOSE
+314755,17,final,Red,"Tapani Utriainen",1,LOSE
+314755,17,final,Blue,"Louis Verhaard",21,WIN
+314756,17,final,Red,"Louis Verhaard",21,WIN
+314756,17,final,Blue,"Tapani Utriainen",1,LOSE
+314757,18,final,Red,"Alan Ansell",21,WIN
+314757,18,final,Blue,"Arco Voets",1,LOSE
+314758,18,final,Red,"Arco Voets",1,LOSE
+314758,18,final,Blue,"Alan Ansell",21,WIN
+314759,18,final,Red,"Fakih Karademir",1,LOSE
+314759,18,final,Blue,"Jorik Mandemaker",21,WIN
+314760,18,final,Red,"Jorik Mandemaker",21,WIN
+314760,18,final,Blue,"Fakih Karademir",1,LOSE
+314761,18,final,Red,"Jelle van der Drift",21,WIN
+314761,18,final,Blue,"Mark ter Brugge",1,LOSE
+314762,18,final,Red,"Mark ter Brugge",21,WIN
+314762,18,final,Blue,"Jelle van der Drift",1,LOSE
+314763,18,final,Red,"Marty McScan",1,LOSE
+314763,18,final,Blue,"Maks Verver",21,WIN
+314764,18,final,Red,"Maks Verver",21,WIN
+314764,18,final,Blue,"Marty McScan",1,LOSE
+314765,18,final,Red,"Abdessamad El Kasimi",1,LOSE
+314765,18,final,Blue,"Marc Oldenhof",21,WIN
+314766,18,final,Red,"Marc Oldenhof",21,WIN
+314766,18,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314767,18,final,Red,"Jelle van Cappelle",1,LOSE
+314767,18,final,Blue,"Peter van den Brand",21,WIN
+314768,18,final,Red,"Peter van den Brand",21,WIN
+314768,18,final,Blue,"Jelle van Cappelle",1,LOSE
+314769,18,final,Red,"Rhythmay Girdhar",1,LOSE
+314769,18,final,Blue,"Marcel Vlastuin",21,WIN
+314770,18,final,Red,"Marcel Vlastuin",21,WIN
+314770,18,final,Blue,"Rhythmay Girdhar",1,LOSE
+314771,18,final,Red,"Pieter Marsman",21,WIN
+314771,18,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314772,18,final,Red,"Matthijs Tijink",21,WIN
+314772,18,final,Blue,"Pieter Marsman",1,LOSE
+314773,18,final,Red,"Rens van der Avoird",1,LOSE
+314773,18,final,Blue,"Niklas Een",21,WIN
+314774,18,final,Red,"Niklas Een",21,WIN
+314774,18,final,Blue,"Rens van der Avoird",1,LOSE
+314775,18,final,Red,"Akhil Konduru",1,LOSE
+314775,18,final,Blue,"Alvaro Begue",21,WIN
+314776,18,final,Red,"Alvaro Begue",21,WIN
+314776,18,final,Blue,"Akhil Konduru",1,LOSE
+314777,18,final,Red,"Bas van der Ven",1,LOSE
+314777,18,final,Blue,"Nikita Kurgin",21,WIN
+314778,18,final,Red,"Nikita Kurgin",21,WIN
+314778,18,final,Blue,"Bas van der Ven",1,LOSE
+314779,18,final,Red,"Emil Riedeman",1,LOSE
+314779,18,final,Blue,"Louis Verhaard",21,WIN
+314780,18,final,Red,"Louis Verhaard",21,WIN
+314780,18,final,Blue,"Emil Riedeman",1,LOSE
+314781,18,final,Red,"Jan Nunnink",1,LOSE
+314781,18,final,Blue,"Tapani Utriainen",21,WIN
+314782,18,final,Red,"Tapani Utriainen",21,WIN
+314782,18,final,Blue,"Jan Nunnink",1,LOSE
+314783,19,final,Red,"Alan Ansell",21,WIN
+314783,19,final,Blue,"Jorik Mandemaker",1,LOSE
+314784,19,final,Red,"Jorik Mandemaker",1,LOSE
+314784,19,final,Blue,"Alan Ansell",21,WIN
+314785,19,final,Red,"Arco Voets",21,WIN
+314785,19,final,Blue,"Mark ter Brugge",1,LOSE
+314786,19,final,Red,"Mark ter Brugge",21,WIN
+314786,19,final,Blue,"Arco Voets",1,LOSE
+314787,19,final,Red,"Fakih Karademir",1,LOSE
+314787,19,final,Blue,"Maks Verver",21,WIN
+314788,19,final,Red,"Maks Verver",21,WIN
+314788,19,final,Blue,"Fakih Karademir",1,LOSE
+314789,19,final,Red,"Jelle van der Drift",1,LOSE
+314789,19,final,Blue,"Marc Oldenhof",21,WIN
+314790,19,final,Red,"Marc Oldenhof",21,WIN
+314790,19,final,Blue,"Jelle van der Drift",1,LOSE
+314791,19,final,Red,"Marty McScan",1,LOSE
+314791,19,final,Blue,"Peter van den Brand",21,WIN
+314792,19,final,Red,"Peter van den Brand",21,WIN
+314792,19,final,Blue,"Marty McScan",1,LOSE
+314793,19,final,Red,"Abdessamad El Kasimi",21,WIN
+314793,19,final,Blue,"Marcel Vlastuin",1,LOSE
+314794,19,final,Red,"Marcel Vlastuin",1,LOSE
+314794,19,final,Blue,"Abdessamad El Kasimi",21,WIN
+314795,19,final,Red,"Jelle van Cappelle",1,LOSE
+314795,19,final,Blue,"Matthijs Tijink",21,WIN
+314796,19,final,Red,"Matthijs Tijink",21,WIN
+314796,19,final,Blue,"Jelle van Cappelle",1,LOSE
+314797,19,final,Red,"Rhythmay Girdhar",1,LOSE
+314797,19,final,Blue,"Niklas Een",21,WIN
+314798,19,final,Red,"Niklas Een",0,CRASH
+314798,19,final,Blue,"Rhythmay Girdhar",21,WIN
+314799,19,final,Red,"Pieter Marsman",1,LOSE
+314799,19,final,Blue,"Alvaro Begue",21,WIN
+314800,19,final,Red,"Alvaro Begue",21,WIN
+314800,19,final,Blue,"Pieter Marsman",1,LOSE
+314801,19,final,Red,"Rens van der Avoird",1,LOSE
+314801,19,final,Blue,"Nikita Kurgin",21,WIN
+314802,19,final,Red,"Nikita Kurgin",21,WIN
+314802,19,final,Blue,"Rens van der Avoird",1,LOSE
+314803,19,final,Red,"Akhil Konduru",1,LOSE
+314803,19,final,Blue,"Louis Verhaard",21,WIN
+314804,19,final,Red,"Louis Verhaard",21,WIN
+314804,19,final,Blue,"Akhil Konduru",1,LOSE
+314805,19,final,Red,"Bas van der Ven",1,LOSE
+314805,19,final,Blue,"Tapani Utriainen",21,WIN
+314806,19,final,Red,"Tapani Utriainen",21,WIN
+314806,19,final,Blue,"Bas van der Ven",1,LOSE
+314807,19,final,Red,"Emil Riedeman",1,LOSE
+314807,19,final,Blue,"Jan Nunnink",21,WIN
+314808,19,final,Red,"Jan Nunnink",21,WIN
+314808,19,final,Blue,"Emil Riedeman",1,LOSE
+314809,20,final,Red,"Alan Ansell",21,WIN
+314809,20,final,Blue,"Mark ter Brugge",1,LOSE
+314810,20,final,Red,"Mark ter Brugge",1,LOSE
+314810,20,final,Blue,"Alan Ansell",21,WIN
+314811,20,final,Red,"Jorik Mandemaker",21,WIN
+314811,20,final,Blue,"Maks Verver",1,LOSE
+314812,20,final,Red,"Maks Verver",11,DRAW
+314812,20,final,Blue,"Jorik Mandemaker",11,DRAW
+314813,20,final,Red,"Arco Voets",0,TIMEOUT
+314813,20,final,Blue,"Marc Oldenhof",21,WIN
+314814,20,final,Red,"Marc Oldenhof",21,WIN
+314814,20,final,Blue,"Arco Voets",1,LOSE
+314815,20,final,Red,"Fakih Karademir",1,LOSE
+314815,20,final,Blue,"Peter van den Brand",21,WIN
+314816,20,final,Red,"Peter van den Brand",21,WIN
+314816,20,final,Blue,"Fakih Karademir",1,LOSE
+314817,20,final,Red,"Jelle van der Drift",1,LOSE
+314817,20,final,Blue,"Marcel Vlastuin",21,WIN
+314818,20,final,Red,"Marcel Vlastuin",21,WIN
+314818,20,final,Blue,"Jelle van der Drift",1,LOSE
+314819,20,final,Red,"Marty McScan",21,WIN
+314819,20,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314820,20,final,Red,"Matthijs Tijink",0,TIMEOUT
+314820,20,final,Blue,"Marty McScan",21,WIN
+314821,20,final,Red,"Abdessamad El Kasimi",1,LOSE
+314821,20,final,Blue,"Niklas Een",21,WIN
+314822,20,final,Red,"Niklas Een",21,WIN
+314822,20,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314823,20,final,Red,"Jelle van Cappelle",1,LOSE
+314823,20,final,Blue,"Alvaro Begue",21,WIN
+314824,20,final,Red,"Alvaro Begue",21,WIN
+314824,20,final,Blue,"Jelle van Cappelle",1,LOSE
+314825,20,final,Red,"Rhythmay Girdhar",1,LOSE
+314825,20,final,Blue,"Nikita Kurgin",21,WIN
+314826,20,final,Red,"Nikita Kurgin",0,ILLEGAL
+314826,20,final,Blue,"Rhythmay Girdhar",21,WIN
+314827,20,final,Red,"Pieter Marsman",1,LOSE
+314827,20,final,Blue,"Louis Verhaard",21,WIN
+314828,20,final,Red,"Louis Verhaard",21,WIN
+314828,20,final,Blue,"Pieter Marsman",1,LOSE
+314829,20,final,Red,"Rens van der Avoird",1,LOSE
+314829,20,final,Blue,"Tapani Utriainen",21,WIN
+314830,20,final,Red,"Tapani Utriainen",21,WIN
+314830,20,final,Blue,"Rens van der Avoird",1,LOSE
+314831,20,final,Red,"Akhil Konduru",21,WIN
+314831,20,final,Blue,"Jan Nunnink",1,LOSE
+314832,20,final,Red,"Jan Nunnink",21,WIN
+314832,20,final,Blue,"Akhil Konduru",0,TIMEOUT
+314833,20,final,Red,"Bas van der Ven",11,DRAW
+314833,20,final,Blue,"Emil Riedeman",11,DRAW
+314834,20,final,Red,"Emil Riedeman",11,DRAW
+314834,20,final,Blue,"Bas van der Ven",11,DRAW
+314835,21,final,Red,"Alan Ansell",21,WIN
+314835,21,final,Blue,"Maks Verver",1,LOSE
+314836,21,final,Red,"Maks Verver",1,LOSE
+314836,21,final,Blue,"Alan Ansell",21,WIN
+314837,21,final,Red,"Mark ter Brugge",1,LOSE
+314837,21,final,Blue,"Marc Oldenhof",21,WIN
+314838,21,final,Red,"Marc Oldenhof",21,WIN
+314838,21,final,Blue,"Mark ter Brugge",1,LOSE
+314839,21,final,Red,"Jorik Mandemaker",21,WIN
+314839,21,final,Blue,"Peter van den Brand",1,LOSE
+314840,21,final,Red,"Peter van den Brand",1,LOSE
+314840,21,final,Blue,"Jorik Mandemaker",21,WIN
+314841,21,final,Red,"Arco Voets",1,LOSE
+314841,21,final,Blue,"Marcel Vlastuin",21,WIN
+314842,21,final,Red,"Marcel Vlastuin",1,LOSE
+314842,21,final,Blue,"Arco Voets",21,WIN
+314843,21,final,Red,"Fakih Karademir",1,LOSE
+314843,21,final,Blue,"Matthijs Tijink",21,WIN
+314844,21,final,Red,"Matthijs Tijink",21,WIN
+314844,21,final,Blue,"Fakih Karademir",1,LOSE
+314845,21,final,Red,"Jelle van der Drift",1,LOSE
+314845,21,final,Blue,"Niklas Een",21,WIN
+314846,21,final,Red,"Niklas Een",21,WIN
+314846,21,final,Blue,"Jelle van der Drift",1,LOSE
+314847,21,final,Red,"Marty McScan",1,LOSE
+314847,21,final,Blue,"Alvaro Begue",21,WIN
+314848,21,final,Red,"Alvaro Begue",21,WIN
+314848,21,final,Blue,"Marty McScan",1,LOSE
+314849,21,final,Red,"Abdessamad El Kasimi",1,LOSE
+314849,21,final,Blue,"Nikita Kurgin",21,WIN
+314850,21,final,Red,"Nikita Kurgin",21,WIN
+314850,21,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314851,21,final,Red,"Jelle van Cappelle",1,LOSE
+314851,21,final,Blue,"Louis Verhaard",21,WIN
+314852,21,final,Red,"Louis Verhaard",21,WIN
+314852,21,final,Blue,"Jelle van Cappelle",1,LOSE
+314853,21,final,Red,"Rhythmay Girdhar",1,LOSE
+314853,21,final,Blue,"Tapani Utriainen",21,WIN
+314854,21,final,Red,"Tapani Utriainen",0,ILLEGAL
+314854,21,final,Blue,"Rhythmay Girdhar",21,WIN
+314855,21,final,Red,"Pieter Marsman",21,WIN
+314855,21,final,Blue,"Jan Nunnink",1,LOSE
+314856,21,final,Red,"Jan Nunnink",1,LOSE
+314856,21,final,Blue,"Pieter Marsman",21,WIN
+314857,21,final,Red,"Rens van der Avoird",21,WIN
+314857,21,final,Blue,"Emil Riedeman",1,LOSE
+314858,21,final,Red,"Emil Riedeman",1,LOSE
+314858,21,final,Blue,"Rens van der Avoird",21,WIN
+314859,21,final,Red,"Akhil Konduru",21,WIN
+314859,21,final,Blue,"Bas van der Ven",1,LOSE
+314860,21,final,Red,"Bas van der Ven",21,WIN
+314860,21,final,Blue,"Akhil Konduru",0,TIMEOUT
+314861,22,final,Red,"Alan Ansell",21,WIN
+314861,22,final,Blue,"Marc Oldenhof",1,LOSE
+314862,22,final,Red,"Marc Oldenhof",1,LOSE
+314862,22,final,Blue,"Alan Ansell",21,WIN
+314863,22,final,Red,"Maks Verver",1,LOSE
+314863,22,final,Blue,"Peter van den Brand",21,WIN
+314864,22,final,Red,"Peter van den Brand",21,WIN
+314864,22,final,Blue,"Maks Verver",1,LOSE
+314865,22,final,Red,"Mark ter Brugge",21,WIN
+314865,22,final,Blue,"Marcel Vlastuin",1,LOSE
+314866,22,final,Red,"Marcel Vlastuin",1,LOSE
+314866,22,final,Blue,"Mark ter Brugge",21,WIN
+314867,22,final,Red,"Jorik Mandemaker",1,LOSE
+314867,22,final,Blue,"Matthijs Tijink",21,WIN
+314868,22,final,Red,"Matthijs Tijink",21,WIN
+314868,22,final,Blue,"Jorik Mandemaker",1,LOSE
+314869,22,final,Red,"Arco Voets",1,LOSE
+314869,22,final,Blue,"Niklas Een",21,WIN
+314870,22,final,Red,"Niklas Een",21,WIN
+314870,22,final,Blue,"Arco Voets",1,LOSE
+314871,22,final,Red,"Fakih Karademir",1,LOSE
+314871,22,final,Blue,"Alvaro Begue",21,WIN
+314872,22,final,Red,"Alvaro Begue",21,WIN
+314872,22,final,Blue,"Fakih Karademir",1,LOSE
+314873,22,final,Red,"Jelle van der Drift",1,LOSE
+314873,22,final,Blue,"Nikita Kurgin",21,WIN
+314874,22,final,Red,"Nikita Kurgin",21,WIN
+314874,22,final,Blue,"Jelle van der Drift",1,LOSE
+314875,22,final,Red,"Marty McScan",1,LOSE
+314875,22,final,Blue,"Louis Verhaard",21,WIN
+314876,22,final,Red,"Louis Verhaard",21,WIN
+314876,22,final,Blue,"Marty McScan",1,LOSE
+314877,22,final,Red,"Abdessamad El Kasimi",1,LOSE
+314877,22,final,Blue,"Tapani Utriainen",21,WIN
+314878,22,final,Red,"Tapani Utriainen",21,WIN
+314878,22,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314879,22,final,Red,"Jelle van Cappelle",21,WIN
+314879,22,final,Blue,"Jan Nunnink",1,LOSE
+314880,22,final,Red,"Jan Nunnink",1,LOSE
+314880,22,final,Blue,"Jelle van Cappelle",21,WIN
+314881,22,final,Red,"Rhythmay Girdhar",21,WIN
+314881,22,final,Blue,"Emil Riedeman",1,LOSE
+314882,22,final,Red,"Emil Riedeman",11,DRAW
+314882,22,final,Blue,"Rhythmay Girdhar",11,DRAW
+314883,22,final,Red,"Pieter Marsman",21,WIN
+314883,22,final,Blue,"Bas van der Ven",1,LOSE
+314884,22,final,Red,"Bas van der Ven",1,LOSE
+314884,22,final,Blue,"Pieter Marsman",21,WIN
+314885,22,final,Red,"Rens van der Avoird",21,WIN
+314885,22,final,Blue,"Akhil Konduru",1,LOSE
+314886,22,final,Red,"Akhil Konduru",1,LOSE
+314886,22,final,Blue,"Rens van der Avoird",21,WIN
+314887,23,final,Red,"Alan Ansell",21,WIN
+314887,23,final,Blue,"Peter van den Brand",1,LOSE
+314888,23,final,Red,"Peter van den Brand",1,LOSE
+314888,23,final,Blue,"Alan Ansell",21,WIN
+314889,23,final,Red,"Marc Oldenhof",21,WIN
+314889,23,final,Blue,"Marcel Vlastuin",1,LOSE
+314890,23,final,Red,"Marcel Vlastuin",1,LOSE
+314890,23,final,Blue,"Marc Oldenhof",21,WIN
+314891,23,final,Red,"Maks Verver",1,LOSE
+314891,23,final,Blue,"Matthijs Tijink",21,WIN
+314892,23,final,Red,"Matthijs Tijink",0,TIMEOUT
+314892,23,final,Blue,"Maks Verver",21,WIN
+314893,23,final,Red,"Mark ter Brugge",1,LOSE
+314893,23,final,Blue,"Niklas Een",21,WIN
+314894,23,final,Red,"Niklas Een",21,WIN
+314894,23,final,Blue,"Mark ter Brugge",1,LOSE
+314895,23,final,Red,"Jorik Mandemaker",1,LOSE
+314895,23,final,Blue,"Alvaro Begue",21,WIN
+314896,23,final,Red,"Alvaro Begue",21,WIN
+314896,23,final,Blue,"Jorik Mandemaker",1,LOSE
+314897,23,final,Red,"Arco Voets",1,LOSE
+314897,23,final,Blue,"Nikita Kurgin",21,WIN
+314898,23,final,Red,"Nikita Kurgin",21,WIN
+314898,23,final,Blue,"Arco Voets",1,LOSE
+314899,23,final,Red,"Fakih Karademir",1,LOSE
+314899,23,final,Blue,"Louis Verhaard",21,WIN
+314900,23,final,Red,"Louis Verhaard",21,WIN
+314900,23,final,Blue,"Fakih Karademir",1,LOSE
+314901,23,final,Red,"Jelle van der Drift",1,LOSE
+314901,23,final,Blue,"Tapani Utriainen",21,WIN
+314902,23,final,Red,"Tapani Utriainen",21,WIN
+314902,23,final,Blue,"Jelle van der Drift",1,LOSE
+314903,23,final,Red,"Marty McScan",21,WIN
+314903,23,final,Blue,"Jan Nunnink",1,LOSE
+314904,23,final,Red,"Jan Nunnink",1,LOSE
+314904,23,final,Blue,"Marty McScan",21,WIN
+314905,23,final,Red,"Abdessamad El Kasimi",21,WIN
+314905,23,final,Blue,"Emil Riedeman",1,LOSE
+314906,23,final,Red,"Emil Riedeman",1,LOSE
+314906,23,final,Blue,"Abdessamad El Kasimi",21,WIN
+314907,23,final,Red,"Jelle van Cappelle",21,WIN
+314907,23,final,Blue,"Bas van der Ven",1,LOSE
+314908,23,final,Red,"Bas van der Ven",1,LOSE
+314908,23,final,Blue,"Jelle van Cappelle",21,WIN
+314909,23,final,Red,"Rhythmay Girdhar",21,WIN
+314909,23,final,Blue,"Akhil Konduru",0,TIMEOUT
+314910,23,final,Red,"Akhil Konduru",0,ILLEGAL
+314910,23,final,Blue,"Rhythmay Girdhar",21,WIN
+314911,23,final,Red,"Pieter Marsman",1,LOSE
+314911,23,final,Blue,"Rens van der Avoird",21,WIN
+314912,23,final,Red,"Rens van der Avoird",21,WIN
+314912,23,final,Blue,"Pieter Marsman",1,LOSE
+314913,24,final,Red,"Alan Ansell",21,WIN
+314913,24,final,Blue,"Marcel Vlastuin",1,LOSE
+314914,24,final,Red,"Marcel Vlastuin",1,LOSE
+314914,24,final,Blue,"Alan Ansell",21,WIN
+314915,24,final,Red,"Peter van den Brand",21,WIN
+314915,24,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314916,24,final,Red,"Matthijs Tijink",0,TIMEOUT
+314916,24,final,Blue,"Peter van den Brand",21,WIN
+314917,24,final,Red,"Marc Oldenhof",21,WIN
+314917,24,final,Blue,"Niklas Een",1,LOSE
+314918,24,final,Red,"Niklas Een",11,DRAW
+314918,24,final,Blue,"Marc Oldenhof",11,DRAW
+314919,24,final,Red,"Maks Verver",1,LOSE
+314919,24,final,Blue,"Alvaro Begue",21,WIN
+314920,24,final,Red,"Alvaro Begue",21,WIN
+314920,24,final,Blue,"Maks Verver",1,LOSE
+314921,24,final,Red,"Mark ter Brugge",1,LOSE
+314921,24,final,Blue,"Nikita Kurgin",21,WIN
+314922,24,final,Red,"Nikita Kurgin",21,WIN
+314922,24,final,Blue,"Mark ter Brugge",1,LOSE
+314923,24,final,Red,"Jorik Mandemaker",1,LOSE
+314923,24,final,Blue,"Louis Verhaard",21,WIN
+314924,24,final,Red,"Louis Verhaard",21,WIN
+314924,24,final,Blue,"Jorik Mandemaker",1,LOSE
+314925,24,final,Red,"Arco Voets",1,LOSE
+314925,24,final,Blue,"Tapani Utriainen",21,WIN
+314926,24,final,Red,"Tapani Utriainen",21,WIN
+314926,24,final,Blue,"Arco Voets",1,LOSE
+314927,24,final,Red,"Fakih Karademir",21,WIN
+314927,24,final,Blue,"Jan Nunnink",1,LOSE
+314928,24,final,Red,"Jan Nunnink",1,LOSE
+314928,24,final,Blue,"Fakih Karademir",21,WIN
+314929,24,final,Red,"Jelle van der Drift",21,WIN
+314929,24,final,Blue,"Emil Riedeman",1,LOSE
+314930,24,final,Red,"Emil Riedeman",1,LOSE
+314930,24,final,Blue,"Jelle van der Drift",21,WIN
+314931,24,final,Red,"Marty McScan",21,WIN
+314931,24,final,Blue,"Bas van der Ven",1,LOSE
+314932,24,final,Red,"Bas van der Ven",1,LOSE
+314932,24,final,Blue,"Marty McScan",21,WIN
+314933,24,final,Red,"Abdessamad El Kasimi",21,WIN
+314933,24,final,Blue,"Akhil Konduru",1,LOSE
+314934,24,final,Red,"Akhil Konduru",1,LOSE
+314934,24,final,Blue,"Abdessamad El Kasimi",21,WIN
+314935,24,final,Red,"Jelle van Cappelle",1,LOSE
+314935,24,final,Blue,"Rens van der Avoird",21,WIN
+314936,24,final,Red,"Rens van der Avoird",21,WIN
+314936,24,final,Blue,"Jelle van Cappelle",1,LOSE
+314937,24,final,Red,"Rhythmay Girdhar",1,LOSE
+314937,24,final,Blue,"Pieter Marsman",21,WIN
+314938,24,final,Red,"Pieter Marsman",0,CRASH
+314938,24,final,Blue,"Rhythmay Girdhar",21,WIN
+314939,25,final,Red,"Alan Ansell",21,WIN
+314939,25,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314940,25,final,Red,"Matthijs Tijink",0,TIMEOUT
+314940,25,final,Blue,"Alan Ansell",21,WIN
+314941,25,final,Red,"Marcel Vlastuin",1,LOSE
+314941,25,final,Blue,"Niklas Een",21,WIN
+314942,25,final,Red,"Niklas Een",21,WIN
+314942,25,final,Blue,"Marcel Vlastuin",1,LOSE
+314943,25,final,Red,"Peter van den Brand",21,WIN
+314943,25,final,Blue,"Alvaro Begue",1,LOSE
+314944,25,final,Red,"Alvaro Begue",21,WIN
+314944,25,final,Blue,"Peter van den Brand",1,LOSE
+314945,25,final,Red,"Marc Oldenhof",1,LOSE
+314945,25,final,Blue,"Nikita Kurgin",21,WIN
+314946,25,final,Red,"Nikita Kurgin",21,WIN
+314946,25,final,Blue,"Marc Oldenhof",1,LOSE
+314947,25,final,Red,"Maks Verver",1,LOSE
+314947,25,final,Blue,"Louis Verhaard",21,WIN
+314948,25,final,Red,"Louis Verhaard",21,WIN
+314948,25,final,Blue,"Maks Verver",1,LOSE
+314949,25,final,Red,"Mark ter Brugge",1,LOSE
+314949,25,final,Blue,"Tapani Utriainen",21,WIN
+314950,25,final,Red,"Tapani Utriainen",21,WIN
+314950,25,final,Blue,"Mark ter Brugge",1,LOSE
+314951,25,final,Red,"Jorik Mandemaker",21,WIN
+314951,25,final,Blue,"Jan Nunnink",1,LOSE
+314952,25,final,Red,"Jan Nunnink",1,LOSE
+314952,25,final,Blue,"Jorik Mandemaker",21,WIN
+314953,25,final,Red,"Arco Voets",21,WIN
+314953,25,final,Blue,"Emil Riedeman",1,LOSE
+314954,25,final,Red,"Emil Riedeman",1,LOSE
+314954,25,final,Blue,"Arco Voets",21,WIN
+314955,25,final,Red,"Fakih Karademir",21,WIN
+314955,25,final,Blue,"Bas van der Ven",1,LOSE
+314956,25,final,Red,"Bas van der Ven",1,LOSE
+314956,25,final,Blue,"Fakih Karademir",21,WIN
+314957,25,final,Red,"Jelle van der Drift",21,WIN
+314957,25,final,Blue,"Akhil Konduru",1,LOSE
+314958,25,final,Red,"Akhil Konduru",1,LOSE
+314958,25,final,Blue,"Jelle van der Drift",21,WIN
+314959,25,final,Red,"Marty McScan",1,LOSE
+314959,25,final,Blue,"Rens van der Avoird",21,WIN
+314960,25,final,Red,"Rens van der Avoird",1,LOSE
+314960,25,final,Blue,"Marty McScan",21,WIN
+314961,25,final,Red,"Abdessamad El Kasimi",21,WIN
+314961,25,final,Blue,"Pieter Marsman",1,LOSE
+314962,25,final,Red,"Pieter Marsman",21,WIN
+314962,25,final,Blue,"Abdessamad El Kasimi",1,LOSE
+314963,25,final,Red,"Jelle van Cappelle",21,WIN
+314963,25,final,Blue,"Rhythmay Girdhar",1,LOSE
+314964,25,final,Red,"Rhythmay Girdhar",1,LOSE
+314964,25,final,Blue,"Jelle van Cappelle",21,WIN
+314965,26,final,Red,"Alan Ansell",21,WIN
+314965,26,final,Blue,"Niklas Een",1,LOSE
+314966,26,final,Red,"Niklas Een",1,LOSE
+314966,26,final,Blue,"Alan Ansell",21,WIN
+314967,26,final,Red,"Matthijs Tijink",1,LOSE
+314967,26,final,Blue,"Alvaro Begue",21,WIN
+314968,26,final,Red,"Alvaro Begue",21,WIN
+314968,26,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314969,26,final,Red,"Marcel Vlastuin",1,LOSE
+314969,26,final,Blue,"Nikita Kurgin",21,WIN
+314970,26,final,Red,"Nikita Kurgin",21,WIN
+314970,26,final,Blue,"Marcel Vlastuin",1,LOSE
+314971,26,final,Red,"Peter van den Brand",1,LOSE
+314971,26,final,Blue,"Louis Verhaard",21,WIN
+314972,26,final,Red,"Louis Verhaard",21,WIN
+314972,26,final,Blue,"Peter van den Brand",1,LOSE
+314973,26,final,Red,"Marc Oldenhof",1,LOSE
+314973,26,final,Blue,"Tapani Utriainen",21,WIN
+314974,26,final,Red,"Tapani Utriainen",21,WIN
+314974,26,final,Blue,"Marc Oldenhof",1,LOSE
+314975,26,final,Red,"Maks Verver",21,WIN
+314975,26,final,Blue,"Jan Nunnink",1,LOSE
+314976,26,final,Red,"Jan Nunnink",1,LOSE
+314976,26,final,Blue,"Maks Verver",21,WIN
+314977,26,final,Red,"Mark ter Brugge",21,WIN
+314977,26,final,Blue,"Emil Riedeman",1,LOSE
+314978,26,final,Red,"Emil Riedeman",1,LOSE
+314978,26,final,Blue,"Mark ter Brugge",21,WIN
+314979,26,final,Red,"Jorik Mandemaker",21,WIN
+314979,26,final,Blue,"Bas van der Ven",1,LOSE
+314980,26,final,Red,"Bas van der Ven",1,LOSE
+314980,26,final,Blue,"Jorik Mandemaker",21,WIN
+314981,26,final,Red,"Arco Voets",21,WIN
+314981,26,final,Blue,"Akhil Konduru",1,LOSE
+314982,26,final,Red,"Akhil Konduru",1,LOSE
+314982,26,final,Blue,"Arco Voets",21,WIN
+314983,26,final,Red,"Fakih Karademir",1,LOSE
+314983,26,final,Blue,"Rens van der Avoird",21,WIN
+314984,26,final,Red,"Rens van der Avoird",11,DRAW
+314984,26,final,Blue,"Fakih Karademir",11,DRAW
+314985,26,final,Red,"Jelle van der Drift",1,LOSE
+314985,26,final,Blue,"Pieter Marsman",21,WIN
+314986,26,final,Red,"Pieter Marsman",21,WIN
+314986,26,final,Blue,"Jelle van der Drift",1,LOSE
+314987,26,final,Red,"Marty McScan",0,ILLEGAL
+314987,26,final,Blue,"Rhythmay Girdhar",21,WIN
+314988,26,final,Red,"Rhythmay Girdhar",1,LOSE
+314988,26,final,Blue,"Marty McScan",21,WIN
+314989,26,final,Red,"Abdessamad El Kasimi",21,WIN
+314989,26,final,Blue,"Jelle van Cappelle",1,LOSE
+314990,26,final,Red,"Jelle van Cappelle",1,LOSE
+314990,26,final,Blue,"Abdessamad El Kasimi",21,WIN
+314991,27,final,Red,"Alan Ansell",11,DRAW
+314991,27,final,Blue,"Alvaro Begue",11,DRAW
+314992,27,final,Red,"Alvaro Begue",1,LOSE
+314992,27,final,Blue,"Alan Ansell",21,WIN
+314993,27,final,Red,"Niklas Een",1,LOSE
+314993,27,final,Blue,"Nikita Kurgin",21,WIN
+314994,27,final,Red,"Nikita Kurgin",21,WIN
+314994,27,final,Blue,"Niklas Een",1,LOSE
+314995,27,final,Red,"Matthijs Tijink",0,TIMEOUT
+314995,27,final,Blue,"Louis Verhaard",21,WIN
+314996,27,final,Red,"Louis Verhaard",21,WIN
+314996,27,final,Blue,"Matthijs Tijink",0,TIMEOUT
+314997,27,final,Red,"Marcel Vlastuin",1,LOSE
+314997,27,final,Blue,"Tapani Utriainen",21,WIN
+314998,27,final,Red,"Tapani Utriainen",21,WIN
+314998,27,final,Blue,"Marcel Vlastuin",1,LOSE
+314999,27,final,Red,"Peter van den Brand",21,WIN
+314999,27,final,Blue,"Jan Nunnink",1,LOSE
+315000,27,final,Red,"Jan Nunnink",1,LOSE
+315000,27,final,Blue,"Peter van den Brand",21,WIN
+315001,27,final,Red,"Marc Oldenhof",21,WIN
+315001,27,final,Blue,"Emil Riedeman",1,LOSE
+315002,27,final,Red,"Emil Riedeman",1,LOSE
+315002,27,final,Blue,"Marc Oldenhof",21,WIN
+315003,27,final,Red,"Maks Verver",21,WIN
+315003,27,final,Blue,"Bas van der Ven",1,LOSE
+315004,27,final,Red,"Bas van der Ven",1,LOSE
+315004,27,final,Blue,"Maks Verver",21,WIN
+315005,27,final,Red,"Mark ter Brugge",21,WIN
+315005,27,final,Blue,"Akhil Konduru",1,LOSE
+315006,27,final,Red,"Akhil Konduru",1,LOSE
+315006,27,final,Blue,"Mark ter Brugge",21,WIN
+315007,27,final,Red,"Jorik Mandemaker",1,LOSE
+315007,27,final,Blue,"Rens van der Avoird",21,WIN
+315008,27,final,Red,"Rens van der Avoird",21,WIN
+315008,27,final,Blue,"Jorik Mandemaker",1,LOSE
+315009,27,final,Red,"Arco Voets",21,WIN
+315009,27,final,Blue,"Pieter Marsman",1,LOSE
+315010,27,final,Red,"Pieter Marsman",1,LOSE
+315010,27,final,Blue,"Arco Voets",21,WIN
+315011,27,final,Red,"Fakih Karademir",21,WIN
+315011,27,final,Blue,"Rhythmay Girdhar",1,LOSE
+315012,27,final,Red,"Rhythmay Girdhar",1,LOSE
+315012,27,final,Blue,"Fakih Karademir",21,WIN
+315013,27,final,Red,"Jelle van der Drift",21,WIN
+315013,27,final,Blue,"Jelle van Cappelle",1,LOSE
+315014,27,final,Red,"Jelle van Cappelle",1,LOSE
+315014,27,final,Blue,"Jelle van der Drift",21,WIN
+315015,27,final,Red,"Marty McScan",21,WIN
+315015,27,final,Blue,"Abdessamad El Kasimi",1,LOSE
+315016,27,final,Red,"Abdessamad El Kasimi",1,LOSE
+315016,27,final,Blue,"Marty McScan",21,WIN
+315017,28,final,Red,"Alan Ansell",21,WIN
+315017,28,final,Blue,"Nikita Kurgin",1,LOSE
+315018,28,final,Red,"Nikita Kurgin",11,DRAW
+315018,28,final,Blue,"Alan Ansell",11,DRAW
+315019,28,final,Red,"Alvaro Begue",1,LOSE
+315019,28,final,Blue,"Louis Verhaard",21,WIN
+315020,28,final,Red,"Louis Verhaard",21,WIN
+315020,28,final,Blue,"Alvaro Begue",1,LOSE
+315021,28,final,Red,"Niklas Een",21,WIN
+315021,28,final,Blue,"Tapani Utriainen",1,LOSE
+315022,28,final,Red,"Tapani Utriainen",1,LOSE
+315022,28,final,Blue,"Niklas Een",21,WIN
+315023,28,final,Red,"Matthijs Tijink",21,WIN
+315023,28,final,Blue,"Jan Nunnink",1,LOSE
+315024,28,final,Red,"Jan Nunnink",1,LOSE
+315024,28,final,Blue,"Matthijs Tijink",21,WIN
+315025,28,final,Red,"Marcel Vlastuin",21,WIN
+315025,28,final,Blue,"Emil Riedeman",1,LOSE
+315026,28,final,Red,"Emil Riedeman",1,LOSE
+315026,28,final,Blue,"Marcel Vlastuin",21,WIN
+315027,28,final,Red,"Peter van den Brand",21,WIN
+315027,28,final,Blue,"Bas van der Ven",1,LOSE
+315028,28,final,Red,"Bas van der Ven",1,LOSE
+315028,28,final,Blue,"Peter van den Brand",21,WIN
+315029,28,final,Red,"Marc Oldenhof",21,WIN
+315029,28,final,Blue,"Akhil Konduru",1,LOSE
+315030,28,final,Red,"Akhil Konduru",1,LOSE
+315030,28,final,Blue,"Marc Oldenhof",21,WIN
+315031,28,final,Red,"Maks Verver",21,WIN
+315031,28,final,Blue,"Rens van der Avoird",1,LOSE
+315032,28,final,Red,"Rens van der Avoird",21,WIN
+315032,28,final,Blue,"Maks Verver",1,LOSE
+315033,28,final,Red,"Mark ter Brugge",21,WIN
+315033,28,final,Blue,"Pieter Marsman",1,LOSE
+315034,28,final,Red,"Pieter Marsman",1,LOSE
+315034,28,final,Blue,"Mark ter Brugge",21,WIN
+315035,28,final,Red,"Jorik Mandemaker",0,EXIT
+315035,28,final,Blue,"Rhythmay Girdhar",21,WIN
+315036,28,final,Red,"Rhythmay Girdhar",1,LOSE
+315036,28,final,Blue,"Jorik Mandemaker",21,WIN
+315037,28,final,Red,"Arco Voets",21,WIN
+315037,28,final,Blue,"Jelle van Cappelle",1,LOSE
+315038,28,final,Red,"Jelle van Cappelle",1,LOSE
+315038,28,final,Blue,"Arco Voets",21,WIN
+315039,28,final,Red,"Fakih Karademir",1,LOSE
+315039,28,final,Blue,"Abdessamad El Kasimi",21,WIN
+315040,28,final,Red,"Abdessamad El Kasimi",21,WIN
+315040,28,final,Blue,"Fakih Karademir",1,LOSE
+315041,28,final,Red,"Jelle van der Drift",1,LOSE
+315041,28,final,Blue,"Marty McScan",21,WIN
+315042,28,final,Red,"Marty McScan",21,WIN
+315042,28,final,Blue,"Jelle van der Drift",1,LOSE
+315043,29,final,Red,"Alan Ansell",21,WIN
+315043,29,final,Blue,"Louis Verhaard",1,LOSE
+315044,29,final,Red,"Louis Verhaard",1,LOSE
+315044,29,final,Blue,"Alan Ansell",21,WIN
+315045,29,final,Red,"Nikita Kurgin",21,WIN
+315045,29,final,Blue,"Tapani Utriainen",1,LOSE
+315046,29,final,Red,"Tapani Utriainen",1,LOSE
+315046,29,final,Blue,"Nikita Kurgin",21,WIN
+315047,29,final,Red,"Alvaro Begue",21,WIN
+315047,29,final,Blue,"Jan Nunnink",1,LOSE
+315048,29,final,Red,"Jan Nunnink",1,LOSE
+315048,29,final,Blue,"Alvaro Begue",21,WIN
+315049,29,final,Red,"Niklas Een",21,WIN
+315049,29,final,Blue,"Emil Riedeman",1,LOSE
+315050,29,final,Red,"Emil Riedeman",1,LOSE
+315050,29,final,Blue,"Niklas Een",21,WIN
+315051,29,final,Red,"Matthijs Tijink",21,WIN
+315051,29,final,Blue,"Bas van der Ven",1,LOSE
+315052,29,final,Red,"Bas van der Ven",1,LOSE
+315052,29,final,Blue,"Matthijs Tijink",21,WIN
+315053,29,final,Red,"Marcel Vlastuin",21,WIN
+315053,29,final,Blue,"Akhil Konduru",1,LOSE
+315054,29,final,Red,"Akhil Konduru",1,LOSE
+315054,29,final,Blue,"Marcel Vlastuin",21,WIN
+315055,29,final,Red,"Peter van den Brand",21,WIN
+315055,29,final,Blue,"Rens van der Avoird",1,LOSE
+315056,29,final,Red,"Rens van der Avoird",1,LOSE
+315056,29,final,Blue,"Peter van den Brand",21,WIN
+315057,29,final,Red,"Marc Oldenhof",21,WIN
+315057,29,final,Blue,"Pieter Marsman",1,LOSE
+315058,29,final,Red,"Pieter Marsman",1,LOSE
+315058,29,final,Blue,"Marc Oldenhof",21,WIN
+315059,29,final,Red,"Maks Verver",0,EXIT
+315059,29,final,Blue,"Rhythmay Girdhar",21,WIN
+315060,29,final,Red,"Rhythmay Girdhar",1,LOSE
+315060,29,final,Blue,"Maks Verver",21,WIN
+315061,29,final,Red,"Mark ter Brugge",21,WIN
+315061,29,final,Blue,"Jelle van Cappelle",1,LOSE
+315062,29,final,Red,"Jelle van Cappelle",1,LOSE
+315062,29,final,Blue,"Mark ter Brugge",21,WIN
+315063,29,final,Red,"Jorik Mandemaker",21,WIN
+315063,29,final,Blue,"Abdessamad El Kasimi",1,LOSE
+315064,29,final,Red,"Abdessamad El Kasimi",1,LOSE
+315064,29,final,Blue,"Jorik Mandemaker",21,WIN
+315065,29,final,Red,"Arco Voets",21,WIN
+315065,29,final,Blue,"Marty McScan",1,LOSE
+315066,29,final,Red,"Marty McScan",21,WIN
+315066,29,final,Blue,"Arco Voets",0,TIMEOUT
+315067,29,final,Red,"Fakih Karademir",1,LOSE
+315067,29,final,Blue,"Jelle van der Drift",21,WIN
+315068,29,final,Red,"Jelle van der Drift",21,WIN
+315068,29,final,Blue,"Fakih Karademir",1,LOSE
+315069,30,final,Red,"Alan Ansell",21,WIN
+315069,30,final,Blue,"Tapani Utriainen",1,LOSE
+315070,30,final,Red,"Tapani Utriainen",1,LOSE
+315070,30,final,Blue,"Alan Ansell",21,WIN
+315071,30,final,Red,"Louis Verhaard",21,WIN
+315071,30,final,Blue,"Jan Nunnink",1,LOSE
+315072,30,final,Red,"Jan Nunnink",1,LOSE
+315072,30,final,Blue,"Louis Verhaard",21,WIN
+315073,30,final,Red,"Nikita Kurgin",21,WIN
+315073,30,final,Blue,"Emil Riedeman",1,LOSE
+315074,30,final,Red,"Emil Riedeman",1,LOSE
+315074,30,final,Blue,"Nikita Kurgin",21,WIN
+315075,30,final,Red,"Alvaro Begue",21,WIN
+315075,30,final,Blue,"Bas van der Ven",1,LOSE
+315076,30,final,Red,"Bas van der Ven",1,LOSE
+315076,30,final,Blue,"Alvaro Begue",21,WIN
+315077,30,final,Red,"Niklas Een",21,WIN
+315077,30,final,Blue,"Akhil Konduru",1,LOSE
+315078,30,final,Red,"Akhil Konduru",1,LOSE
+315078,30,final,Blue,"Niklas Een",21,WIN
+315079,30,final,Red,"Matthijs Tijink",21,WIN
+315079,30,final,Blue,"Rens van der Avoird",1,LOSE
+315080,30,final,Red,"Rens van der Avoird",1,LOSE
+315080,30,final,Blue,"Matthijs Tijink",21,WIN
+315081,30,final,Red,"Marcel Vlastuin",21,WIN
+315081,30,final,Blue,"Pieter Marsman",1,LOSE
+315082,30,final,Red,"Pieter Marsman",21,WIN
+315082,30,final,Blue,"Marcel Vlastuin",1,LOSE
+315083,30,final,Red,"Peter van den Brand",21,WIN
+315083,30,final,Blue,"Rhythmay Girdhar",1,LOSE
+315084,30,final,Red,"Rhythmay Girdhar",1,LOSE
+315084,30,final,Blue,"Peter van den Brand",21,WIN
+315085,30,final,Red,"Marc Oldenhof",21,WIN
+315085,30,final,Blue,"Jelle van Cappelle",1,LOSE
+315086,30,final,Red,"Jelle van Cappelle",1,LOSE
+315086,30,final,Blue,"Marc Oldenhof",21,WIN
+315087,30,final,Red,"Maks Verver",1,LOSE
+315087,30,final,Blue,"Abdessamad El Kasimi",21,WIN
+315088,30,final,Red,"Abdessamad El Kasimi",1,LOSE
+315088,30,final,Blue,"Maks Verver",21,WIN
+315089,30,final,Red,"Mark ter Brugge",21,WIN
+315089,30,final,Blue,"Marty McScan",1,LOSE
+315090,30,final,Red,"Marty McScan",21,WIN
+315090,30,final,Blue,"Mark ter Brugge",1,LOSE
+315091,30,final,Red,"Jorik Mandemaker",21,WIN
+315091,30,final,Blue,"Jelle van der Drift",1,LOSE
+315092,30,final,Red,"Jelle van der Drift",1,LOSE
+315092,30,final,Blue,"Jorik Mandemaker",21,WIN
+315093,30,final,Red,"Arco Voets",21,WIN
+315093,30,final,Blue,"Fakih Karademir",1,LOSE
+315094,30,final,Red,"Fakih Karademir",1,LOSE
+315094,30,final,Blue,"Arco Voets",21,WIN

@@ -1,0 +1,19 @@
+R P-1.0-n (64 bit) (compiler v13.3.0) (commit a258564)
+SEED a53508b4f12743d47ca7a4bd81706711
+IO RCVD [AAADADAAFWDFDANA]
+PAUSE 14 14
+IO SEND [adfaaandaafwadad]
+TIME 0 0
+IO RCVD [b2c2]
+PAUSE 22 37
+PNS 0 499994 280
+SEARCH 21 1 -1 4 17495 0 0
+IO SEND [g6e4]
+TIME 303 303
+IO RCVD [b7d8]
+PAUSE 22 60
+PNS 1 24 0
+IO SEND [e4c2]
+TIME 0 303
+INFO Game over.
+# Total time used: 0.306 seconds
