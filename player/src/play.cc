@@ -390,7 +390,6 @@ void PlayGame(rng_t &rng) {
                     LogError() << "Could not parse setup move: " << line;
                     exit(1);
                 }
-                // TODO: validate setup move?
                 ExecuteSetupMove(state, *setup_move);
             } else {
                 std::vector<Move> all_moves = GenerateAllMoves(state);
