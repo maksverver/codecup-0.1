@@ -47,10 +47,12 @@ std::string FormatSeed(const rng_seed_t &seed);
 
 rng_t CreateRng(const rng_seed_t &seed);
 
-template<class T> const T &RandomSample(const std::vector<T> &v, rng_t &rng) {
-    assert(!v.empty());
-    std::uniform_int_distribution<size_t> dist(0, v.size() - 1);
-    return v[dist(rng)];
+template <std::ranges::range R>
+auto RandomSample(R &&r, rng_t &rng) {
+    assert(!std::ranges::empty(r));
+    std::uniform_int_distribution<std::ranges::range_size_t<R>>
+        dist(0, std::ranges::size(r) - 1);
+    return *std::ranges::next(std::ranges::begin(r), dist(rng));
 }
 
 #endif // ndef RANDOM_H_INCLUDED
