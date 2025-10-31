@@ -125,10 +125,10 @@ inline void LogPause(log_duration_t interval, log_duration_t total) {
     LogStream("PAUSE") << interval << ' ' << total;
 }
 
-inline void LogSearchResult(
+inline void LogMinimaxResult(
         int total_moves, int best_moves, int best_score,
         int depth, int evals, int tt_hits, int tt_used) {
-    LogStream("SEARCH")
+    LogStream("MINIMAX")
         << total_moves << ' ' << best_moves << ' ' << best_score << ' '
         << depth << ' ' << evals << ' ' << tt_hits << ' ' << tt_used;
 }

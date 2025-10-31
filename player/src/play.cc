@@ -360,8 +360,8 @@ void PlayGame(rng_t &rng) {
                 } else {
                     std::vector<Move> all_moves = GenerateAllMoves(state);
                     assert(!all_moves.empty());
-                    FindBestMovesResult search_res = FindBestMoves(state, all_moves);
-                    LogSearchResult(
+                    SearchMinimaxResult search_res = SearchMinimax(state, all_moves);
+                    LogMinimaxResult(
                         all_moves.size(),
                         search_res.best_moves.size(),
                         search_res.best_value,
@@ -432,7 +432,7 @@ void PlaySingleMove(const State &state, rng_t &rng) {
                 std::cerr << "No moves left!";
                 exit(1);
             }
-            FindBestMovesResult res = FindBestMoves(state, all_moves);
+            SearchMinimaxResult res = SearchMinimax(state, all_moves);
             assert(!res.best_moves.empty());
             move = RandomSample(res.best_moves, rng);
         }

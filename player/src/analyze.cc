@@ -70,7 +70,7 @@ int main(int argc, char *argv[]) {
             }
         }
         if (state.turn >= 2) {
-            auto res = FindBestMoves(state, GenerateAllMoves(state));
+            auto res = SearchMinimax(state, GenerateAllMoves(state));
             color_t color = state.NextPlayer();
             std::cout
                 << "Player " << int{color} << "; "

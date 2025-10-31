@@ -231,10 +231,10 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
 
 // Returns a list of best moves paired with the maximum game tree value.
 // TODO: return result struct which includes depth
-FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_moves) {
+SearchMinimaxResult SearchMinimax(State state, const std::vector<Move> &all_moves) {
     SearchContext ctx = {};
     ctx.evals_left = arg_max_evals;
-    FindBestMovesResult res = {};
+    SearchMinimaxResult res = {};
     // TODO: predict when the next depth will exceed evals_left
     assert(arg_max_depth >= 2);
     for (int depth = 2; depth <= arg_max_depth; ++depth) {
@@ -262,7 +262,7 @@ FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_move
                 best_moves.push_back(move);
             }
         }
-        res = FindBestMovesResult{
+        res = SearchMinimaxResult{
             .best_moves = std::move(best_moves),
             .best_value = best_value,
             .search_depth = depth,

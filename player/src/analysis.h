@@ -26,7 +26,7 @@ int Evaluate(const State &state);
 // Precondition: alpha < beta
 int Search(State &state, int depth_left, int ext_left, int alpha, int beta);
 
-struct FindBestMovesResult {
+struct SearchMinimaxResult {
     std::vector<Move> best_moves;
     int best_value = 0;
     int search_depth = 0;
@@ -36,7 +36,7 @@ struct FindBestMovesResult {
 };
 
 // Returns a list of best moves paired with the maximum game tree value.
-FindBestMovesResult FindBestMoves(State state, const std::vector<Move> &all_moves);
+SearchMinimaxResult SearchMinimax(State state, const std::vector<Move> &all_moves);
 
 // Searches for a winning move using Proof Number Search.
 PnsResult FindWinningMove(const State &state);
