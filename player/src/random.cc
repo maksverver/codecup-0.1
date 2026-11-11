@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <algorithm>
+#include <functional>
 #include <random>
 
 namespace {
