@@ -55,6 +55,7 @@ struct StateHash {
 
 struct TTEntry {
     int depth_left  = 0;
+    int ext_left    = 0;
     int lower_bound = 0;
     int upper_bound = 0;
 };
@@ -181,7 +182,7 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
         // Note: we do use cached values with *higher* depth_left, which potentially
         // changes the result compared to not using the TT at all.
         // (May want to make this optional for deterministic testing.)
-        if (entry->depth_left >= arg_tt_depth) {
+        if (entry->depth_left >= depth_left && entry->ext_left >= ext_left) {
             if (entry->lower_bound == entry->upper_bound ||
                     entry->lower_bound >= beta) {
                 ++ctx.tt_used;
@@ -220,10 +221,12 @@ int Search(State &state, int depth_left, int ext_left, int alpha, int beta, Sear
     }
 
     // Update transposition table.
-    if (entry != nullptr && entry->depth_left <= depth_left) {
+    if (entry != nullptr && (entry->depth_left < depth_left ||
+            (entry->depth_left == depth_left && entry->ext_left <= ext_left))) {
         entry->lower_bound = best_value > alpha ? best_value : -val_inf;
         entry->upper_bound = best_value < beta  ? best_value : +val_inf;
         entry->depth_left = depth_left;
+        entry->ext_left = ext_left;
     }
 
     return best_value;
